@@ -185,21 +185,14 @@ nav {
     width:90%;
     
     ul {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(0px,1fr));  
-        height: 100%;
         margin: 0;
         padding: 0;
         list-style: none;
         
         li {
-            @include gridCenter;
-            height:100%;
-            text-transform: uppercase;
-            font-size: 1em;
             
             a {
-                padding: 1.5em 0.1em;
+
             }
         }
     }
