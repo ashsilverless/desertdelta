@@ -83,11 +83,6 @@ function my_custom_fonts() {
   border-color: hsl(30, 9%, 71%) !important;
 }
 
-html .acf-field .acf-input,
-html .acf-field .acf-label {
-  margin: 20px;
-}
-
 .post-type-page .acf-flexible-content .layout {
   background: hsl(32, 12%, 78%);
   border: none;
