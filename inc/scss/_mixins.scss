@@ -1,0 +1,48 @@
+/*! == MIXINS == */
+
+@mixin backgroundCover {
+    background-size: cover !important; /* !important added as result of rule not working inside display:grid */
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+}
+
+@mixin backgroundContain {
+	background-size: contain !important; /* !important added as result of rule not working inside display:grid */
+	background-position: center center !important;
+	background-repeat: no-repeat !important; 
+}
+
+@mixin childOverlay {
+    content:'';
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height:100%;
+}
+
+@mixin gridCenter {
+    display: grid;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+}
+
+@mixin overflowRight {
+    content: '';
+    position: absolute;
+    top:0;
+    right:-100em;
+    height: 100%;
+    width:100em;    
+}
+
+@mixin blackGrad {
+    background: -moz-linear-gradient(top, hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,1) 100%); 
+    background: -webkit-linear-gradient(top, hsla(0,0%,0%,0) 0%,hsla(0,0%,0%,1) 100%);
+    background: linear-gradient(to bottom, hsla(0,0%,0%,0) 0%,hsla(0,0%,0%,1) 100%);
+}
+
+
+

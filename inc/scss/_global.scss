@@ -1,0 +1,280 @@
+/*! == GLOBAL == */
+html {
+    font-size: 18px;
+    overflow-y: scroll;
+}
+ 
+html,
+body {
+    min-height: 100vh;
+    margin:0;
+    padding: 0;
+}
+
+body {
+    font-family: $body-font;
+    font-size: 14px;
+    font-weight: 200;
+    background: hsl(0, 0%, 96%);
+    color: hsl(69, 2%, 31%);
+    overflow: hidden;
+}
+
+main {
+    min-height: 100vh;
+}
+
+p {
+    font-size: 1.2em;
+    font-weight: 200;  
+}
+
+a {
+    display: inline-block;
+    line-height: 1.2em;
+    color: $brand-secondary;
+    transition:color 0.3s ease;
+
+    &:hover {
+        text-decoration: none;
+        color: $brand-secondary;
+    }  
+    
+    i {
+        line-height: 1.2em;
+        vertical-align: bottom;
+        transition:all 0.5s ease;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+h5 {
+    font-size: 0.75em;
+}
+
+.heading {
+    font-family: $brand-font;
+    text-transform: uppercase;
+    font-weight: 700;
+    
+    &__light {
+        color: white;
+    }
+    
+    &__primary-color {
+      color: $brand-primary;
+    }
+
+    &__secondary-color {
+      color: $brand-secondary;
+    }
+    
+    &__tertiary-color {
+      color: $brand-tertiary;
+    }    
+    
+    &__xl {
+        font-size: 5em;
+    }
+    
+    &__lg {      
+        font-size: 2em;
+    }  
+    
+    &__md {
+        font-size: 1.5em;    
+    }   
+    
+    &__sm {
+        font-size: 1.2em;    
+    }
+    
+    &__xs {
+        font-size: 0.75em;        
+    }   
+
+}
+
+ input {
+     border-radius: 0;
+ }
+ 
+/*===========HEADER==========*/
+
+.site-wrapper {
+    position: relative;
+}
+
+header {
+    position: fixed;
+    top:0;
+    width: 100%;
+    z-index: 500;  
+    color: white;
+    
+    a {
+        color: white;
+    }
+    
+    .menu-trigger {
+        position: relative;
+        margin-top:1em;  
+        z-index: 1000;
+    }
+    
+    .brand {
+        
+        a {
+            display: block;
+            height: 4em;
+            margin-top: 1em;
+            text-align: center;
+            transition: height 0.5s ease;
+            
+            img {
+                display: inline-block;
+                height: 100%;    
+            }
+        }
+    }
+    
+    .telephone-cta {
+        @include gridCenter;
+        background: $brand-mid-grey;
+        padding: 0.8em;
+        text-align: center;
+        height: 100%;
+        font-size: 1.3em;
+        font-weight: 300;
+        
+        i {
+            vertical-align: baseline;
+            color: hsl(0, 0%, 81%);
+            font-size: 0.75em;
+        }
+    }
+}
+
+nav {
+        background:$brand-dark-grey;
+}
+
+.home-link {
+    display: inline-block;
+    width:5%
+}
+
+.nav-menu {
+    display: inline-block;
+    width:90%;
+    
+    ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(0px,1fr));  
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        
+        li {
+            @include gridCenter;
+            height:100%;
+            text-transform: uppercase;
+            font-size: 1em;
+            
+            a {
+                padding: 1.5em 0.1em;
+            }
+        }
+    }
+}
+
+.nav-cta {
+    display: grid;
+    justify-content: center;
+    height: 100%;
+    background: $brand-primary;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;    
+    
+    a {
+        display: inline-grid;
+        align-content: center;
+        height: 100%;
+        padding: 1em;
+        font-size: 0.8em;
+        text-transform: uppercase;
+        font-weight: 900;
+        transition: all 0.5s ease;
+        
+        &:hover {
+            background: $brand-dark-grey;
+            color: $brand-primary;
+        }
+    }
+    
+    a:nth-of-type(2) {
+        background:$brand-secondary;
+        
+        &:hover {
+            background: $brand-dark-grey;
+            color: $brand-secondary;
+        }
+    }
+}
+
+/*===========FOOTER==========*/
+footer {
+    background: $brand-dark-grey;
+    color: white;
+}
+
+.socket {
+    width:100%;
+    padding: 2em;
+    font-size: 0.75em;
+    color: white;
+    
+    a {
+        color: white;
+        
+        &:hover {
+            color: $brand-secondary;
+        }
+    }
+    
+    i {
+      margin-right: 1em;
+    }
+        
+    &__colophon {
+
+      a {
+        margin-left:0.5em;
+        padding-left:0.5em;
+        border-left: 1px solid $brand-mid-grey;
+        color: white;
+      }
+    }
+    
+    .socials {
+        text-align: right;
+    }
+    
+  }

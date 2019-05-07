@@ -1,0 +1,174 @@
+/*! == COMPONENTS == */
+
+.button {
+    background: $brand-secondary;
+    border: 0;
+    border-radius: 0;
+    box-sizing: border-box;
+    padding: 1em 2em;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $supporting-font;  
+    // Using inset box-shadow instead of border for sizing simplicity
+    box-shadow: inset 0 0 0 2px transparent;
+    color: white;
+    font-size: inherit;
+    // Required, since we're setting absolute on pseudo-elements
+    position: relative;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    transition: color 0.25s;
+    
+    &__ghost {
+        background:transparent;
+        box-shadow: inset 0 0 0 2px $brand-secondary;
+        color: $brand-secondary;
+        transition:all 0.5s ease;
+        
+        &:hover {
+            background:$brand-secondary;
+            color: $brand-dark-grey;
+        }
+    }
+    
+    &__inline-cta {
+    
+        i {
+            vertical-align: sub;
+            line-height: 1.2em;
+            font-size: 1.5em;
+            margin-left: 0.5em;  
+        } 
+    }
+    
+    &__fullwidth {
+        width:100%;
+    }
+    
+    &__mandatory {
+        text-transform: none;
+        text-align: left;
+        width:auto;
+        min-width: 70%;
+        display: inline-block;
+    }
+}
+
+.trigger-expand,
+.trigger-collapse {
+    position: relative;
+    transition:$fastEffect;
+    font-family: $supporting-font;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    font-weight: 400;
+    letter-spacing: 2px;
+    padding:1em 10em 1em 1em;
+    margin:0.5em 0;
+    border:2px solid $brand-secondary;
+    color: $brand-dark-grey !important;
+    transition: all 0.5s ease;
+     
+  &:hover {
+      cursor:pointer;
+      background: $brand-dark-grey;
+      border-color: $brand-dark-grey;
+      color: white !important;
+  }
+}
+
+a.next-section {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    height: 4em;
+    transform: translateX(-50%);
+    left: 50%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+ 
+     &:before {
+        position: absolute;
+        content: '';
+        bottom: 10px;
+        left: 50%;
+        margin-left: -4px;
+        height: 0;
+        width: 5px;
+        background: hsl(0, 0%, 100%);
+        -webkit-transition: height 0.5s ease;
+        -o-transition: height 0.5s ease;
+        transition: height 0.5s ease;
+        border-radius: 50px;
+    }
+    
+    &:after {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin-left: -11px;
+        content: '\f054';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 600;
+        font-size: 26px;  
+        transform:rotate(90deg);
+    } 
+    
+    &:hover:before {
+        height:30px;
+    }
+}
+
+.collapsed-content {
+    max-height: 0;
+    overflow: hidden; 
+    transition:max-height 0.5s ease;
+    
+    &.expand {
+        max-height: 100vh;
+    }
+}
+
+.logo-holder {
+    text-align: center;
+    margin-top: -10px;
+ 
+    #logo {
+        width:80px;
+        height:30px;
+    }
+
+    #desertdelta {
+        opacity:0.6;
+        transition:opacity 0.5s ease-in-out;
+    
+        path {
+            fill:$brand-secondary;
+        }
+    }
+
+    #created {
+        opacity:0;
+        transform: translateY(50px);
+        transition: 1s transform ease, 2s opacity ease;
+
+        path {
+            fill:$brand-secondary;
+        }
+    }
+
+    &:hover {
+        cursor:pointer;
+
+        #desertdelta {
+            opacity:0.8;
+        }
+
+        #created {
+              opacity:0.8;
+              transform: translateY(0);
+        }
+    }
+}
+
