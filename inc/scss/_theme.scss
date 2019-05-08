@@ -1,108 +1,70 @@
 /*! == THEME STYLES == */
 
+/*===========GLOBAL==========*/
+
+.brand-dot {
+    position: relative;
+    @include brandDot;
+    
+    &:before {
+        bottom:-1em;
+        background: white;
+    }
+}
+
 /*===========HEADER==========*/
 
-.home.loaded {
-    #press {
-      transform-origin: center;
-      animation-name: squeeze;
-      animation-duration: 4s;
-      animation-fill-mode: forwards;
-      animation-delay: 0.5s;
-      animation-timing-function: ease-in-out;
-    }
+.sub-hero {
+        @include gridCenter;    
+        grid-template-columns: 1fr 1fr 1fr;
     
-    #handle {
-      transform-origin: center;
-      animation-name: move;
-      animation-duration: 4s;  
-      animation-fill-mode: forwards;
-      animation-delay: 0.5s;
-      animation-timing-function: ease-in-out;
-    }
-    
-    #right {
-      transform-origin: center;
-      animation-name: spin;
-      animation-duration: 0.5s;  
-      animation-iteration-count: 8;
-      animation-direction: alternate; 
-      animation-delay: 0.5s;  
-      animation-timing-function: ease-in-out;
-    }
-    
-    #left {
-      transform-origin: center;
-      animation-name: spin;
-      animation-duration: 0.5s;  
-      animation-iteration-count: 8;
-      animation-direction: alternate;
-        animation-delay: 0.5s;
-      animation-timing-function: ease-in-out;
-    }
-}
-
-@keyframes squeeze {
-  from {transform: scaleY(1);}
-  to {transform: scaleY(0.8);}
-}
-
-@keyframes move {
-  from {transform: translateY(0);}
-  to {transform: translateY(8%);}
-}
-
-@keyframes spin {
-  from {transform: scaleX(1);} 
-  to {transform: scaleX(0.1);} 
-}
-
-.search-form {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 60% 40%;
-    width: 60%;
-    justify-content: center;
-    align-items: center;
-    margin: 3em auto;    
-    text-align: center;
-    
-    input {
-        border: none;
-        border-radius:0;
-        font-size: 1.25em;
-        padding: 0.5em 1em;
+    &__item {
+        position: relative;
+        @include gridCenter;    
+        @include backgroundCover;
+        height:25vh;
+        border-bottom: 10px solid white;
+        border-right: 5px hsl(0, 0%, 100%) solid;
+        border-left: 5px hsl(0, 0%, 100%) solid;  
+        text-align: center;
+        filter:saturate(80%);  
+        transition: all 0.5s ease;
         
-        &:focus {
-            outline: none;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 4%;
+            left: 2%;
+            width: 96%;
+            height: 92%;
+            border: 1px solid hsl(0, 0%, 100%);
+            opacity:0;
+            transition:opacity 0.5s ease;
         }
-    }
-    
-    .submit {
-        display: inline-grid;
-        height: 100%;
-        border-radius: 0;
-        font-size: 1em;
-        text-transform: uppercase;
-        background: $brand-dark-grey;
-        color: white;
-        transition:all 0.5s ease;
+        
+        &:first-of-type {
+            margin-left:5px;
+        }
+        
+        &:last-of-type {
+            margin-right:5px;
+        }
         
         &:hover {
-            cursor:pointer;
-            background: $brand-primary;
-            color: $brand-dark-grey;
+            filter:saturate(100%);
+            cursor: pointer;
+            
+            &:before {
+                opacity: 1;
+            }
         }
     }
-    
-    ::placeholder {
-        font-size: 1em;
-        font-weight: 200;
-        text-transform: uppercase;
-    }
+
 }
 
-
+.home .sub-hero__item {
+    height: 35vh;
+}
 
 /*===========BODY==========*/
 

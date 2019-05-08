@@ -20,6 +20,43 @@ body {
     overflow: hidden;
 }
 
+.page-border {
+    content:'';
+    position: fixed;
+    top:0;
+    left: 0;
+    height:100%;
+    width:10px;
+    background-color: white;
+    z-index: 1000;
+    
+    &__left-top {
+        &:before {
+            content:'';
+            position: fixed;
+            width:100%;
+            height:10px;
+            background-color:white;
+        }
+    }
+    
+    &__right-bottom {
+        left:initial;
+        right:0;
+        
+        &:before {
+            content:'';
+            position: fixed;
+            left: 0;
+            bottom:0;
+            width:100%;
+            height:10px;
+            background-color:white;
+        }
+    }
+    
+}
+
 main {
     min-height: 100vh;
 }
@@ -90,8 +127,12 @@ h5 {
       color: $brand-tertiary;
     }    
     
+    &__title-case {
+        text-transform: none;
+    }
+    
     &__xl {
-        font-size: 5em;
+        font-size: 3.5em;
     }
     
     &__lg {      
@@ -151,7 +192,7 @@ nav {
     
     .menu-trigger {
         position: relative;
-        margin-top:1em;  
+        margin-top:2em;  
         z-index: 1000;
         cursor: pointer;
         

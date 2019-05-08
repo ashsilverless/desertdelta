@@ -158,6 +158,11 @@ $.fn.isOnScreen = function(){
       $(this).addClass('active');    
     } 
   });   
+    $('.slide-down').each(function() {
+    if ($(this).isOnScreen()) {
+      $(this).addClass('active');    
+    } 
+  });   
     $('.slide-right').each(function() {
     if ($(this).isOnScreen()) {
       $(this).addClass('active');    
@@ -190,6 +195,11 @@ $(window).on('resize scroll', function() {
       $(this).addClass('active');    
     } 
   });   
+    $('.slide-down').each(function() {
+    if ($(this).isInViewport()) {
+      $(this).addClass('active');    
+    } 
+  }); 
     $('.slide-right').each(function() {
     if ($(this).isInViewport()) {
       $(this).addClass('active');    

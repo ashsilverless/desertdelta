@@ -4,12 +4,13 @@
     @include backgroundCover; 
     position: relative; 
     display: grid;
-    grid-template-rows: 100%;
+    grid-template-rows: 1fr 1fr;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-start;
     height: 100vh;
     z-index: 50; 
     padding-bottom: 2em; 
+    border-bottom: 10px solid white;
     filter: saturate(50%);
 
     &:before {
@@ -22,11 +23,13 @@
     &__brand {
         display: block;
         width: 100%;
+        padding-top: 3em;
         text-align: center;
         
         svg {
             display: inline-block;
-            width: 8em;
+            height: 10em;
+            fill: white;
         }
     }
     
@@ -64,6 +67,10 @@
         display: block;
         padding:0;
     }
+}
+
+.home .hero__brand svg {
+    height: 15em;
 }
 
 .fullscreen-video {

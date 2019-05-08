@@ -77,6 +77,17 @@ $weight: (100, 200, 300, 400, 500, 600, 700, 800, 900); // Amount string.
     }
 }
 
+.slide-down {
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: all 1s ease;
+    
+    &.active {
+        transform:translateY(0);
+        opacity: 1;
+    }
+}
+
 .slide-right {
     transform: translateX(-50px);
     opacity: 0;
