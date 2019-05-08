@@ -9,34 +9,25 @@
     align-items: flex-end;
     height: 100vh;
     z-index: 50; 
-    padding-bottom: 2em; 
-    filter: saturate(50%);
-
-    &:before {
-        @include childOverlay;
-        background:black;
-        opacity:0.3;
-        z-index: -1
+    padding-bottom: 2em;
+    
+    .container {
+	    height: 100%;
     }
 
     &__content {
         position: relative;
         z-index: 10;
         text-align: center;
+        height: 100%;
+        display: grid;
+        grid-template-rows: 70% 30%;
         
-        h3 {
-            position: relative;
-            margin:0.5em 0 1em;
-            
-            &:before {
-                content:'';
-                position: absolute;
-                bottom: -0.5em;
-                left: 0;
-                width:50px;
-                height: 3px;
-                background: $brand-secondary;
-            }
+        h2::after {
+	        content: '●';
+			display: block;
+			margin-top: 1em;
+			font-size: 0.5em;
         }
         
         svg {

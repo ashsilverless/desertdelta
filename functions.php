@@ -360,6 +360,7 @@ function reorder_admin_menu( $__return_true ) {
 		'index.php',                        // Dashboard
 		'edit.php?post_type=accommodation', // Accommodations
 		'separator1',                       // --Space--
+		'edit.php',                         // Posts
 		'edit.php?post_type=page',          // Pages
 		'upload.php',                       // Media
 		'separator2',                       // --Space--
@@ -380,7 +381,6 @@ add_filter( 'menu_order', 'reorder_admin_menu' );
 * Remove top level and sub menu admin menus
 */
 function remove_admin_menus() {
-   remove_menu_page( 'edit.php' ); // Posts 
    remove_menu_page( 'edit-comments.php' ); // Comments
    remove_menu_page( 'tools.php' ); // Tools
 }
