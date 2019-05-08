@@ -1,32 +1,31 @@
 <?php
 /*
-// ========= Custom Post Types - Accommodation ============
+// ========= Custom Post Types - Camps ============
 */
 
-add_action( 'init', 'custom_post_type_accommodation', 0 );
+add_action( 'init', 'custom_post_type_camps', 0 );
 
-// ====== Accommodation
-function custom_post_type_accommodation() {
+function custom_post_type_camps() {
 
     $labels = array(
-        'name'                => _x( 'Accommodations', 'Post Type General Name',  'desertdelta' ),
-        'singular_name'       => _x( 'Accommodation',  'Post Type Singular Name', 'desertdelta' ),
-        'menu_name'           => __( 'Accommodations',        'desertdelta' ),
-        'parent_item_colon'   => __( 'Parent Accommodations', 'desertdelta' ),
-        'all_items'           => __( 'All Accommodations',    'desertdelta' ),
-        'view_item'           => __( 'View Accommodations',   'desertdelta' ),
-        'add_new_item'        => __( 'Add New Accommodation', 'desertdelta' ),
-        'add_new'             => __( 'Add Accommodation',     'desertdelta' ),
-        'edit_item'           => __( 'Edit Accommodation',    'desertdelta' ),
-        'update_item'         => __( 'Update Accommodation',  'desertdelta' ),
-        'search_items'        => __( 'Search Accommodation',  'desertdelta' ),
+        'name'                => _x( 'Camps', 'Post Type General Name',  'desertdelta' ),
+        'singular_name'       => _x( 'Camps',  'Post Type Singular Name', 'desertdelta' ),
+        'menu_name'           => __( 'Camps',        'desertdelta' ),
+        'parent_item_colon'   => __( 'Parent Camps', 'desertdelta' ),
+        'all_items'           => __( 'All Camps',    'desertdelta' ),
+        'view_item'           => __( 'View Camps',   'desertdelta' ),
+        'add_new_item'        => __( 'Add New Camps', 'desertdelta' ),
+        'add_new'             => __( 'Add Camps',     'desertdelta' ),
+        'edit_item'           => __( 'Edit Camps',    'desertdelta' ),
+        'update_item'         => __( 'Update Camps',  'desertdelta' ),
+        'search_items'        => __( 'Search Camps',  'desertdelta' ),
         'not_found'           => __( 'Not Found',             'desertdelta' ),
         'not_found_in_trash'  => __( 'Not found in Trash',    'desertdelta' )
     );
     
     $args = array(
-        'label'               => __( 'accommodation', 'desertdelta' ),
-        'description'         => __( 'Accommodation', 'desertdelta' ),
+        'label'               => __( 'camps', 'desertdelta' ),
+        'description'         => __( 'Camps', 'desertdelta' ),
         'labels'              => $labels,
         'supports'            => array( 'title', 'taxonomies' ),
         'menu_icon'           => 'dashicons-admin-multisite',
@@ -43,5 +42,5 @@ function custom_post_type_accommodation() {
         'capability_type'     => 'page'
     );
     
-    register_post_type( 'accommodation', $args );
+    register_post_type( 'camps', $args );
 }

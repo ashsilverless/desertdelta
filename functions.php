@@ -358,9 +358,7 @@ add_filter('template_include', 'template_chooser');
 function reorder_admin_menu( $__return_true ) {
     return array(
 		'index.php',                        // Dashboard
-		'edit.php?post_type=accommodation', // Accommodations
-		'edit.php?post_type=destination',   // Destinations
-		'edit.php?post_type=package',       // Package
+		'edit.php?post_type=camps', // Accommodations
 		'separator1',                       // --Space--
 		'edit.php?post_type=page',          // Pages
 		'upload.php',                       // Media
@@ -376,7 +374,6 @@ function reorder_admin_menu( $__return_true ) {
 }
 add_filter( 'custom_menu_order', 'reorder_admin_menu' );
 add_filter( 'menu_order', 'reorder_admin_menu' );
-
 
 /*
 * Remove top level and sub menu admin menus

@@ -23,7 +23,7 @@ function taxonomy_destination() {
         'menu_name'         => __( 'Destinations'         )
     );     
     
-    register_taxonomy( 'destination', array( 'accommodation' ), array(
+    register_taxonomy( 'destination', array( 'camps' ), array(
         'hierarchical'      => true,
         'labels'            => $labels,
         'show_ui'           => true,
@@ -50,7 +50,7 @@ function taxonomy_package() {
         'menu_name'         => __( 'Packages'         )
     );     
     
-    register_taxonomy( 'package', array( 'accommodation' ), array(
+    register_taxonomy( 'package', array( 'camps' ), array(
         'hierarchical'      => true,
         'labels'            => $labels,
         'show_ui'           => true,
