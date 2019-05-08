@@ -36,6 +36,8 @@ get_header();?>
 
     <?php get_template_part('template-parts/map', 'camps');?>
 
+    <?php get_template_part('template-parts/cta', 'cares');?>
+
 </div><!--content-->
  
 <?php get_footer(); ?>

@@ -1,6 +1,6 @@
                                 <svg version="1.0" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                    viewBox="0 0 568.5 122.6" enable-background="new 0 0 568.5 122.6" xml:space="preserve" title="Created by desertdelta">
-                                    <g id="desertdelta">
+                                    <g id="silverless">
                                       <path fill="#372C3B" d="M19.9,89.7c-5.2-1.8-10.2-4.4-10.2-11.2c0-4.9,3.1-7.7,7.3-7.7c3.4,0,6.3,1.2,8.4,3.7
                                         c1.6,1.8,2.1,3.3,2.2,4.3c0.1,1.5,1.7,1.5,1.7,0.1c0-2.2,0.2-3.8,0.4-4.8c0.2-1,0.4-1.6,0.4-2.2c0-0.6-0.1-1.7-1.4-2.6
                                         c-1.1-0.7-3.4-2.3-8.2-2.3c-5.3,0-10,2.5-12.9,5.4c-3.7,3.6-4.7,7.4-4.7,10.6c0,6.4,3.9,10.3,12.3,13.3c6.5,2.3,11.3,5.4,11.3,11.9

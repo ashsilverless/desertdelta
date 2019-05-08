@@ -1,20 +1,28 @@
-<div class="cta cares">
-    
-    <?php if (have_rows('cta-cares', 'options')):
-    while (have_rows('cta-cares', 'options')) : the_row();?>
-    
-    <img src="<?php the_sub_field('image');?>"/>
-    
-    <div class="content">
-        
-        <?php the_sub_field('copy');?>
-        
-        <a href="<?php the_sub_field( 'button_target' );?>" class="button">
+<?php if (have_rows('cta_cares', 'options')):
+while (have_rows('cta_cares', 'options')) : the_row();?>
 
-            <?php the_sub_field( 'button_text' );?>
+<?php $ctaCaresImage = get_sub_field('image');?>
 
-        </a>
+<div class="container">
+
+    <div class="cta cares mt5 mb5" style="background-image: url(<?php echo $ctaCaresImage['url']; ?>);">
         
+        <img src="<?php the_sub_field('overlay_image');?>"/>
+        
+        <div class="content">
+            
+            <p><?php the_sub_field('copy');?></p>
+            
+            <a href="<?php the_sub_field( 'button_target' );?>" class="button">
+    
+                <?php the_sub_field( 'button_text' );?>
+    
+            </a>
+            
+        </div>
+     
     </div>
- 
-</div>
+
+</div><!--c-->
+
+<?php endwhile; endif;?>
