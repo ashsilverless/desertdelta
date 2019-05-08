@@ -130,7 +130,27 @@ jQuery(document).ready(function( $ ) {
                 items:1
             }
         }
-    })
+    });
+    
+    $('.latest-news-slider').owlCarousel({
+        animateOut: 'fadeOut',
+        loop:true,
+        margin:10,
+        nav:true,
+    	navClass: ['owl-prev', 'owl-next'],
+        dots:false,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:1
+            }
+        }
+    });
 
 // ========== Add class if in viewport on page load
 
