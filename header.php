@@ -27,6 +27,8 @@
 <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" type="image/x-icon" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
+
+<link rel="stylesheet" href="https://use.typekit.net/phc5hfw.css">
 	
 <?php wp_head(); ?>
 	
@@ -39,12 +41,10 @@
 		<nav>
             
             <div class="nav-menu">
-
-            <?php $brandImage = get_field('logo', 'options');?>	
             
                 <a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>" class="brand">
                 
-                <img src="<?php echo $brandImage['url'];?>" alt="" title=""/>
+                <?php get_template_part('template-parts/logo');?>
                 
                 </a>           
 
@@ -72,14 +72,6 @@
 					</div>
 
 					<div class="col-sm-6 col-10 brand">
-    					
-    				    <?php $brandImage = get_field('logo', 'options');?>	
-    				
-						<a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>">
-    						
-    						<img src="<?php echo $brandImage['url'];?>" alt="" title=""/>
-    						
-						</a>
 						
 					</div>                    
 
