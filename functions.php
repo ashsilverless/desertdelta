@@ -126,7 +126,15 @@ function my_custom_fonts() {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
-
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Call To Action',
+		'menu_title'	=> 'Call To Action',
+		'menu_slug' 	=> 'call-to-action',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	
 	acf_add_options_page(array(
 		'page_title' 	=> 'Testimonials',
 		'menu_title'	=> 'Testimonials',
