@@ -507,6 +507,28 @@
     }
 }
 
+.carousel-wrapper {
+	display: flex;
+	justify-content: center;
+	
+}
+
+.latest-news-slider {
+	width: 60%;
+    
+    &__item {
+        
+        &:before {
+        }
+        
+        p {
+        }
+        
+        span {
+        }
+    }
+}
+
 body.page-template-job-temporary .hero:before {
 	background: #aaff00;
 	opacity: 0.5;
