@@ -15,7 +15,7 @@ body {
     font-family: $body-font;
     font-size: 14px;
     font-weight: 200;
-    background: hsl(60, 7%, 94%);
+    background: $body-color;
     color: hsl(69, 2%, 31%);
     overflow: hidden;
 }

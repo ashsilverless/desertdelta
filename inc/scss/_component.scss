@@ -56,25 +56,23 @@
 
 .trigger-expand,
 .trigger-collapse {
+    @include brandDot
     position: relative;
     transition:$fastEffect;
-    font-family: $supporting-font;
-    text-transform: uppercase;
     font-size: 0.75em;
     font-weight: 400;
     letter-spacing: 2px;
-    padding:1em 10em 1em 1em;
     margin:0.5em 0;
-    border:2px solid $brand-secondary;
-    color: $brand-dark-grey !important;
+    color: $brand-primary !important;
     transition: all 0.5s ease;
-     
-  &:hover {
-      cursor:pointer;
-      background: $brand-dark-grey;
-      border-color: $brand-dark-grey;
-      color: white !important;
-  }
+    
+    &:before {
+        bottom:-2em;
+    }
+    
+    &:hover {
+        cursor:pointer;
+    }
 }
 
 a.next-section {
