@@ -359,8 +359,6 @@ function reorder_admin_menu( $__return_true ) {
     return array(
 		'index.php',                        // Dashboard
 		'edit.php?post_type=accommodation', // Accommodations
-		'edit.php?post_type=destination',   // Destinations
-		'edit.php?post_type=package',       // Package
 		'separator1',                       // --Space--
 		'edit.php?post_type=page',          // Pages
 		'upload.php',                       // Media
