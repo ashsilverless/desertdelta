@@ -19,6 +19,17 @@
         z-index: -1
     }
 
+    &__brand {
+        display: block;
+        width: 100%;
+        text-align: center;
+        
+        svg {
+            display: inline-block;
+            width: 8em;
+        }
+    }
+    
     &__content {
         position: relative;
         z-index: 10;

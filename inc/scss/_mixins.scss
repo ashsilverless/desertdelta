@@ -44,5 +44,18 @@
     background: linear-gradient(to bottom, hsla(0,0%,0%,0) 0%,hsla(0,0%,0%,1) 100%);
 }
 
-
+@mixin brandDot {
+    
+    &:before {
+        position: absolute;
+        content: '';
+        bottom: -5px;
+        left:50%;
+        margin-left:-3px;
+        width:5px;
+        height: 5px;
+        background: $brand-mid-grey;
+        border-radius: 50px;
+    }
+}
 

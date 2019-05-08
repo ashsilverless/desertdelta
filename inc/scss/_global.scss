@@ -15,7 +15,7 @@ body {
     font-family: $body-font;
     font-size: 14px;
     font-weight: 200;
-    background: hsl(0, 0%, 96%);
+    background: hsl(60, 7%, 94%);
     color: hsl(69, 2%, 31%);
     overflow: hidden;
 }
@@ -72,6 +72,7 @@ h5 {
     font-family: $brand-font;
     text-transform: uppercase;
     font-weight: 700;
+    letter-spacing: 0.15em;
     
     &__light {
         color: white;
@@ -155,11 +156,20 @@ nav {
         cursor: pointer;
         
         span {
+            @include brandDot;
             position: absolute;
             top: 0;
             left: 0;
             color: white;
+            font-family: $brand-font;
+            font-size: 1.25em;
+            text-transform: uppercase;      
+            letter-spacing: 0.15em;   
             
+            &:before {
+                background: white;
+            }
+                       
             &:nth-of-type(2) {
                 opacity:0;
             }
@@ -167,19 +177,13 @@ nav {
     }
     
     .brand {
+        width: 100%;
+        margin: 2em 0 3em;
+        text-align: center;
         
-        a {
-            display: block;
-            height: 4em;
-            margin-top: 1em;
-            text-align: center;
-            transition: height 0.5s ease;
-            
-            img {
-                display: inline-block;
-                height: 100%;  
-                filter: brightness(1000%);  
-            }
+        svg {
+            height: 10em;
+            opacity: 0.6;
         }
     }
 }
@@ -198,22 +202,13 @@ nav {
     top:-100vh;
     left: 0;
     width: 100%;
+    padding-bottom: 2em;
     overflow: hidden;
     background: white;
     /*opacity:0;*/
     z-index: 500;
     transition: all 0.5s ease;
-        
-    .brand {
-        display: block;
-        text-align: center;
-        
-        img {
-            display: inline-block;
-            width: 5em;
-        }
-    }
-    
+            
     ul {
         display: flex;
         justify-content: center;
@@ -225,13 +220,21 @@ nav {
             flex-grow: 1;
             flex-basis: auto;
             margin-bottom: 1em;
+            border-right: 1px solid $brand-mid-grey;
             text-align: center;
             
+            &:last-of-type {
+                border:none;
+            }
+            
             a {
+                @include brandDot;
+                position: relative;
                 padding: 0 0.5em;
-                color: $brand-dark-grey;
-                text-transform: uppercase;
-                font-size: 1em;
+                color: $brand-mid-grey;
+                font-size: 1.25em;
+                font-family: $brand-font;
+                line-height: 2em;
                 transition: all 0.5s ease;
                                
                 &:hover {
@@ -250,7 +253,11 @@ nav.menu-open {
         
     .menu-trigger span {
         color: $brand-dark-grey;
-        
+
+        &:before {
+            background: $brand-mid-grey;
+        }        
+
         &:nth-of-type(1) {
             opacity: 0;
         }
