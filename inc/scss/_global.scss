@@ -119,23 +119,51 @@ h5 {
 
 .site-wrapper {
     position: relative;
+    width:100%;
 }
 
 header {
     position: fixed;
-    top:0;
+    display: grid;
     width: 100%;
+    z-index: 1000;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    padding-bottom: 1em;
+    font-family: $supporting-font;
     z-index: 500;  
     color: white;
-    
-    a {
-        color: white;
-    }
+    transition: background 0.5s ease;
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        background: hsl(311, 13%, 14%);
+        opacity:0;
+        transition:opacity 0.3s ease;
+    }  
     
     .menu-trigger {
         position: relative;
         margin-top:1em;  
         z-index: 1000;
+        cursor: pointer;
+        
+        span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: white;
+            
+            &:nth-of-type(2) {
+                opacity:0;
+            }
+        }
     }
     
     .brand {
@@ -149,88 +177,90 @@ header {
             
             img {
                 display: inline-block;
-                height: 100%;    
+                height: 100%;  
+                filter: brightness(1000%);  
             }
         }
     }
-    
-    .telephone-cta {
-        @include gridCenter;
-        background: $brand-mid-grey;
-        padding: 0.8em;
-        text-align: center;
-        height: 100%;
-        font-size: 1.3em;
-        font-weight: 300;
-        
-        i {
-            vertical-align: baseline;
-            color: hsl(0, 0%, 81%);
-            font-size: 0.75em;
-        }
-    }
 }
 
-nav {
-        background:$brand-dark-grey;
+.page-template-book-now .book-now {
+    display: none !important;
 }
 
-.home-link {
-    display: inline-block;
-    width:5%
+.scrolled nav {
+
 }
+
 
 .nav-menu {
-    display: inline-block;
-    width:90%;
+    position: absolute;
+    top:-100vh;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    background: white;
+    /*opacity:0;*/
+    z-index: 500;
+    transition: all 0.5s ease;
+        
+    .brand {
+        display: block;
+        text-align: center;
+        
+        img {
+            display: inline-block;
+            width: 5em;
+        }
+    }
     
     ul {
-        margin: 0;
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        margin:0;
         padding: 0;
-        list-style: none;
         
         li {
+            flex-grow: 1;
+            flex-basis: auto;
+            margin-bottom: 1em;
+            text-align: center;
             
             a {
-
+                padding: 0 0.5em;
+                color: $brand-dark-grey;
+                text-transform: uppercase;
+                font-size: 1em;
+                transition: all 0.5s ease;
+                               
+                &:hover {
+    
+                }
             }
         }
     }
 }
 
-.nav-cta {
-    display: grid;
-    justify-content: center;
-    height: 100%;
-    background: $brand-primary;
-    grid-template-columns: 1fr 1fr;
-    text-align: center;    
-    
-    a {
-        display: inline-grid;
-        align-content: center;
-        height: 100%;
-        padding: 1em;
-        font-size: 0.8em;
-        text-transform: uppercase;
-        font-weight: 900;
-        transition: all 0.5s ease;
-        
-        &:hover {
-            background: $brand-dark-grey;
-            color: $brand-primary;
-        }
+nav.menu-open {
+
+    .nav-menu {
+        top:0;
     }
-    
-    a:nth-of-type(2) {
-        background:$brand-secondary;
         
-        &:hover {
-            background: $brand-dark-grey;
-            color: $brand-secondary;
+    .menu-trigger span {
+        color: $brand-dark-grey;
+        
+        &:nth-of-type(1) {
+            opacity: 0;
         }
-    }
+        
+        &:nth-of-type(2) {
+            opacity: 1;
+        }
+    }     
 }
+
 
 /*===========FOOTER==========*/
 footer {

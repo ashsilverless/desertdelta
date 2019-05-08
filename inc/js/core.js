@@ -43,6 +43,30 @@ jQuery(document).ready(function( $ ) {
 
 /* CLASS AND FOCUS ON CLICK */
 
+    $('.menu-trigger').click(function() {
+        $("nav").toggleClass("menu-open");
+    });
+
+    $('.multi-panel__trigger').click(function() {
+        $(".multi-panel__trigger.active").removeClass("active");
+        $(this).addClass('active');
+    });
+
+    $('.menu-item a').click(function() {
+        $(".nav-wrapper").removeClass("menu-open");
+        $(".nav-wrapper__trigger.is-active").removeClass("is-active");
+    });
+
+    $(".openTrigger").click(function(event) {
+      $('.content__hidden').addClass("show");
+      $(this).addClass("hide");
+    });
+
+    $(".closeTrigger").click(function(event) {
+      $('.content__hidden').removeClass("show");
+      $('.openTrigger').removeClass("hide");
+    });
+
     $(".trigger-copy-expand").click(function(event) {
       $('.collapsed-content').addClass("expand");
       $(this).hide();
@@ -54,6 +78,7 @@ jQuery(document).ready(function( $ ) {
         $(this).hide();
         $('.trigger-copy-expand').show();     
     });
+
 
     $(".trigger-expand").click(function(event) {
         $(this).closest('.expanding-copy').addClass("expand");

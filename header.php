@@ -33,73 +33,60 @@
 </head>
 
     <body <?php body_class(); ?>>
-    
-    	    <div id="page" class="site-wrapper">
 
-            <header>
+	<div id="page" class="site-wrapper">
+
+		<nav>
+            
+            <div class="nav-menu">
+
+            <?php $brandImage = get_field('logo', 'options');?>	
+            
+                <a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>" class="brand">
                 
-                <nav>
+                <img src="<?php echo $brandImage['url'];?>" alt="" title=""/>
                 
-                <div class="container">
-                    
-                    <div class="row">
+                </a>           
 
-                        <div class="col-7">
+            <?php
+            wp_nav_menu( array(
+            'theme_location' => 'main-menu',
+            'container_class' => 'mainMenu' ) );
+            ?>
+            
+            </div>
+				
+			<div class="container">
 
-                            <a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>" class="home-link">
-                                <i class="fas fa-home"></i>
-                            </a>
-                
-                            <div class="nav-menu">
-                            
-                                <?php
-                                wp_nav_menu( array(
-                                'theme_location' => 'main-menu',
-                                'container_class' => 'mainMenu' ) );
-                                ?>
-                            
-                            </div>            
-                            
-                        </div><!--col-->
+				<div class="row">
 
-                        <div class="col-5">
-                            
-                            <a href="tel:01672 556532" class="telephone-cta">
-                                <span><i class="fas fa-phone"></i>
-                                01672 556532</span>
-                            </a>
-                        
-                        </div>
-                
-                    </div><!--r-->
-                
-                </div><!--c-->
+					<div class="col-sm-3 col-1">
 
-                </nav>
+						<div class="menu-trigger">
+							
+							<span>Menu</span>
+							<span>Close</span>
+							
+						</div>
 
-<div class="container">
+					</div>
 
-<div class="row">
+					<div class="col-sm-6 col-10 brand">
+    					
+    				    <?php $brandImage = get_field('logo', 'options');?>	
+    				
+						<a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>">
+    						
+    						<img src="<?php echo $brandImage['url'];?>" alt="" title=""/>
+    						
+						</a>
+						
+					</div>                    
 
-                       <div class="col-5 offset-7">
-                            
-                            <div class="nav-cta">
-                            
-                                <a href="<?php echo home_url() . "/temporary-jobs"; ?>">Temp<br/>Jobs</a>
-                                
-                                <a href="<?php echo home_url() . "/permanent-jobs"; ?>">Permanent<br/>Jobs</a>
-                            
-                            </div>
+				</div>
 
-                       </div>
-                            
+			</div>
 
+		</nav>
 
-</div><!--r-->
-                        </div><!--c-->
-
-
-                
-            </header>
-
-            <main><!--closes in footer.php-->
+	<main>
