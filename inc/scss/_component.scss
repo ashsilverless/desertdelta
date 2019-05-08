@@ -1,23 +1,19 @@
 /*! == COMPONENTS == */
 
 .button {
-    background: $brand-secondary;
+    background: $brand-primary;
     border: 0;
     border-radius: 0;
     box-sizing: border-box;
     padding: 1em 2em;
     text-align: center;
     text-transform: uppercase;
-    font-family: $supporting-font;  
-    // Using inset box-shadow instead of border for sizing simplicity
-    box-shadow: inset 0 0 0 2px transparent;
     color: white;
-    font-size: inherit;
-    // Required, since we're setting absolute on pseudo-elements
     position: relative;
     vertical-align: middle;
     -webkit-appearance: none;
     transition: color 0.25s;
+    letter-spacing: 0.1em;
     
     &__ghost {
         background:transparent;
@@ -137,12 +133,12 @@ a.next-section {
         height:30px;
     }
 
-    #desertdelta {
+    #silverless {
         opacity:0.6;
         transition:opacity 0.5s ease-in-out;
     
         path {
-            fill:$brand-secondary;
+            fill:$brand-primary;
         }
     }
 
@@ -152,14 +148,14 @@ a.next-section {
         transition: 1s transform ease, 2s opacity ease;
 
         path {
-            fill:$brand-secondary;
+            fill:$brand-primary;
         }
     }
 
     &:hover {
         cursor:pointer;
 
-        #desertdelta {
+        #silverless {
             opacity:0.8;
         }
 

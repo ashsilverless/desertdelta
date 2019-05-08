@@ -108,7 +108,7 @@ h5 {
 .heading {
     font-family: $brand-font;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 300;
     letter-spacing: 0.15em;
     
     &__light {
@@ -129,6 +129,10 @@ h5 {
     
     &__title-case {
         text-transform: none;
+    }
+    
+    &__alt-font {
+        font-family: $supporting-font;
     }
     
     &__xl {
@@ -320,32 +324,14 @@ footer {
     width:100%;
     padding: 2em;
     font-size: 0.75em;
-    color: white;
-    
+    background: white;
+        color: $brand-dark-grey;    
     a {
-        color: white;
+        color: $brand-dark-grey;
         
         &:hover {
             color: $brand-secondary;
         }
-    }
-    
-    i {
-      margin-right: 1em;
-    }
-        
-    &__colophon {
-
-      a {
-        margin-left:0.5em;
-        padding-left:0.5em;
-        border-left: 1px solid $brand-mid-grey;
-        color: white;
-      }
-    }
-    
-    .socials {
-        text-align: right;
     }
     
   }
