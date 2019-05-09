@@ -12,6 +12,11 @@
     }
 }
 
+.dark-dot {
+    position: relative;
+    @include brandDot;
+}
+
 /*===========HEADER==========*/
 
 .sub-hero {
@@ -531,8 +536,9 @@
 }
 
 .all-news {
-	background-color: lighten(#dcdad2, 10%);
-	height: 500px;
+	background-color: $body-color;
+	padding: 3em 5em;
+	border-bottom: 10px solid white;
 }
 
 .carousel-wrapper {
@@ -542,8 +548,8 @@
 }
 
 .latest-news-slider {
-	width: 50%;
-	background: #dcdad2;
+	width: 60%;
+	background: darken($body-color, 8%);
     
     &__item {
 	    

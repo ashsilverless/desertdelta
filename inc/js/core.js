@@ -151,6 +151,10 @@ jQuery(document).ready(function( $ ) {
             }
         }
     });
+    
+/* MIX IT UP*/
+
+var mixer = mixitup('.mix-it-up');
 
 // ========== Add class if in viewport on page load
 
