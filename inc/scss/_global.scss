@@ -265,7 +265,7 @@ nav {
             flex-grow: 1;
             flex-basis: auto;
             margin-bottom: 1em;
-            border-right: 1px solid $brand-mid-grey;
+            border-right: 1px solid hsla(0, 0%, 40%, 0.22);
             text-align: center;
             
             &:last-of-type {
@@ -280,10 +280,11 @@ nav {
                 font-size: 1.25em;
                 font-family: $brand-font;
                 line-height: 2em;
+                opacity:0.6;
                 transition: all 0.5s ease;
                                
                 &:hover {
-    
+                    opacity: 1;
                 }
             }
         }

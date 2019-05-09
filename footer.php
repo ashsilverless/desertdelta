@@ -23,7 +23,7 @@
                     
                     <div class="col-2">
     
-                        <h4 class="heading heading__xs heading__alt-font">Camps</h4>
+                        <h4 class="heading heading__xs heading__alt-font heading__primary-color">Camps</h4>
     
                         <?php
                             wp_nav_menu( array(
@@ -34,8 +34,6 @@
                     </div><!--col-->                    
 
                     <div class="col-2">
-
-                        <h4 class="heading heading__xs heading__alt-font">Camps</h4>
     
                         <?php
                             wp_nav_menu( array(
@@ -47,13 +45,13 @@
 
                     <div class="col-2">
     
-                        <h4 class="heading heading__xs heading__alt-font">Reservations</h4>
+                        <h4 class="heading heading__xs heading__alt-font heading__primary-color">Reservations</h4>
     
                     </div><!--col-->     
 
                     <div class="col-2">
     
-                        <h4 class="heading heading__xs heading__alt-font">Marketing</h4>
+                        <h4 class="heading heading__xs heading__alt-font heading__primary-color">Marketing</h4>
     
                     </div><!--col-->                         
 
@@ -70,15 +68,17 @@
 
             <div class="container">
          
-                ACCREDS
+                <?php if (have_rows('accreditations', 'options')):
+                while (have_rows('accreditations', 'options')) : the_row();?>
+                
+                    <img src="<?php the_sub_field('image');?>"/>
+                
+                <?php endwhile; endif;?>
             
             </div><!--container-->
 
         </div>
 
-    
-
-    
         <div class="socket">
             
             <div class="container">     
@@ -106,7 +106,7 @@
     
                     </div>
     
-                    <div class="col-4 socials text-right">
+                    <div class="col-4 mandatory text-right">
     
                         <a href="<?php echo home_url() . '/terms-conditions'; ?>">Terms</a>
     
