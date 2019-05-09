@@ -12,6 +12,13 @@
     padding-bottom: 2em; 
     border-bottom: 10px solid white;
     
+    &:before {
+        @include childOverlay;
+        background:black;
+        opacity:0.3;
+        z-index: -1
+    }
+    
     &__brand {
         display: block;
         width: 100%;

@@ -152,7 +152,9 @@ jQuery(document).ready(function( $ ) {
     
 /* MIX IT UP*/
 
-var mixer = mixitup('.mix-it-up');
+	if($('.mix-it-up').length > 0) {
+		mixitup('.mix-it-up');
+	}
 
 // ========== Add class if in viewport on page load
 
