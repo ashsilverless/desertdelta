@@ -132,7 +132,6 @@ jQuery(document).ready(function( $ ) {
     });
     
     $('.latest-news-slider').owlCarousel({
-        animateOut: 'fadeOut',
         loop:true,
         margin:10,
         nav:true,

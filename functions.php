@@ -392,3 +392,5 @@ function remove_admin_menus() {
    remove_menu_page( 'tools.php' ); // Tools
 }
 add_action( 'admin_menu', 'remove_admin_menus' );
+
+add_theme_support( 'post-thumbnails' ); 

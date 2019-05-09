@@ -24,7 +24,7 @@
 				
 			</div>
 			
-			<img src="<?php echo get_field( "image", $id ); ?>"/>
+			<img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id($id), 'large' )[0]; ?>"/>
 			
 			<div>
 				<div><?php echo apply_filters( 'the_content', substr($recent["post_content"], 0, 400) . "..." ); ?></div>
