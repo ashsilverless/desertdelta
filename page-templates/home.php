@@ -37,7 +37,13 @@ get_header();?>
     <?php get_template_part('template-parts/map', 'camps');?>
 
     <?php get_template_part('template-parts/cta', 'cares');?>
+    
+    <?php get_template_part('template-parts/cta', 'itinerary');?>
+ 
+    <?php get_template_part('template-parts/cta', 'newsletter');?> 
 
+    <?php get_template_part('template-parts/cta', 'contact');?> 
+    
 </div><!--content-->
  
 <?php get_footer(); ?>

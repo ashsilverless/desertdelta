@@ -106,6 +106,111 @@
         }
     }
     
+    &.itinerary {
+        padding: 3em;
+        border-bottom:10px solid white;
+        text-align: center;
+        color: white; 
+        
+        img {
+            height: 3em;
+            margin-bottom: 2em;
+        }
+        
+        .quote {
+            width: 30%;
+            margin:0 auto 2em;
+            font-size: 1.5em;
+            
+            em {
+                color: $brand-primary;
+            }
+            
+            span {
+                display: block;
+                margin-top:0.5em;
+                font-style: italic;
+            }
+        }   
+    }
+    
+    &.newsletter {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 3em;
+        padding:3em 20%;
+        border-bottom:10px solid white;
+        background: $brand-mid-grey;
+        color: white;
+        
+        .content {
+            text-align: center;
+            
+            img {
+                width: 200px;
+            }
+            
+            p {
+                text-transform: uppercase;
+                font-size: 2em;
+                line-height: 1em;
+                                
+                span {
+                    display: block;
+                }
+                
+                span:nth-of-type(1) {
+                    font-size: 0.5em;
+                    color: $brand-primary;
+                }
+                
+                span:nth-of-type(2) {
+                    margin-bottom: 0.25em;
+                    font-size: 0.75em;
+                    text-transform: none;
+                    font-style: italic;
+                    color: white;
+                }                
+            }
+
+        }
+
+        em {
+            font-size: 0.75em;
+        }
+        
+    }
+    
+    &.contact {
+        grid-template-columns: 1fr 1fr;
+        grid-gap:3em;
+        padding:5em 2em;
+        
+        .content {
+            grid-column: 2/3;
+            
+            p {
+                font-style: italic;
+                margin-bottom: 2em;
+                color: white;
+            }
+            
+            span {
+                display: block;
+                margin-top:1em;
+                font-style: normal;
+                
+                &:before {
+                    left: 0;
+                }
+            }
+            
+            .socials a {
+                margin-right: 2em;
+                color: white;
+            }
+        }
+    }
+    
 }
 
 
@@ -723,7 +828,6 @@ body.page-template-job-permanent .hero:before {
 
 .pre-socket {
     padding: 3em 0;        
-    border-top: 10px solid white;
     border-bottom: 2px solid white;
     background: $brand-mid-grey;
     color: white;
