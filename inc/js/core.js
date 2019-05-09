@@ -79,7 +79,6 @@ jQuery(document).ready(function( $ ) {
         $('.trigger-copy-expand').show();     
     });
 
-
     $(".trigger-expand").click(function(event) {
         $(this).closest('.expanding-copy').addClass("expand");
     });
