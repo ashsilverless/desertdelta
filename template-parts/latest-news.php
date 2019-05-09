@@ -1,4 +1,4 @@
-<div class="carousel-wrapper pt5 pb5">
+<div class="carousel-wrapper slide-up pt2 pb5">
 	
 	<div class="owl-carousel latest-news-slider">
 	

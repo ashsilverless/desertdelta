@@ -19,6 +19,8 @@ get_header();?>
 	
 	<div class="container container-news">
 		
+		<?php get_template_part('template-parts/breadcrumb'); ?>
+		
 		<div class="container">
 			<?php get_template_part('template-parts/latest-news'); ?>
 		</div>
@@ -27,7 +29,7 @@ get_header();?>
 			
 			<div class="container">
 			
-				<h2 class="heading heading__lg center dark-dot slide-up mb3">Archive</h2>
+				<h2 class="heading heading__lg center dark-dot slide-down mb3">Archive</h2>
 				
 				
 				<?php 

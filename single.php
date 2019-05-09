@@ -16,82 +16,76 @@ get_header();
 
 <?php $heroImage = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); ?>
 
-<div class="wrapper-hero mb3" style="background-image: url(<?php echo $heroImage[0]; ?>);">
+<div class="hero h75" style="background-image: url(<?php echo $heroImage[0]; ?>);">
 
-    <div class="container">
+    <a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>" class="hero__brand slide-down">
+        <?php get_template_part('template-parts/logo');?>
+    </a>
+        
+    <div class="hero__content">       
+
+        <h2 class="heading heading__xl heading__light center slide-up mr1 ml1"><?php the_title(); ?></h2>
+        
+        <h1 class="heading heading__md heading__light center heading__alt-font slow-fade brand-dot"><?php the_date();?></h1>
+   
+    </div>       
     
-        <div class="row">
-                
-            <div class="col-12 wrapper-hero__content text-center">       
-                
-                <h1 class="heading heading__xl heading__light font800">
-                    
-                    <?php if (get_field('hero_heading')):
-                        the_field('hero_heading');
-                    else:    
-                        the_title();
-                    endif;?>
-                    
-                </h1>  
-                          
-                <h2 class="heading heading__sm heading__light font300">
-                    
-                    Posted <?php the_date();?>
-                
-                </h2>
-                               
-            </div>       
-                
-        </div>
-    
-    </div>
-    
-</div>
+</div><!--hero-->
+
 
 <!-- ******************* Hero Content END ******************* -->
  
 <div class="container">
+	
+	<?php get_template_part('template-parts/breadcrumb'); ?>
 
     <div class="row">
-        
-        <div class="col-8">
     
-            <article class="news mt2">
-        
-    			<?php the_content();
-    
-    			the_post_navigation();
-    
-    		endwhile; // End of the loop.
-    		?>
-    
-    </article>
-    
-        </div>
-        
-        <div class="col-4">
-        
-            <?php $ctaImage = get_field('image', 'options');?>
-        
-            <div class="sidebar-cta" style="background-image: url(<?php echo $ctaImage['url']; ?>);">
-            
-            <h3 class="heading heading__lg heading__light font300 mb0"><?php the_field('headline', 'options');?></h3>
-            
-            <p class="heading__md heading__light font300 mb0"><?php the_field('copy', 'options');?></p>
-            
-            <a href="<?php the_field('target', 'options');?>" type="button" class="button mt1 mb1">
-                
-                <?php the_field( 'button_text', 'options' );?>
-                
-            </a>
-            
-        </div>
-    
-        </div>
+        <article class="article-news mt3 mb5 mr3 ml3">
+			
+			<div class="news-container">
+				
+				<?php the_content();
+	
+				endwhile; // End of the loop.
+				?>
+				
+			</div>
+	        
+	        <div class="adjacent-posts mt5">
+		        
+		        <?php
+			        $prev_post = get_previous_post();
+			        $next_post = get_next_post();
+			    ?>
+		        
+		        <?php if( $prev_post ): ?>
+		        
+		        <a href="<?php echo get_permalink($prev_post->ID); ?>" class="previous-post">
+		        
+			        <i class="fas fa-chevron-left"></i>
+			        
+			        <span><?php echo $prev_post->post_title; ?></span>
+			        
+			    </a>
+			    
+			    <?php endif; if( $next_post ): ?>
+			
+				<a href="<?php echo get_permalink($next_post->ID); ?>" class="next-post">
+			        
+			        <span><?php echo $next_post->post_title; ?></span>
+					
+			        <i class="fas fa-chevron-right"></i>
+			        
+			    </a>
+				
+				<?php endif; ?>
+			
+	        </div>
+
+	    </article>
         
     </div>
-
-<a href="/news" class="button mb3">Back To News</a>
 
 </div><!--c-->
 
