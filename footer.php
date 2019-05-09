@@ -47,11 +47,25 @@
     
                         <h4 class="heading heading__xs heading__alt-font heading__primary-color">Reservations</h4>
     
+                        <ul>
+                            
+                            <li><?php the_field('email_address_reservations', 'options');?></li>
+                            <li><?php the_field('telephone_number_reservations', 'options');?></li>
+                            
+                        </ul>
+    
                     </div><!--col-->     
 
                     <div class="col-2">
     
                         <h4 class="heading heading__xs heading__alt-font heading__primary-color">Marketing</h4>
+
+                        <ul>
+                            
+                            <li><?php the_field('email_address_marketing', 'options');?></li>
+                            <li><?php the_field('telephone_number_marketing', 'options');?></li>
+                            
+                        </ul>
     
                     </div><!--col-->                         
 
