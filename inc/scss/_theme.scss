@@ -684,7 +684,25 @@ body.page-template-job-permanent .hero:before {
     }
 }
 
+.accreds {
+    padding: 1em;
+    background: $brand-primary;
+    text-align: center;
+}
 
+.socket {
+    text-transform: uppercase;
+    
+    .mandatory a:first-of-type {
+        margin-right: 0.5em;
+        padding-right: 0.5em;
+        border-right: 1px solid $brand-mid-grey;
+    }
+}
+
+#menu-footer-menu-two {
+    margin-top:1.5em;
+}
 /*===========PAGE SPECIFIC==========*/
 
 .page-template-contact-page {
