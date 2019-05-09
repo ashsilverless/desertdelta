@@ -170,11 +170,15 @@ a.next-section {
 	
 	
 	&__container {
-		display: flex;
-		
-		.mix {
-			padding: 1em;
-			flex: 30%;
-		}
+		display: grid;
+        grid-template-columns: 33% 33% 33%;
+        
+        .mix {
+	        margin: 2em 1em;
+        }
+	}
+	
+	&__controls {
+		text-align: center;
 	}
 }
