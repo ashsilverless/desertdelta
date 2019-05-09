@@ -168,7 +168,6 @@ a.next-section {
 
 .mix-it-up {
 	
-	
 	&__container {
 		display: grid;
         grid-template-columns: 33% 33% 33%;
@@ -180,5 +179,32 @@ a.next-section {
 	
 	&__controls {
 		text-align: center;
+	}
+}
+
+.breadcrumb {
+	justify-content: center;
+	background: none;
+	
+	.breadcrumb-item+.breadcrumb-item {
+		padding-left: 1rem;
+		
+		&:before {
+			content: "|";
+			color: darken($brand-tertiary, 20%);
+			padding-right: 1rem;
+		}
+	}
+	
+	.breadcrumb-item:last-child a {
+		color: darken($brand-tertiary, 40%);
+		pointer-events: none;
+		cursor: default;
+	}
+	
+	a {
+		color: darken($brand-tertiary, 20%);
+		font-family: $supporting-font;
+		text-transform: uppercase;
 	}
 }
