@@ -166,3 +166,15 @@ a.next-section {
     }
 }
 
+.mix-it-up {
+	
+	
+	&__container {
+		display: flex;
+		
+		.mix {
+			padding: 1em;
+			flex: 30%;
+		}
+	}
+}
