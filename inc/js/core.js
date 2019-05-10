@@ -40,6 +40,17 @@ jQuery(document).ready(function( $ ) {
 		else
 			more.html("Read more");
 	});
+	
+/* TOGGLE ACTIVE DIV IN CAMP PAGE */
+
+	$(".camp-actions button").click(function() {
+		$(".camp-actions button").removeClass("active");
+		$(this).addClass("active");
+		
+		var active = ".camp-info ." + $(this).attr("name");
+		$(".camp-info > div").addClass("hidden");
+		$(active).removeClass("hidden");
+	});
 
 /* CLASS AND FOCUS ON CLICK */
 
@@ -155,6 +166,23 @@ jQuery(document).ready(function( $ ) {
 	if($('.mix-it-up').length > 0) {
 		mixitup('.mix-it-up');
 	}
+	
+/* MAGNIFIC POPUP */
+	
+	$('.gallery').magnificPopup({
+		delegate: 'a',
+		type: 'image',
+		tLoading: 'Loading image #%curr%...',
+		mainClass: 'mfp-img-mobile',
+		gallery: {
+			enabled: true,
+			navigateByImgClick: true,
+			preload: [0,1]
+		},
+		image: {
+			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+		}
+	});
 
 // ========== Add class if in viewport on page load
 

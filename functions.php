@@ -68,43 +68,43 @@ function my_custom_fonts() {
 <style>
 #menu-posts-camp .dashicons-admin-post:before{font-family:dashicons;content:"\f102"}#toplevel_page_testimonials .dashicons-admin-generic:before{font-family:dashicons;content:"\f101"}#toplevel_page_call-to-action .dashicons-admin-generic:before{font-family:dashicons;content:"\f488"}.taxonomy-where tr.form-field.term-description-wrap,body.taxonomy-what .form-field.term-description-wrap,body.taxonomy-when .form-field.term-description-wrap,body.taxonomy-where .form-field.term-description-wrap{display:none}#wpcontent,#wpfooter,#wpwrap{background:#cdc7c0}#adminmenu,#adminmenu .wp-submenu,#adminmenuback,#adminmenuwrap,#wpadminbar{background-color:#362b3a}#adminmenu .wp-has-current-submenu .wp-submenu,#adminmenu .wp-has-current-submenu .wp-submenu.sub-open,#adminmenu .wp-has-current-submenu.opensub .wp-submenu,#adminmenu a.wp-has-current-submenu:focus+.wp-submenu,.no-js li.wp-has-current-submenu:hover .wp-submenu{background-color:#302036}#adminmenu .wp-has-current-submenu .wp-submenu .wp-submenu-head,#adminmenu .wp-menu-arrow,#adminmenu .wp-menu-arrow div,#adminmenu li.current a.menu-top,#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,.folded #adminmenu li.current.menu-top,.folded #adminmenu li.wp-has-current-submenu{background:#312036;color:#e57732}ul#adminmenu a.wp-has-current-submenu:after,ul#adminmenu>li.current>a.current:after{border-right-color:#cdc7c0}#adminmenu .wp-submenu a:focus,#adminmenu .wp-submenu a:hover,#adminmenu a:hover,#adminmenu li.menu-top>a:focus{color:#e4652f}
 
-.post-type-page .acf-postbox {
+.post-type-page .acf-postbox, .post-type-camps .acf-postbox {
   background: hsl(283, 14%, 20%);
   border-color: hsl(283, 14%, 20%);
 }
 
-.post-type-page #poststuff h2 {
+.post-type-page #poststuff h2, .post-type-camps #poststuff h2 {
   font-size: 14px;
   color: hsl(32, 12%, 78%);
   border:none;
   }
 
-.post-type-page .acf-fields>.acf-field {
+.post-type-page .acf-fields>.acf-field, .post-type-camps .acf-fields>.acf-field {
   border-color: hsl(30, 9%, 71%) !important;
 }
 
-.post-type-page .acf-flexible-content .layout {
+.post-type-page .acf-flexible-content .layout, .post-type-camps .acf-flexible-content .layout {
   background: hsl(32, 12%, 78%);
   border: none;
   margin-bottom:50px;
 }
 
-.post-type-page .acf-flexible-content .layout .acf-fc-layout-handle {
+.post-type-page .acf-flexible-content .layout .acf-fc-layout-handle, .post-type-camps .acf-flexible-content .layout .acf-fc-layout-handle {
     font-size:18px;
     text-transform:uppercase;
     font-weight:900;}
 
-.post-type-page .acf-flexible-content .layout .acf-fc-layout-order {
+.post-type-page .acf-flexible-content .layout .acf-fc-layout-order, .post-type-camps .acf-flexible-content .layout .acf-fc-layout-order {
   background: hsl(15, 73%, 46%);
   font-size: 12px;
   color: hsl(0, 0%, 100%);
 }
 
-.post-type-page .acf-flexible-content .no-value-message {
+.post-type-page .acf-flexible-content .no-value-message, .post-type-camps .acf-flexible-content .no-value-message {
   color: hsl(0, 0%, 100%);
 }
 
-.post-type-page .inside.acf-fields > .acf-field > .acf-label {
+.post-type-page .inside.acf-fields > .acf-field > .acf-label, .post-type-camps .inside.acf-fields > .acf-field > .acf-label {
     color: hsl(0, 0%, 100%);
     text-transform: uppercase;
     font-size: 24px;

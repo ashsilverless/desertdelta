@@ -12,61 +12,120 @@ the_post(); ?>
 
 <!-- ******************* Hero Content ******************* -->
 
-<?php $heroImage = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); ?>
+<div class="content has-hero">
 
-<div class="hero h75" style="background-image: url(<?php echo $heroImage[0]; ?>);">
-
-    <a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>" class="hero__brand slide-down">
-        <?php get_template_part('template-parts/logo');?>
-    </a>
-    
-</div><!--hero-->
-
-
-<!-- ******************* Hero Content END ******************* -->
- 
-<div class="container-camp">
-
-    <div class="container">
-    
-    	<div class="camp-header">
-	        <h1 class="heading heading__lg font700 camp-title"><?php the_title(); ?></h1>
-	        
-	        <?php 
-		        
-	        $destination = get_the_terms($post->ID, 'destination')[0];
-	        if($destination):
-	        
-	        ?>
-		        
-	        <div class="camp-location"><?php echo $destination->name; ?></div>
-	        
-	        <?php endif; $description = "<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisl nunc, lobortis eget cursus non, mollis ut ligula. Maecenas efficitur at arcu eu luctus. Nullam consectetur velit nisl, pretium tempor quam imperdiet vel. Duis a purus vitae est pharetra iaculis. Pellentesque sit amet magna gravida, dapibus quam in, consequat turpis. Donec placerat libero non ex rutrum, a luctus nisl pretium. Integer rutrum eget enim sit amet cursus. Cras id rhoncus tellus, et scelerisque nibh.
-</p>
-<p>
-Cras bibendum imperdiet interdum. Donec quis sollicitudin arcu. Curabitur vitae condimentum nisi, ut consectetur sem. Pellentesque egestas commodo orci, ac viverra sem blandit nec. In hac habitasse platea dictumst. Morbi eu sem lorem. In elementum magna in auctor tristique. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam elementum tellus nunc.
-</p>";?>
-	        
-	        <div class="camp-description closed">
-		        <?php echo $description; ?>
-	        </div>
-	        
-	        <div class="read-more">Read More</div>
-	        
-	        <div class="camp-actions">
-		        <button>BUTTONS</button>
-		        <button>BUTTONS</button>
-		        <button>BUTTONS</button>
-	        </div>
-	    </div>
-        
-    </div>
-
-</div><!--c-->
-
-<?php
+	<?php $heroImage = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); ?>
 	
-endwhile;
+	<div class="hero h75" style="background-image: url(<?php echo $heroImage[0]; ?>);">
+	
+	    <a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>" class="hero__brand slide-down">
+	        <?php get_template_part('template-parts/logo');?>
+	    </a>
+	    
+	</div><!--hero-->
+	
+	
+<!-- ******************* Hero Content END ******************* -->
+	 
+	<div class="container-camp">
+	
+	    <div class="container">
+	    
+	    	<div class="camp-header">
+		        <h1 class="heading heading__lg font700 camp-title"><?php the_title(); ?></h1>
+		        
+		        <?php 
+			        
+		        $destination = get_the_terms($post->ID, 'destination')[0];
+		        if($destination):
+		        
+		        ?>
+			        
+		        <div class="camp-location"><?php echo $destination->name; ?></div>
+		        
+		        <?php endif;?>
+		        
+		        <div class="camp-description closed">
+			        <?php echo get_field("description"); ?>
+		        </div>
+		        
+		        <div class="read-more">Read More</div>
+		        
+		        <div class="camp-actions">
+			        <div><button name="video" class="active"><i class="fas fa-video"></i>Video</button></div>
+			        <div><button name="gallery"><i class="fas fa-camera"></i>Gallery</button></div>
+			        <div><button name="data"><i class="fas fa-cogs"></i>Data</button></div>
+		        </div>
+		    </div>
+	        
+	    </div>
+	    
+	    <div class="camp-info">
+		    
+		    <div class="video hidden">
+			    
+		    </div>
+		    
+		    <div class="gallery hidden">
+			    
+			    <?php 
+	
+				$images = get_field('gallery');
+				
+				if( $images ): ?>
+			        <?php foreach( $images as $image ): $url = $image['url']; ?>
+			        
+	                <a href="<?php echo $image['url']; ?>" style='background-image: url(<?php echo $url; ?>)'></a>
+	                
+			        <?php endforeach; ?>
+				<?php endif; ?>
+				
+		    </div>
+		    
+		    <div class="data">
+			    
+			    <div class="container">
+				    
+				    <?php if( have_rows('data') ): while ( have_rows('data') ) : the_row(); ?>
+					
+					<div class="row-data mb5">
+	
+						<h3 class="heading heading__alt-font font700"><?php the_sub_field('info_title'); ?></h3>
+						
+						<table>
+							<colgroup width="25%">
+							
+							<?php if( have_rows('more_info') ): while ( have_rows('more_info') ) : the_row(); ?>
+							
+								<tr>
+									<th><?php the_sub_field('info_name'); ?></th>
+									<td><?php the_sub_field('info_description'); ?></td>
+								</tr>
+							
+							<?php endwhile; endif; ?>
+							
+						</table>
+						
+					</div>
+					
+					<?php endwhile; endif; ?>
+				    
+			    </div>
+			    
+		    </div>
+		
+	    </div>
+	    
+	    <div class="camp-plant h50"></div>
+	
+	</div><!--c-->
+	
+	<?php get_template_part('template-parts/map', 'camps');?>
+	
+	<?php get_template_part('template-parts/cta', 'itinerary');?>
 
+</div>
+
+<?php endwhile;
+	
 get_footer();
