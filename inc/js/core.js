@@ -26,20 +26,20 @@ jQuery(document).ready(function( $ ) {
         }
     });
     
-/* File upload name */
+/* TOGGLE SLIDE OF CAMP LONG DESCRIPTION */
 
-	$(document).ready(function(){
-        $('input#fileupload').change(function(){
-	        var file = $("input[type=file]")[0].files;
-	        var name = file.length > 0 ? file[0].name : "";
-	        
-	        if(file.length > 0 && name) {
-		        $('.custom-file-upload').addClass('attached');
-	        }
-	        
-	        $(".file-name").text(name);
-        });
-    });
+	$(".camp-header .read-more").click(function() {
+		
+		$(".camp-description").toggleClass("closed");
+		
+		var more = $(this);
+		more.toggleClass("open");
+	
+		if (more.hasClass("open"))
+			more.html("Read less");
+		else
+			more.html("Read more");
+	});
 
 /* CLASS AND FOCUS ON CLICK */
 

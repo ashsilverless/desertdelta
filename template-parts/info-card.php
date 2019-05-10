@@ -1,8 +1,8 @@
-<div class="news-card slide-up">
+<div class="info-card slide-up">
 		
 	<img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' )[0]; ?>"/>
 			
-	<div class="news-card__text mt2 ml3 mr3">
+	<div class="info-card__text mt2 ml3 mr3">
 		
 		<span class="mb1"><?php echo get_the_date( 'j F Y', $post->ID ); ?></span>
 		

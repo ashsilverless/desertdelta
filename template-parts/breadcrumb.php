@@ -2,9 +2,13 @@
 	
 	<ol class="breadcrumb">
 		
-		<?php if(is_single()): $post = get_page_by_path( get_page_uri(), OBJECT, "post" ); ?>
+		<?php if(is_singular("post")): $post = get_page_by_path( get_page_uri(), OBJECT, "post" ); ?>
 		
 			<li class="breadcrumb-item"><a href="/news">News</a></li>
+			
+			<li class="breadcrumb-item"><a href="<?php echo get_permalink($post); ?>"><?php echo get_the_title($post); ?></a></li>
+			
+		<?php elseif(is_singular("camps")): $post = get_page_by_path( get_page_uri(), OBJECT, "camps" ); ?>
 			
 			<li class="breadcrumb-item"><a href="<?php echo get_permalink($post); ?>"><?php echo get_the_title($post); ?></a></li>
 		

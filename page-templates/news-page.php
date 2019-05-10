@@ -73,7 +73,7 @@ get_header();?>
 							
 							<?php
 								set_query_var('post', $post);
-								get_template_part('template-parts/news-card');
+								get_template_part('template-parts/info-card');
 							?>
 								
 						</div>
@@ -89,6 +89,16 @@ get_header();?>
 		</div>
 		
 	</div><!--c-->
+	
+	<?php get_template_part('template-parts/map', 'camps');?>
+
+    <?php get_template_part('template-parts/cta', 'cares');?>
+    
+    <?php get_template_part('template-parts/cta', 'itinerary');?>
+ 
+    <?php get_template_part('template-parts/cta', 'newsletter');?> 
+
+    <?php get_template_part('template-parts/cta', 'contact');?> 
 
 </div><!--content-->
  

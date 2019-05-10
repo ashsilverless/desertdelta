@@ -393,4 +393,7 @@ function remove_admin_menus() {
 }
 add_action( 'admin_menu', 'remove_admin_menus' );
 
+/*
+* Add option of uploading images to posts
+*/
 add_theme_support( 'post-thumbnails' ); 
