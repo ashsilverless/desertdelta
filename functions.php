@@ -73,7 +73,7 @@ function my_custom_fonts() {
   border-color: hsl(283, 14%, 20%);
 }
 
-.post-type-page #poststuff h2, .post-type-camps #poststuff h2 {
+.post-type-page #poststuff #normal-sortables h2, .post-type-camps #poststuff #normal-sortables h2 {
   font-size: 14px;
   color: hsl(32, 12%, 78%);
   border:none;
@@ -108,7 +108,7 @@ function my_custom_fonts() {
     color: hsl(0, 0%, 100%);
     text-transform: uppercase;
     font-size: 24px;
-    }
+}
 
 </style>';
 }
