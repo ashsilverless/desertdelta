@@ -67,7 +67,7 @@ the_post(); ?>
 			    
 			    <video controls>
 				    
-					<source src="<?php the_field('video'); ?>" type="video/mp4">
+					<source src="<?php the_field('video'); ?>">
 					
 				</video>
 				

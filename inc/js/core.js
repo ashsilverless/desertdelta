@@ -28,9 +28,9 @@ jQuery(document).ready(function( $ ) {
     
 /* TOGGLE SLIDE OF CAMP LONG DESCRIPTION */
 
-	$(".camp-header .read-more").click(function() {
+	$(".read-more").click(function() {
 		
-		$(".camp-description").toggleClass("closed");
+		$(this).prev().toggleClass("closed");
 		
 		var more = $(this);
 		more.toggleClass("open");
@@ -50,6 +50,13 @@ jQuery(document).ready(function( $ ) {
 		var active = ".camp-info ." + $(this).attr("name");
 		$(".camp-info > div").addClass("hidden");
 		$(active).removeClass("hidden");
+	});
+
+/* TOGGLE COLLAPSE ON ITINERARY PAGE */
+
+	$(".item-itinerary h3").click(function() {
+		$(this).parent().find(".collapsible").slideToggle();
+		$(this).closest("tr").siblings().find(".collapsible").slideUp();
 	});
 
 /* CLASS AND FOCUS ON CLICK */

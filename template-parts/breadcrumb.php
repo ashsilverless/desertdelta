@@ -12,6 +12,12 @@
 			
 			<li class="breadcrumb-item"><a href="<?php echo get_permalink($post); ?>"><?php echo get_the_title($post); ?></a></li>
 		
+		<?php elseif(is_singular("itineraries")): $post = get_page_by_path( get_page_uri(), OBJECT, "itineraries" ); ?>
+			
+			<li class="breadcrumb-item"><a href="/itineraries">Itineraries</a></li>
+			
+			<li class="breadcrumb-item"><a href="<?php echo get_permalink($post); ?>"><?php echo get_the_title($post); ?></a></li>
+		
 		<?php elseif(is_page()):
 		
 		$page_names = explode("/", get_page_uri());

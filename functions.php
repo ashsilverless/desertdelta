@@ -366,10 +366,11 @@ add_filter('template_include', 'template_chooser');
 function reorder_admin_menu( $__return_true ) {
     return array(
 		'index.php',                        // Dashboard
-		'edit.php?post_type=camps', // Camps
+		'edit.php?post_type=camps',         // Camps
+		'edit.php?post_type=itineraries',   // Itineraries
 		'separator1',                       // --Space--
 		'edit.php',                         // Posts
-		'edit.php?post_type=page', // Pages
+		'edit.php?post_type=page',          // Pages
 		'upload.php',                       // Media
 		'separator2',                       // --Space--
 		'themes.php',                       // Appearance
