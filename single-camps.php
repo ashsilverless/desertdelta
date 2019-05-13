@@ -62,8 +62,16 @@ the_post(); ?>
 	    
 	    <div class="camp-info">
 		    
-		    <div class="video h75 ml5">
-			    VIDEO BLOCK
+		    <div class="video">
+			    <?php if( get_field('video') ): ?>
+			    
+			    <video controls>
+				    
+					<source src="<?php the_field('video'); ?>" type="video/mp4">
+					
+				</video>
+				
+				<?php endif; ?>
 		    </div>
 		    
 		    <div class="gallery hidden">

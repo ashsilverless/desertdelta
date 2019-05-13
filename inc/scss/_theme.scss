@@ -1006,6 +1006,15 @@
 		position: relative;
 		z-index: 10;
 		
+		.video {
+			padding: 10px;
+			
+			video {
+				width: 100%;
+				outline: none;
+			}
+		}
+		
 		.gallery {
 			border-bottom: 5px solid white;
 		}
