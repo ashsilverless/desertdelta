@@ -143,7 +143,7 @@ the_post(); ?>
 	
 	<?php get_template_part('template-parts/map', 'camps');?>
 	
-	<!--<?php get_template_part('template-parts/other-camps');?>-->
+	<?php get_template_part('template-parts/other-itineraries');?>
 
 </div>
 

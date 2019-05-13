@@ -659,7 +659,7 @@
     }
 }
 
-.all-news, .other-camps {
+.all-news, .other-camps, .other-itineraries {
 	background-color: $body-color;
 	padding: 3em 5em;
 	
@@ -731,6 +731,11 @@
 	border-top: 10px solid white;
 	border-bottom: 10px solid white;
 	background: white;
+}
+
+.other-itineraries {
+	border-top: 10px solid white;
+	border-bottom: 10px solid white;
 }
 
 .wrapper-cards {
