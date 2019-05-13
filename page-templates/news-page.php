@@ -73,6 +73,7 @@ get_header();?>
 							
 							<?php
 								set_query_var('post', $post);
+								set_query_var('date', true);
 								get_template_part('template-parts/info-card');
 							?>
 								

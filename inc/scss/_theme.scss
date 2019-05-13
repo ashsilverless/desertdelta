@@ -659,7 +659,7 @@
     }
 }
 
-.all-news {
+.all-news, .other-camps {
 	background-color: $body-color;
 	padding: 3em 5em;
 	
@@ -724,6 +724,26 @@
 		border: 1px solid grey;
 		margin: 2em;
 		color: grey;
+	}
+}
+
+.other-camps {
+	border-top: 10px solid white;
+	border-bottom: 10px solid white;
+	background: white;
+}
+
+.wrapper-cards {
+	text-align: center;
+	
+	.wrapper-card {
+		width: 33%;
+		padding: 1em;
+		display: inline-block;
+		
+		&.light .info-card {
+			background: $body-color;
+		}
 	}
 }
 
@@ -864,7 +884,6 @@
 }
 
 .container-camp {
-	border-bottom: 10px solid white;
 	
 	.container {
 		padding: 3em 3em 1em 3em;
@@ -987,6 +1006,10 @@
 		position: relative;
 		z-index: 10;
 		
+		.gallery {
+			border-bottom: 5px solid white;
+		}
+		
 		.hidden {
 			display: none;
 		}
@@ -1024,6 +1047,17 @@
 				}
 			}
 		}
+	}
+	
+	.camp-plan {
+		@include backgroundCover;
+		border-bottom: 10px solid white;
+	}
+	
+	.camp-footer-text {
+		column-count: 2;
+		column-gap: 3em;
+		line-height: 2em;
 	}
 }
 

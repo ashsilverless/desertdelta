@@ -62,8 +62,8 @@ the_post(); ?>
 	    
 	    <div class="camp-info">
 		    
-		    <div class="video hidden">
-			    
+		    <div class="video h75 ml5">
+			    VIDEO BLOCK
 		    </div>
 		    
 		    <div class="gallery hidden">
@@ -82,7 +82,7 @@ the_post(); ?>
 				
 		    </div>
 		    
-		    <div class="data">
+		    <div class="data hidden">
 			    
 			    <div class="container">
 				    
@@ -116,11 +116,19 @@ the_post(); ?>
 		
 	    </div>
 	    
-	    <div class="camp-plant h50"></div>
+	    <div class="camp-plan h50" style='background-image: url(<?php echo get_field('plan_image')["url"]; ?>)'></div>
+	    
+	    <div class="container">
+		    
+		    <div class="camp-footer-text mt4"><div><?php the_field('footer_text'); ?></div></div>
+		    
+	    </div>
 	
 	</div><!--c-->
 	
 	<?php get_template_part('template-parts/map', 'camps');?>
+	
+	<?php get_template_part('template-parts/other-camps');?>
 	
 	<?php get_template_part('template-parts/cta', 'itinerary');?>
 
