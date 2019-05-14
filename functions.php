@@ -110,6 +110,10 @@ function my_custom_fonts() {
     font-size: 24px;
 }
 
+.term-description-wrap, .term-parent-wrap{
+	display:none;
+}
+
 </style>';
 }
 
@@ -398,3 +402,16 @@ add_action( 'admin_menu', 'remove_admin_menus' );
 * Add option of uploading images to posts
 */
 add_theme_support( 'post-thumbnails' ); 
+
+/**
+ * Remove the 'description' column from the table in 'edit-tags.php'
+ * but only for the 'post_tag' taxonomy
+ */
+function remove_description_taxonomy( $columns ) {
+	
+    if( isset( $columns['description'] ) )
+        unset( $columns['description'] );
+
+    return $columns;
+};
+add_filter('manage_edit-destinations_columns', 'remove_description_taxonomy');

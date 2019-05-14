@@ -41,14 +41,14 @@ jQuery(document).ready(function( $ ) {
 			more.html("Read more");
 	});
 	
-/* TOGGLE ACTIVE DIV IN CAMP PAGE */
+/* TOGGLE ACTIVE DIV IN CAMP AND DESTINATION PAGE */
 
-	$(".camp-actions button").click(function() {
-		$(".camp-actions button").removeClass("active");
+	$(".custom-actions button").click(function() {
+		$(".custom-actions button").removeClass("active");
 		$(this).addClass("active");
 		
-		var active = ".camp-info ." + $(this).attr("name");
-		$(".camp-info > div").addClass("hidden");
+		var active = ".custom-info ." + $(this).attr("name");
+		$(".custom-info > div").addClass("hidden");
 		$(active).removeClass("hidden");
 	});
 

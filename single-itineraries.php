@@ -109,7 +109,7 @@ the_post(); ?>
 										
 										<?php
 											
-										$destination = get_the_terms($camp->ID, 'destination');
+										$destination = get_the_terms($camp->ID, 'destinations');
 										
 										if($destination): ?>
 										

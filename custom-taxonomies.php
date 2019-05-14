@@ -23,13 +23,13 @@ function taxonomy_destination() {
         'menu_name'         => __( 'Destinations'         )
     );     
     
-    register_taxonomy( 'destination', array( 'camps' ), array(
+    register_taxonomy( 'destinations', array( 'camps' ), array(
         'hierarchical'      => true,
         'labels'            => $labels,
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'destination', 'hierarchical' => true )
+        'rewrite'           => array( 'slug' => 'destinations', 'hierarchical' => true )
     ));
 }
 
@@ -50,12 +50,12 @@ function taxonomy_package() {
         'menu_name'         => __( 'Packages'         )
     );     
     
-    register_taxonomy( 'package', array( 'camps' ), array(
+    register_taxonomy( 'packages', array( 'camps' ), array(
         'hierarchical'      => true,
         'labels'            => $labels,
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'package', 'hierarchical' => true )
+        'rewrite'           => array( 'slug' => 'packages', 'hierarchical' => true )
     ));
 }

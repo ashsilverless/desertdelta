@@ -6,9 +6,9 @@
  */
 
 get_header();
+$term = get_queried_object();
 
-while ( have_posts() ) :
-the_post(); ?>
+?>
 
 <!-- ******************* Hero Content ******************* -->
 
@@ -32,29 +32,21 @@ the_post(); ?>
 	    <div class="container">
 	    
 	    	<div class="custom-header">
-		        <h1 class="heading heading__lg font700 custom-title"><?php the_title(); ?></h1>
-		        
-		        <?php 
+		    	
+		        <h1 class="heading heading__lg font700 custom-title"><?php echo $term->name; ?></h1>
 			        
-		        $destination = get_the_terms($post->ID, 'destinations')[0];
-		        if($destination):
-		        
-		        ?>
-			        
-		        <div class="custom-location"><a href="<?php echo get_term_link($destination->term_id); ?>"><?php echo $destination->name; ?></a></div>
-		        
-		        <?php endif;?>
+		        <div class="custom-location">Botswana</div>
 		        
 		        <div class="custom-description closed">
-			        <?php echo get_field("description"); ?>
+			        <?php echo get_field("description", $term); ?>
 		        </div>
 		        
 		        <div class="read-more">Read More</div>
 		        
 		        <div class="custom-actions">
-			        <div><button name="video" class="active"><i class="fas fa-video"></i>Video</button></div>
+			        <div><button name="lodges" class="active"><i class="fas fa-campground"></i></i>Lodges</button></div>
 			        <div><button name="gallery"><i class="fas fa-camera"></i>Gallery</button></div>
-			        <div><button name="data"><i class="fas fa-cogs"></i>Data</button></div>
+			        <div><button name="data"><i class="fas fa-cogs"></i>Quick facts</button></div>
 		        </div>
 		    </div>
 	        
@@ -62,23 +54,50 @@ the_post(); ?>
 	    
 	    <div class="custom-info">
 		    
-		    <div class="video">
-			    <?php if( get_field('video') ): ?>
+		    <div class="lodges container">
 			    
-			    <video controls>
-				    
-					<source src="<?php the_field('video'); ?>">
-					
-				</video>
+			    <?php
+	
+				$args = array(
+					'numberposts' => -1,
+					'post_type'   => 'camps',
+					'tax_query' => array(
+						array(
+							'taxonomy' => 'destinations',
+							'field'    => 'slug',
+							'terms'    => $term->slug
+						)
+					)
+				);
+				$posts = get_posts( $args ); ?>
 				
-				<?php endif; ?>
+				<div class="wrapper-cards">
+					
+				<?php foreach($posts as $post): ?>
+				
+					<div class="wrapper-card light">
+						
+					<?php
+			
+					set_query_var('post', $post);
+					set_query_var('date', false);
+					get_template_part('template-parts/info-card');
+					
+					?>
+					
+					</div>
+				
+				<?php endforeach; ?>
+				
+				</div>
+			    
 		    </div>
 		    
 		    <div class="gallery hidden">
 			    
 			    <?php 
 	
-				$images = get_field('gallery');
+				$images = get_field('gallery', $term);
 				
 				if( $images ): ?>
 			        <?php foreach( $images as $image ): $url = $image['url']; ?>
@@ -93,30 +112,23 @@ the_post(); ?>
 		    <div class="data hidden">
 			    
 			    <div class="container">
+				    <?php 
+					    
+				    $quick_facts = get_field('quick_facts', $term);
+					
+					if( sizeof($quick_facts) > 0 ): ?>
 				    
-				    <?php if( have_rows('data') ): while ( have_rows('data') ) : the_row(); ?>
-					
-					<div class="row-data mb5">
-	
-						<h3 class="heading heading__alt-font font700"><?php the_sub_field('info_title'); ?></h3>
+				    <ul class="custom-list mt3 mb5">
+					    
+					    <?php foreach($quick_facts as $fact): ?>
+					    
+						<li><i class="fas fa-check"></i><?php echo $fact["fact"]; ?></li>
 						
-						<table>
-							<colgroup width="25%">
-							
-							<?php if( have_rows('more_info') ): while ( have_rows('more_info') ) : the_row(); ?>
-							
-								<tr>
-									<th><?php the_sub_field('info_name'); ?></th>
-									<td><?php the_sub_field('info_description'); ?></td>
-								</tr>
-							
-							<?php endwhile; endif; ?>
-							
-						</table>
-						
-					</div>
+						<?php endforeach; ?>
 					
-					<?php endwhile; endif; ?>
+					</ul>
+					
+					<?php endif; ?>
 				    
 			    </div>
 			    
@@ -124,11 +136,9 @@ the_post(); ?>
 		
 	    </div>
 	    
-	    <div class="camp-plan h50" style='background-image: url(<?php echo get_field('plan_image')["url"]; ?>)'></div>
-	    
 	    <div class="container">
 		    
-		    <div class="custom-footer-text mt4"><div><?php the_field('footer_text'); ?></div></div>
+		    <div class="custom-footer-text mt4"><div><?php the_field('footer_text', $terms); ?></div></div>
 		    
 	    </div>
 	
@@ -136,12 +146,10 @@ the_post(); ?>
 	
 	<?php get_template_part('template-parts/map', 'camps');?>
 	
-	<?php get_template_part('template-parts/other-camps');?>
-	
 	<?php get_template_part('template-parts/cta', 'itinerary');?>
 
 </div>
 
-<?php endwhile;
+<?php
 	
 get_footer();

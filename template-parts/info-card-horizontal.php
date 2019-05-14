@@ -5,7 +5,7 @@
 	$content = $post->post_content ? $post->post_content : get_field("description", $post->ID); ?>
 		
 	<img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' )[0]; ?>"/>
-	
+			
 	<div>
 		
 	<div class="info-card__text mt2 ml3 mr3">
