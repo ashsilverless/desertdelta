@@ -594,9 +594,27 @@
 		padding: 1em 2em;
 		display: block;
 		text-align: left;
-		border: 1px solid grey;
-		margin: 2em;
-		color: grey;
+		margin: 0 2em;
+		
+		&.info-read-more {
+			border: 1px solid grey;
+			color: grey;
+			margin: 2em;
+		}
+		
+		&.button {
+			margin-bottom: 2em;
+			display: flex;
+			align-items: center;
+			
+			&:not(:last-child) {
+				margin-bottom: 0.5em;
+			}
+			
+			i {
+				margin-right: 0.5em;
+			}
+		}
 	}
 }
 
@@ -665,6 +683,13 @@
 		border: none;
 		outline: none;
 		cursor: pointer;
+		color: hsl(69, 2%, 31%);
+		transition: $fastEffect;
+		
+		&.active {
+			background-color: $brand-primary;
+			color: white;
+		}
 	}
 }
 

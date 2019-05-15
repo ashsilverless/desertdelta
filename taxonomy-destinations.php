@@ -14,9 +14,9 @@ $term = get_queried_object();
 
 <div class="content has-hero">
 
-	<?php $heroImage = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); ?>
+	<?php $heroImage = get_field("image", $term)["url"]; ?>
 	
-	<div class="hero h75" style="background-image: url(<?php echo $heroImage[0]; ?>);">
+	<div class="hero h75" style="background-image: url(<?php echo $heroImage; ?>);">
 	
 	    <a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>" class="hero__brand slide-down">
 	        <?php get_template_part('template-parts/logo');?>
@@ -44,7 +44,7 @@ $term = get_queried_object();
 		        <div class="read-more">Read More</div>
 		        
 		        <div class="custom-actions">
-			        <div><button name="lodges" class="active"><i class="fas fa-campground"></i></i>Lodges</button></div>
+			        <div><button name="lodges" class="active"><i class="fas fa-campground"></i>Lodges</button></div>
 			        <div><button name="gallery"><i class="fas fa-camera"></i>Gallery</button></div>
 			        <div><button name="data"><i class="fas fa-cogs"></i>Quick facts</button></div>
 		        </div>

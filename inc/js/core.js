@@ -58,6 +58,22 @@ jQuery(document).ready(function( $ ) {
 		$(this).parent().find(".collapsible").slideToggle();
 		$(this).closest("tr").siblings().find(".collapsible").slideUp();
 	});
+	
+/* FILTER DESTINATION */
+
+	$(".wrapper-destinations .menu button").click(function() {
+		var destination = $(this).attr("name");
+		
+		$(this).siblings().removeClass("active");
+		$(this).addClass("active");
+		
+		if(destination == "all") {
+			$(".wrapper-cards-horizontal .wrapper-card").slideDown();
+		} else {
+			$(".wrapper-cards-horizontal .wrapper-card:not(." + destination + ")").slideUp();
+			$(".wrapper-cards-horizontal .wrapper-card." + destination).slideDown();
+		}
+	});
 
 /* CLASS AND FOCUS ON CLICK */
 

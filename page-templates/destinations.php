@@ -36,7 +36,7 @@ get_header();?>
 	        
 	        <div class="menu">
 		        
-		        <button>All</button>
+		        <button name="all" class="active">All</button>
 		        
 		        <?php
 			        
@@ -52,24 +52,15 @@ get_header();?>
 		        
 	        </div>
 	        
-		        
-	        <?php
-			
-			$args = array(
-				'numberposts' => -1,
-				'post_type'   => 'itineraries'
-			);
-			$posts = get_posts( $args ); ?>
-			
-			<div class="wrapper-cards-horizontal">
+	        <div class="wrapper-cards-horizontal">
 				
-			<?php foreach($posts as $post): ?>
+			<?php foreach($terms as $term): ?>
 			
-				<div class="wrapper-card mb2 <?php echo get_the_terms($post->ID, 'destinations')[0]->name; ?>">
+				<div class="wrapper-card mb2 <?php echo $term->slug; ?>">
 					
 				<?php
 		
-				set_query_var('post', $post);
+				set_query_var('destinations_taxonomy', $term);
 				set_query_var('date', false);
 				get_template_part('template-parts/info-card');
 				
