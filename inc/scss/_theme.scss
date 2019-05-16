@@ -74,12 +74,10 @@
 /*===========BODY==========*/
 
 .map {
-    @include backgroundCover;
     position: relative;
-    height: 50vh;
-    background:url('inc/img/holding-map.jpg');
-    
-    
+    z-index: 1;
+    margin-bottom: 100vh;
+
     &:before {
         content:'';
         position: absolute;
@@ -88,6 +86,40 @@
         background-image: linear-gradient($body-color, transparent);
         
     }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        min-width: 100%;
+    }
+    
+    svg {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        height: 100%;
+        left: 0;
+        width: 100%;
+        
+        circle {
+            fill:$brand-primary;
+            animation: shadow-pulse 1.5s infinite;
+            stroke:$brand-primary;
+        }
+        
+    }
+    
+}
+
+@keyframes shadow-pulse
+{
+  0% {
+    stroke-width:0px;
+  }
+  100% {
+    stroke-width:20px;
+    stroke:hsla(0, 0%, 0%, 0);
+  }
 }
 
 .cta {
