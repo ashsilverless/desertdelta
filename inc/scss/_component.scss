@@ -240,3 +240,57 @@ a.next-section {
 .mfp-with-zoom.mfp-removing.mfp-bg {
 	opacity: 0;
 }
+
+
+.wpcf7-form {
+	
+	p {
+		font-size: 1em;
+	}
+	
+	label {
+		display: block;
+		text-transform: uppercase;
+		color: grey;
+		letter-spacing: 0.05em;
+		margin-bottom: 2em;
+
+		
+		input, textarea {
+			width: 100%;
+			padding: 0.5em;
+			border: none;
+			outline: none;
+			margin-top: 0.5em;
+			font-weight: 100;
+			letter-spacing: 0.05em;
+		}
+		
+		.optional {
+			color: $brand-secondary;
+			text-transform: uppercase;
+			display: block;
+			font-weight: 700;
+			letter-spacing: 0.05em;
+			font-size: 0.9em;
+			float: right;
+			margin-right: 1em;
+		}
+	}
+	
+	.button {
+		width: 40%;
+		font-family: $brand-font
+	}
+}
+
+div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-ok {
+	border: none;
+	background-color: $brand-tertiary;
+	margin: 0;
+	padding: 1em;
+}
+
+span.wpcf7-not-valid-tip {
+	color: $brand-secondary;
+}

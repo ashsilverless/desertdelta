@@ -40,16 +40,6 @@
         h3 {
             position: relative;
             margin:0.5em 0 1em;
-            
-            &:before {
-                content:'';
-                position: absolute;
-                bottom: -0.5em;
-                left: 0;
-                width:50px;
-                height: 3px;
-                background: $brand-secondary;
-            }
         }
         
         svg {

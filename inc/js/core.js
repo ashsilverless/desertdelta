@@ -54,9 +54,15 @@ jQuery(document).ready(function( $ ) {
 
 /* TOGGLE COLLAPSE ON ITINERARY PAGE */
 
-	$(".item-itinerary h3").click(function() {
+	$(".item-timeline h3").click(function() {
 		$(this).parent().find(".collapsible").slideToggle();
 		$(this).closest("tr").siblings().find(".collapsible").slideUp();
+	});
+	
+/* TRIGGER TIMELINE AFTER CLICK ON CIRCLE */
+
+	$(".circle").click(function() {
+		$(this).parents("tr").find(".item-timeline h3").trigger("click");
 	});
 	
 /* FILTER DESTINATION */
@@ -73,6 +79,13 @@ jQuery(document).ready(function( $ ) {
 			$(".wrapper-cards-horizontal .wrapper-card:not(." + destination + ")").slideUp();
 			$(".wrapper-cards-horizontal .wrapper-card." + destination).slideDown();
 		}
+	});
+
+/* TRIGGER TIMELINE AFTER CLICK ON CIRCLE */
+
+	$(".contact .collapsible span").click(function() {
+		$(this).parent().siblings(".collapsible").find("div").slideUp();
+		$(this).next().slideToggle();
 	});
 
 /* CLASS AND FOCUS ON CLICK */

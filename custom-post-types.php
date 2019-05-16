@@ -1,10 +1,11 @@
 <?php
 /*
-// ========= Custom Post Types - Camps and Itineraries ============
+// ========= Custom Post Types - Camps, Itineraries, Information ============
 */
 
 add_action( 'init', 'custom_post_type_camps', 0 );
 add_action( 'init', 'custom_post_type_itineraries', 0 );
+add_action( 'init', 'custom_post_type_information', 0 );
 
 // ====== Camps
 function custom_post_type_camps() {
@@ -86,4 +87,46 @@ function custom_post_type_itineraries() {
     );
     
     register_post_type( 'itineraries', $args );
+}
+
+
+// ====== Information
+function custom_post_type_information() {
+
+    $labels = array(
+        'name'                => _x( 'Information', 'Post Type General Name',  'desertdelta' ),
+        'singular_name'       => _x( 'Information', 'Post Type Singular Name', 'desertdelta' ),
+        'menu_name'           => __( 'Information',         'desertdelta' ),
+        'parent_item_colon'   => __( 'Parent Information',  'desertdelta' ),
+        'all_items'           => __( 'All Information',     'desertdelta' ),
+        'view_item'           => __( 'View Information',    'desertdelta' ),
+        'add_new_item'        => __( 'Add New Information', 'desertdelta' ),
+        'add_new'             => __( 'Add Information',     'desertdelta' ),
+        'edit_item'           => __( 'Edit Information',    'desertdelta' ),
+        'update_item'         => __( 'Update Information',  'desertdelta' ),
+        'search_items'        => __( 'Search Information',  'desertdelta' ),
+        'not_found'           => __( 'Not Found',           'desertdelta' ),
+        'not_found_in_trash'  => __( 'Not found in Trash',  'desertdelta' )
+    );
+    
+    $args = array(
+        'label'               => __( 'information', 'desertdelta' ),
+        'description'         => __( 'Information', 'desertdelta' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'thumbnail', 'editor' ),
+        'menu_icon'           => 'dashicons-warning',
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'can_export'          => true,
+        'has_archive'         => false,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page'
+    );
+    
+    register_post_type( 'information', $args );
 }

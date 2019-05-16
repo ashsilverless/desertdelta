@@ -372,6 +372,7 @@ function reorder_admin_menu( $__return_true ) {
 		'index.php',                        // Dashboard
 		'edit.php?post_type=camps',         // Camps
 		'edit.php?post_type=itineraries',   // Itineraries
+		'edit.php?post_type=information',   // Information
 		'separator1',                       // --Space--
 		'edit.php',                         // Posts
 		'edit.php?post_type=page',          // Pages
