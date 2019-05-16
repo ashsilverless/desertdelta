@@ -83,5 +83,11 @@
 			</div>
 
 		</nav>
+		
+		<!-- Modal Video -->
+		
+		<?php get_template_part('template-parts/modal');?>
+		
+		<!-- Modal Video END -->
 
 	<main>

@@ -1,4 +1,4 @@
-<h2 class="heading heading__md font700"><?php the_field( 'heading' );?></h2>
+<h2 class="heading heading__md font700 mb1"><?php the_field( 'heading' );?></h2>
 
 <div class="wrapper-text-block">
 	

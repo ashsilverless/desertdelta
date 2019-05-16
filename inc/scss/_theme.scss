@@ -526,7 +526,7 @@
     }
 }
 
-.all-news, .other-camps, .other-itineraries {
+.all-news, .other-camps, .other-itineraries, .cares-videos {
 	background-color: $body-color;
 	padding: 3em 5em;
 	
@@ -1276,6 +1276,10 @@
 			}
 		}
 	}
+}
+
+.cares-videos {
+	border-top: 10px solid white;
 }
 
 /*===========FOOTER==========*/

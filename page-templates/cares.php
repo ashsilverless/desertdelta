@@ -19,7 +19,7 @@ get_header();?>
 
 <!-- ******************* Hero Content END ******************* -->
 	
-	<div class="container center">
+	<div class="container center mb4">
 		
 		<?php get_template_part('template-parts/breadcrumb'); ?>
 		
@@ -86,6 +86,45 @@ get_header();?>
         </div>
 		
 	</div><!--c-->
+	
+	<div class="cares-videos">
+	
+		<div class="container">
+			
+			<h2 class="heading heading__md center dark-dot slide-down mb2">Cares Videos</h2>
+			
+			
+			<?php
+		
+			$args = array(
+				'numberposts' => -1,
+				'post_type'   => 'page',
+				'post_parent__in' => array(get_the_ID())
+			);
+			$posts = get_posts( $args ); ?>
+			
+			<div class="wrapper-cards">
+				
+			<?php foreach($posts as $post): ?>
+			
+				<div class="wrapper-card">
+					
+				<?php
+		
+				set_query_var('post', $post);
+				get_template_part('template-parts/info-card-video');
+				
+				?>
+				
+				</div>
+			
+			<?php endforeach; ?>
+			
+			</div>
+		
+		</div>
+		
+	</div>
 	
 	<?php get_template_part('template-parts/map', 'camps');?>
     
