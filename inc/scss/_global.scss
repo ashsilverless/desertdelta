@@ -2,6 +2,10 @@
 html {
     font-size: 18px;
     overflow-y: scroll;
+    
+    &.no-scroll {
+	    overflow: hidden;
+    }
 }
  
 html,

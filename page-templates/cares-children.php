@@ -22,13 +22,42 @@ the_post(); ?>
 
 <!-- ******************* Hero Content END ******************* -->
 	
-	<div class="container pb5">
+	<div class="container">
 		
 	    <?php get_template_part('template-parts/breadcrumb'); ?>
 	    
-	    <div class="content pt2 pb1 dark-dot">
+	    <div class="content pt2 dark-dot">
 	    	<?php the_content(); ?>
 	    </div>
+	    
+	    <?php
+		
+		$args = array(
+			'numberposts'     => -1,
+			'post_type'       => 'page',
+			'post_parent__in' => array($post->post_parent),
+			'post__not_in'    => array(get_the_ID())
+		);
+		$posts = get_posts( $args ); ?>
+		
+		<div class="wrapper-cards mt5">
+			
+		<?php foreach($posts as $post): ?>
+		
+			<div class="wrapper-card">
+				
+			<?php
+	
+			set_query_var('post', $post);
+			get_template_part('template-parts/info-card-video');
+			
+			?>
+			
+			</div>
+		
+		<?php endforeach; ?>
+		
+		</div>
     
 	</div>
 	

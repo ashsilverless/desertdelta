@@ -301,9 +301,10 @@ span.wpcf7-not-valid-tip {
     top: 0;
     left: 0;
     visibility: hidden;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: block;
+    overflow: auto !important;
     
     &.is-visible {
 	    visibility: visible;
@@ -315,7 +316,7 @@ span.wpcf7-not-valid-tip {
 		}
 		
 		.modal-transition {
-			transform: translateY(0) translateX(50%);
+			transform: translate(50%, -50%);
 			opacity: 1;
 		}
 	}
@@ -337,11 +338,13 @@ span.wpcf7-not-valid-tip {
 		border-radius: 0.3rem;
 		position: absolute;
 		z-index: 9999;
+		top: 0;
 		right: 50%;
 		width: 90vw;
 		margin-left: -16em;
 
 		.modal-header {
+			border: none;
             position: absolute;
             top: 2em;
             right: 2em;
@@ -352,14 +355,14 @@ span.wpcf7-not-valid-tip {
 				top: 0;
 				right: 0;
 				padding: 1em;
-				color: white;
+				color: $body-color;
 				background: none;
 				border: 0;
 				outline: none;
 				cursor: pointer;
   
 				i {
-					font-size: 1.3em;
+					font-size: 2em;
 				}
   
 				&:focus {
@@ -383,12 +386,12 @@ span.wpcf7-not-valid-tip {
 		}
 		
 		.modal-content {
+			background-color: $body-color;
 			padding: 1em;
 		
 			video {
 				position: relative;
 				width: 100%;
-				height: 75vh;
 				&:focus {
     				outline:none;
 				}
@@ -408,5 +411,6 @@ span.wpcf7-not-valid-tip {
 		transition: all 0.3s 0.12s;
 		transform: translateY(-10%) translateX(50%);
 		opacity: 0;
+		top: 50%;
 	}
 }

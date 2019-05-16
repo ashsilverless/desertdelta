@@ -87,6 +87,20 @@ jQuery(document).ready(function( $ ) {
 		$(this).parent().siblings(".collapsible").find("div").slideUp();
 		$(this).next().slideToggle();
 	});
+	
+/* LOAD VIDEOS */
+		
+	$(".modal-toggle").on("click", function() {
+		if(!$('.modal').hasClass("is-visible")) {
+			$(".modal video source").attr("src", $(this).attr("video-url"));
+			$(".modal video").get(0).load();
+			$(".modal video").trigger("focus");
+			$(".modal").css("top", window.scrollY);
+		}
+		$('.modal').toggleClass('is-visible');
+		$('html').toggleClass('no-scroll');
+	});
+
 
 /* CLASS AND FOCUS ON CLICK */
 

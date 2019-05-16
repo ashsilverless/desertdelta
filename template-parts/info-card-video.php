@@ -7,10 +7,17 @@
 	$image   = get_field('hero_background_image', $id)["url"];
 	$content = $post->post_content ? $post->post_content : get_field("description", $post->ID);
 	$link    = get_permalink( $id );
+	$video   = get_field('video', $id)["video_file"];
 	
-	?>
+	if($video)
+		$video = $video["url"];
 		
-	<img src="<?php echo $image; ?>"/>
+	?>
+	
+	<div class="video">
+		<img src="<?php echo $image; ?>"/>
+		<div class="play modal-toggle" video-url="<?php echo $video; ?>"><i class="fas fa-play"></i></div>
+	</div>
 	
 	<div>
 		
@@ -18,7 +25,7 @@
 			
 			<h3 class="heading"><?php echo $title; ?></h3>
 				
-			<p><?php echo wp_strip_all_tags(substr($content, 0, 140) . "...", true); ?></p>
+			<p><?php echo wp_strip_all_tags(substr($content, 0, 180) . "...", true); ?></p>
 		
 		</div>
 			
