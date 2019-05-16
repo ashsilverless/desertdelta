@@ -175,8 +175,14 @@ header {
     z-index: 1000;
 }
 
+.container-nav {
+	max-width: 100%;
+}
+
 nav {
-    position: fixed;
+	position: absolute;
+	top: 0;
+	left: 0;
     width: 100%;
     padding-bottom: 1em;
     font-family: $supporting-font;

@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all single posts
+ * The template for displaying all single camps
  *
  * @package desertdelta
  */
@@ -27,31 +27,31 @@ the_post(); ?>
 	
 <!-- ******************* Hero Content END ******************* -->
 	 
-	<div class="container-camp">
+	<div class="container-custom">
 	
 	    <div class="container">
 	    
-	    	<div class="camp-header">
-		        <h1 class="heading heading__lg font700 camp-title"><?php the_title(); ?></h1>
+	    	<div class="custom-header">
+		        <h1 class="heading heading__lg font700 custom-title"><?php the_title(); ?></h1>
 		        
 		        <?php 
 			        
-		        $destination = get_the_terms($post->ID, 'destination')[0];
+		        $destination = get_the_terms($post->ID, 'destinations')[0];
 		        if($destination):
 		        
 		        ?>
 			        
-		        <div class="camp-location"><?php echo $destination->name; ?></div>
+		        <div class="custom-location"><a href="<?php echo get_term_link($destination->term_id); ?>"><?php echo $destination->name; ?></a></div>
 		        
 		        <?php endif;?>
 		        
-		        <div class="camp-description closed">
+		        <div class="custom-description closed">
 			        <?php echo get_field("description"); ?>
 		        </div>
 		        
 		        <div class="read-more">Read More</div>
 		        
-		        <div class="camp-actions">
+		        <div class="custom-actions">
 			        <div><button name="video" class="active"><i class="fas fa-video"></i>Video</button></div>
 			        <div><button name="gallery"><i class="fas fa-camera"></i>Gallery</button></div>
 			        <div><button name="data"><i class="fas fa-cogs"></i>Data</button></div>
@@ -60,7 +60,7 @@ the_post(); ?>
 	        
 	    </div>
 	    
-	    <div class="camp-info">
+	    <div class="custom-info">
 		    
 		    <div class="video">
 			    <?php if( get_field('video') ): ?>
@@ -128,7 +128,7 @@ the_post(); ?>
 	    
 	    <div class="container">
 		    
-		    <div class="camp-footer-text mt4"><div><?php the_field('footer_text'); ?></div></div>
+		    <div class="custom-footer-text mt4"><div><?php the_field('footer_text'); ?></div></div>
 		    
 	    </div>
 	

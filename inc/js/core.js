@@ -41,22 +41,51 @@ jQuery(document).ready(function( $ ) {
 			more.html("Read more");
 	});
 	
-/* TOGGLE ACTIVE DIV IN CAMP PAGE */
+/* TOGGLE ACTIVE DIV IN CAMP AND DESTINATION PAGE */
 
-	$(".camp-actions button").click(function() {
-		$(".camp-actions button").removeClass("active");
+	$(".custom-actions button").click(function() {
+		$(".custom-actions button").removeClass("active");
 		$(this).addClass("active");
 		
-		var active = ".camp-info ." + $(this).attr("name");
-		$(".camp-info > div").addClass("hidden");
+		var active = ".custom-info ." + $(this).attr("name");
+		$(".custom-info > div").addClass("hidden");
 		$(active).removeClass("hidden");
 	});
 
 /* TOGGLE COLLAPSE ON ITINERARY PAGE */
 
-	$(".item-itinerary h3").click(function() {
+	$(".item-timeline h3").click(function() {
 		$(this).parent().find(".collapsible").slideToggle();
 		$(this).closest("tr").siblings().find(".collapsible").slideUp();
+	});
+	
+/* TRIGGER TIMELINE AFTER CLICK ON CIRCLE */
+
+	$(".circle").click(function() {
+		$(this).parents("tr").find(".item-timeline h3").trigger("click");
+	});
+	
+/* FILTER DESTINATION */
+
+	$(".wrapper-destinations .menu button").click(function() {
+		var destination = $(this).attr("name");
+		
+		$(this).siblings().removeClass("active");
+		$(this).addClass("active");
+		
+		if(destination == "all") {
+			$(".wrapper-cards-horizontal .wrapper-card").slideDown();
+		} else {
+			$(".wrapper-cards-horizontal .wrapper-card:not(." + destination + ")").slideUp();
+			$(".wrapper-cards-horizontal .wrapper-card." + destination).slideDown();
+		}
+	});
+
+/* TRIGGER TIMELINE AFTER CLICK ON CIRCLE */
+
+	$(".contact .collapsible span").click(function() {
+		$(this).parent().siblings(".collapsible").find("div").slideUp();
+		$(this).next().slideToggle();
 	});
 
 /* CLASS AND FOCUS ON CLICK */

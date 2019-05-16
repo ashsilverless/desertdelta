@@ -240,3 +240,173 @@ a.next-section {
 .mfp-with-zoom.mfp-removing.mfp-bg {
 	opacity: 0;
 }
+
+
+.wpcf7-form {
+	
+	p {
+		font-size: 1em;
+	}
+	
+	label {
+		display: block;
+		text-transform: uppercase;
+		color: grey;
+		letter-spacing: 0.05em;
+		margin-bottom: 2em;
+
+		
+		input, textarea {
+			width: 100%;
+			padding: 0.5em;
+			border: none;
+			outline: none;
+			margin-top: 0.5em;
+			font-weight: 100;
+			letter-spacing: 0.05em;
+		}
+		
+		.optional {
+			color: $brand-secondary;
+			text-transform: uppercase;
+			display: block;
+			font-weight: 700;
+			letter-spacing: 0.05em;
+			font-size: 0.9em;
+			float: right;
+			margin-right: 1em;
+		}
+	}
+	
+	.button {
+		width: 40%;
+		font-family: $brand-font
+	}
+}
+
+div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-ok {
+	border: none;
+	background-color: $brand-tertiary;
+	margin: 0;
+	padding: 1em;
+}
+
+span.wpcf7-not-valid-tip {
+	color: $brand-secondary;
+}
+
+.modal {
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    display: block;
+    
+    &.is-visible {
+	    visibility: visible;
+	    
+	    .modal-overlay {
+			opacity: 1;
+			visibility: visible;
+			transition-delay: 0s;
+		}
+		
+		.modal-transition {
+			transform: translateY(0) translateX(50%);
+			opacity: 1;
+		}
+	}
+	
+	.modal-overlay {
+		position: fixed;
+		z-index: 10;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: hsla(0, 0%, 0%, 0.6);
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility 0s linear 0.3s, opacity 0.3s;
+	}
+	
+	.modal-wrapper {
+		border-radius: 0.3rem;
+		position: absolute;
+		z-index: 9999;
+		right: 50%;
+		width: 90vw;
+		margin-left: -16em;
+
+		.modal-header {
+            position: absolute;
+            top: 2em;
+            right: 2em;
+            z-index: 999999;
+			
+			.modal-close {
+				position: absolute;
+				top: 0;
+				right: 0;
+				padding: 1em;
+				color: white;
+				background: none;
+				border: 0;
+				outline: none;
+				cursor: pointer;
+  
+				i {
+					font-size: 1.3em;
+				}
+  
+				&:focus {
+					outline: none;
+				}
+				
+				&:hover {
+					color: $brand-light-grey;
+				}
+			}
+			
+			.modal-heading {
+				font-size: 1.125em;
+				margin: 0;
+				color: white;
+				font-family: $body-font;
+				font-weight: 200;
+				text-transform: uppercase;
+			}
+
+		}
+		
+		.modal-content {
+			padding: 1em;
+		
+			video {
+				position: relative;
+				width: 100%;
+				height: 75vh;
+				&:focus {
+    				outline:none;
+				}
+			}
+			
+			& > *:first-child {
+				margin-top: 0;
+			}
+			
+			& > *:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	
+	.modal-transition {
+		transition: all 0.3s 0.12s;
+		transform: translateY(-10%) translateX(50%);
+		opacity: 0;
+	}
+}

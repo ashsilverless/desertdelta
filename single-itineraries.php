@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all single posts
+ * The template for displaying all single itineraries
  *
  * @package desertdelta
  */
@@ -59,7 +59,7 @@ the_post(); ?>
 		
 		<h2 class="heading heading__md heading__secondary-color center mt2"><?php the_field("duration"); ?></h2>
 		
-		<div class="content mt2">
+		<div class="content-timeline mt2">
 		
 			<div class="itinerary-description closed">
 				
@@ -69,7 +69,7 @@ the_post(); ?>
 		    
 		    <div class="read-more">Read More</div>
 		    
-		    <table class="table-itinerary mt3">
+		    <table class="table-timeline mt3">
 		    
 		    <?php
 
@@ -86,13 +86,17 @@ the_post(); ?>
 					
 					<td class="pb2">
 				
-						<div class="item-itinerary">
+						<div class="item-timeline">
 							
 							<h3 class="heading"><?php the_sub_field('title'); ?></h3>
 							
 							<div class="collapsible">
+								
+								<?php if(get_sub_field('image')): ?>
 							
 								<img style="background:url(<?php the_sub_field('image'); ?>)"/>
+								
+								<?php endif; ?>
 								
 								<div class="text">
 								
@@ -109,7 +113,7 @@ the_post(); ?>
 										
 										<?php
 											
-										$destination = get_the_terms($camp->ID, 'destination');
+										$destination = get_the_terms($camp->ID, 'destinations');
 										
 										if($destination): ?>
 										
