@@ -100,6 +100,37 @@ jQuery(document).ready(function( $ ) {
 		$('.modal').toggleClass('is-visible');
 		$('html').toggleClass('no-scroll');
 	});
+	
+/* TRIGGER COLLAPSE IN FLEXIBLE CONTENT */
+
+	$(".flexible-content.toggle-block label").click(function() {
+		$(this).siblings("label").removeClass("collapsed");
+		$(this).siblings("label").next().slideUp();
+		$(this).toggleClass("collapsed");
+		$(this).next().slideToggle();
+	});
+	
+/* SHOW POPUP ON MAP */
+
+	$(".camps svg circle").click(function() {
+		var height   = parseFloat($(".camps svg").height());       // Content height
+		var width    = parseFloat($(".camps svg").width());       // Content width
+		var v_height = parseFloat($(".camps svg").attr("height")); // Viewbox height
+		var v_width  = parseFloat($(".camps svg").attr("width"));  // Viewbox width
+		var v_bottom = parseFloat(height - $(this).attr("cy"));             // Viewbox distance top
+		var v_left   = parseFloat($(this).attr("cx"));             // Viewbox distance left
+		
+		var bottom  = (v_bottom  * height) / v_height;
+		var left    = (v_left * width)  / v_width;
+		
+		$(".popup").css({
+			"bottom":  bottom  + "px",
+			"left": left + "px"
+		});
+		$(".popup").show();
+		
+		$("html, body").animate({ scrollTop: $(".popup").offset().top - 200}, 500);
+	});
 
 
 /* CLASS AND FOCUS ON CLICK */

@@ -81,6 +81,18 @@ get_header();?>
 	    </div>
       
     </div><!--c-->
+    
+    <hr>
+    
+    <?php get_template_part('template-parts/cta', 'itinerary');?>
+    
+    <?php get_template_part('template-parts/our-latest-news');?>
+
+    <?php get_template_part('template-parts/cta', 'cares');?>
+    
+    <hr>
+ 
+    <?php get_template_part('template-parts/cta', 'newsletter');?> 
 
 </div><!--content-->
  

@@ -91,7 +91,7 @@ get_header();?>
 		
 	</div><!--c-->
 	
-	<?php get_template_part('template-parts/map', 'camps');?>
+    <?php get_template_part('template-parts/map', 'camps');?>
 
     <?php get_template_part('template-parts/cta', 'cares');?>
     

@@ -57,6 +57,8 @@ get_header();?>
     
     <?php get_template_part('template-parts/cta', 'newsletter');?>
 
+    <?php get_template_part('template-parts/cta', 'contact');?> 
+
 </div><!--content-->
  
 <?php get_footer(); ?>

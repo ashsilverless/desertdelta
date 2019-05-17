@@ -16,7 +16,7 @@ while (have_rows('cta_newsletter', 'options')) : the_row();?>
         
         <div class="form">
             
-            FORM
+            <?php echo do_shortcode('[contact-form-7 id="2157" title="Newsletter Form"]');?>
 
             <p><em>We are extremely careful with your personal data and will not share it with anyone.</em></p>            
         </div>

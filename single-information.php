@@ -24,7 +24,7 @@ the_post(); ?>
 	    
 	    <div class="hero__content">       
 
-            <h2 class="heading heading__xl heading__light center slide-up"><?php echo the_title();?></h2>
+            <h2 class="heading heading__xl heading__light center slide-up"><?php the_field("visible_heading");?></h2>
        
         </div>
 	    
@@ -37,11 +37,41 @@ the_post(); ?>
 		
 		<div class="container pb5">
 		
-		    <?php get_template_part('template-parts/breadcrumb'); ?>
-		    
-		    <div class="content pt2 pb1 dark-dot">
-		    	<?php the_content(); ?>
-		    </div>
+		    <?php get_template_part('template-parts/breadcrumb'); 
+				
+			if( have_rows('flexible_content') ):
+			
+			while ( have_rows('flexible_content') ): the_row();
+			
+			switch ( get_row_layout() ) :
+			
+				case 'text_block':
+					get_template_part('template-parts/flexible-text-block');
+				break;
+				
+				case 'toggle_block':
+					get_template_part('template-parts/flexible-toggle-block');
+				break;
+				
+				case 'data_block':
+					get_template_part('template-parts/flexible-data-block');
+				break;
+				
+				case 'month_block':
+					get_template_part('template-parts/flexible-month-block');
+				break;
+				
+				case 'gallery_block':
+					get_template_part('template-parts/flexible-gallery-block');
+				break;
+				
+			endswitch; 
+			
+			endwhile;
+			
+			endif;
+			
+			?>
 	    
 		</div>
 	

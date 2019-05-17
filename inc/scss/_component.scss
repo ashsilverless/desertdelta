@@ -242,7 +242,7 @@ a.next-section {
 }
 
 
-.wpcf7-form {
+.wpcf7#wpcf7-f2068-o1 {
 	
 	p {
 		font-size: 1em;
@@ -282,17 +282,31 @@ a.next-section {
 		width: 40%;
 		font-family: $brand-font
 	}
+	
+	div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-ok {
+		border: none;
+		background-color: $brand-tertiary;
+		margin: 0;
+		padding: 1em;
+	}
+	
+	span.wpcf7-not-valid-tip {
+		color: $brand-secondary;
+	}
 }
 
-div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-ok {
-	border: none;
-	background-color: $brand-tertiary;
-	margin: 0;
-	padding: 1em;
-}
-
-span.wpcf7-not-valid-tip {
-	color: $brand-secondary;
+.wpcf7#wpcf7-f2157-o2 {
+	
+	span input {
+		border-radius: 0;
+		width: 90%;
+		padding: 0.1em;
+		
+		&::placeholder {
+			text-transform: uppercase;
+			color: $brand-mid-grey;
+		}
+	}
 }
 
 .modal {

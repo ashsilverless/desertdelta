@@ -15,37 +15,39 @@
      
                 <div class="row pt2 pb2">
 
-                    <div class="col-4">
+                    <div class="col-3">
                         
                         <h2 class="heading heading__lg heading__title-case">Botswana's most diverse safari portfolio</h2>
     
                     </div><!--col-->
                     
-                    <div class="col-2">
+                    <div class="col-4">
     
-                        <h4 class="heading heading__xs heading__alt-font heading__primary-color">Camps</h4>
+                        <h4 class="heading heading__sm heading__alt-font heading__primary-color">Camps</h4>
+                        
+                        <ul class="columns">
     
                         <?php
-                            wp_nav_menu( array(
-                            'theme_location' => 'footer-menu1',
-                            'container_class' => 'footer' ) );
-                        ?>
+	
+						$args = array(
+							'numberposts' => -1,
+							'post_type'   => 'camps'
+						);
+						$posts = get_posts( $args );
+						
+						foreach($posts as $post): ?>
+							
+							<li><a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></li>
+						
+						<?php endforeach; ?>
+						
+                        </ul>
     
-                    </div><!--col-->                    
+                    </div><!--col-->     
 
                     <div class="col-2">
     
-                        <?php
-                            wp_nav_menu( array(
-                            'theme_location' => 'footer-menu2',
-                            'container_class' => 'footer' ) );
-                        ?>
-    
-                    </div><!--col-->         
-
-                    <div class="col-2">
-    
-                        <h4 class="heading heading__xs heading__alt-font heading__primary-color">Reservations</h4>
+                        <h4 class="heading heading__sm heading__alt-font heading__primary-color">Reservations</h4>
     
                         <ul>
                             
@@ -58,7 +60,7 @@
 
                     <div class="col-2">
     
-                        <h4 class="heading heading__xs heading__alt-font heading__primary-color">Marketing</h4>
+                        <h4 class="heading heading__sm heading__alt-font heading__primary-color">Marketing</h4>
 
                         <ul>
                             
