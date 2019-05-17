@@ -14,7 +14,7 @@ while (have_rows('cta_newsletter', 'options')) : the_row();?>
             
         </div>
         
-        <div class="form">
+        <div class="form mt2">
             
             <?php echo do_shortcode('[contact-form-7 id="2157" title="Newsletter Form"]');?>
 

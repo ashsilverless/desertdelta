@@ -300,12 +300,24 @@ a.next-section {
 	span input {
 		border-radius: 0;
 		width: 90%;
-		padding: 0.1em;
+		padding: 0.2em 1em;
 		
 		&::placeholder {
 			text-transform: uppercase;
 			color: $brand-mid-grey;
+			font-size: 0.8em;
 		}
+	}
+	
+	.wpcf7-submit {
+		padding: 0.2em 3em;
+		border: 1px solid white;
+		color: white;
+		outline: none;
+		background: none;
+		text-transform: none;
+		font-style: italic;
+		font-size: 0.9em;
 	}
 }
 
