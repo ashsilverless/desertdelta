@@ -319,6 +319,16 @@ a.next-section {
 		font-style: italic;
 		font-size: 0.9em;
 	}
+	
+	.wpcf7-response-output {
+		border: none;
+		background-color: $brand-primary;
+		margin-left: 0;
+	}
+	
+	.wpcf7-not-valid-tip {
+		color: lighten($brand-primary, 20%);
+	}
 }
 
 .modal {

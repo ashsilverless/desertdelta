@@ -114,10 +114,10 @@ jQuery(document).ready(function( $ ) {
 
 	$(".camps svg circle").click(function() {
 		var height   = parseFloat($(".camps svg").height());       // Content height
-		var width    = parseFloat($(".camps svg").width());       // Content width
+		var width    = parseFloat($(".camps svg").width());        // Content width
 		var v_height = parseFloat($(".camps svg").attr("height")); // Viewbox height
 		var v_width  = parseFloat($(".camps svg").attr("width"));  // Viewbox width
-		var v_bottom = parseFloat(height - $(this).attr("cy"));             // Viewbox distance top
+		var v_bottom = parseFloat(v_height - $(this).attr("cy"));    // Viewbox distance top
 		var v_left   = parseFloat($(this).attr("cx"));             // Viewbox distance left
 		
 		var bottom  = (v_bottom  * height) / v_height;
@@ -264,6 +264,55 @@ jQuery(document).ready(function( $ ) {
 			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
 		}
 	});
+	
+// ========== Actions on resize - alter popup camp position
+
+	$(window).on("resize", function() {
+		
+		if($(".popup").hasClass("clicked")) {
+			var circle   = $(".camps svg circle.clicked");
+			var height   = parseFloat($(".camps svg").height());        // Content height
+			var width    = parseFloat($(".camps svg").width());         // Content width
+			var v_height = parseFloat($(".camps svg").attr("height"));  // Viewbox height
+			var v_width  = parseFloat($(".camps svg").attr("width"));   // Viewbox width
+			var v_bottom = parseFloat(v_height - $(circle).attr("cy")); // Viewbox distance top
+			var v_left   = parseFloat($(circle).attr("cx"));            // Viewbox distance left
+			
+			var bottom  = (v_bottom  * height) / v_height;
+			var left    = (v_left * width)  / v_width;
+			
+			$(".popup").css({
+				"bottom":  bottom  + "px",
+				"left": left + "px"
+			});
+		}
+		
+	});
+	
+	$(".camps svg circle").click(function() {
+		var height   = parseFloat($(".camps svg").height());       // Content height
+		var width    = parseFloat($(".camps svg").width());        // Content width
+		var v_height = parseFloat($(".camps svg").attr("height")); // Viewbox height
+		var v_width  = parseFloat($(".camps svg").attr("width"));  // Viewbox width
+		var v_bottom = parseFloat(v_height - $(this).attr("cy"));  // Viewbox distance top
+		var v_left   = parseFloat($(this).attr("cx"));             // Viewbox distance left
+		
+		var bottom  = (v_bottom  * height) / v_height;
+		var left    = (v_left * width)  / v_width;
+		
+		$(".camps svg circle").removeClass("clicked");
+		$(this).addClass("clicked");
+		$(".popup").addClass("clicked");
+
+		$(".popup").css({
+			"bottom":  bottom  + "px",
+			"left": left + "px"
+		});
+				
+		$(".popup").show();
+		
+		$("html, body").animate({ scrollTop: $(".popup").offset().top - 200}, 500);
+	});
 
 // ========== Add class if in viewport on page load
 
@@ -318,31 +367,31 @@ return elementBottom > viewportTop && elementTop < viewportBottom;
 };
 
 $(window).on('resize scroll', function() {
-  $('.experience-level').each(function() {
-    if ($(this).isInViewport()) {
-      $(this).addClass('active');
-    } 
-  });
-  $('.slide-up').each(function() {
-    if ($(this).isInViewport()) {
-      $(this).addClass('active');    
-    } 
-  });   
-    $('.slide-down').each(function() {
-    if ($(this).isInViewport()) {
-      $(this).addClass('active');    
-    } 
-  }); 
-    $('.slide-right').each(function() {
-    if ($(this).isInViewport()) {
-      $(this).addClass('active');    
-    } 
-  });  
-    $('.slow-fade').each(function() {
-    if ($(this).isInViewport()) {
-      $(this).addClass('active');    
-    } 
-  });    
+	$('.experience-level').each(function() {
+		if ($(this).isInViewport()) {
+			$(this).addClass('active');
+		} 
+	});
+	$('.slide-up').each(function() {
+		if ($(this).isInViewport()) {
+			$(this).addClass('active');    
+		} 
+	});   
+	$('.slide-down').each(function() {
+		if ($(this).isInViewport()) {
+			$(this).addClass('active');    
+		} 
+	}); 
+	$('.slide-right').each(function() {
+		if ($(this).isInViewport()) {
+			$(this).addClass('active');    
+		} 
+	});  
+	$('.slow-fade').each(function() {
+		if ($(this).isInViewport()) {
+			$(this).addClass('active');    
+		} 
+	});
     
 });
 
