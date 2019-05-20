@@ -28,7 +28,7 @@
 		
 			<!-- Information -->
 			
-			<li class="breadcrumb-item"><a href="/information">Itineraries</a></li>
+			<li class="breadcrumb-item"><a href="/information">Information</a></li>
 			
 			<li class="breadcrumb-item"><a href="<?php echo get_permalink($post); ?>"><?php echo get_the_title($post); ?></a></li>
 		
