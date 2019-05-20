@@ -17,17 +17,17 @@ get_header();?>
 
 <?php endif;?>
 	
-	<div class="container container-news">
+	<div class="container-news">
 		
 		<?php get_template_part('template-parts/breadcrumb'); ?>
 		
-		<div class="container">
+		<div class="container large">
 			<?php get_template_part('template-parts/latest-news'); ?>
 		</div>
 		
 		<div class="all-news">
 			
-			<div class="container">
+			<div class="container content-news">
 			
 				<h2 class="heading heading__lg center dark-dot slide-down mb3">Archive</h2>
 				

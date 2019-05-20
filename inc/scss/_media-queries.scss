@@ -10,6 +10,27 @@
     max-width: 100%;
 }
 
+.latest-news-slider {
+	width: 90%;
+
+	.latest-news-slider__item .latest-news-header {
+		display: block;
+	}
+	
+	.share-buttons {
+		float: right;
+	}
+		
+}
+
+.all-news {
+	padding: 2em;
+}
+
+.contact .main-content .info .text, .contact .main-content .info span {
+	font-size: 0.9em;
+}
+
 }
 
 /*===========LARGE (1200px)==========*/
@@ -84,6 +105,10 @@ body {
 .container.large {
     max-width: 100%;
     padding: 4em;
+}
+
+.all-news .mix-it-up__container {
+	grid-template-columns: 50% 50%;
 }
 
 /*---FOOTER---*/
@@ -247,6 +272,10 @@ main .content .row {
 
 .wrapper-cards .wrapper-card {
 	width: 50%;
+}
+
+.all-news .mix-it-up__container {
+	grid-template-columns: 50% 50%;
 }
 
 /*---FOOTER---*/
@@ -425,6 +454,69 @@ body {
 		.info-card {
 			display: block;
 			padding-bottom: 0.5em;
+		}
+	}
+}
+
+.container-news {
+	
+	.container.large {
+		padding-top: 0;
+	}
+	
+	.carousel-wrapper {
+		padding: 0 0 2em 0;
+		margin: 0;
+	}
+
+	.latest-news-slider__item {
+		
+		img {
+			height: auto;
+		}
+		
+		& > div {
+			padding: 2em;
+		}
+	}
+}
+
+.all-news {
+	
+	.mix-it-up__controls button {
+		text-align: center;
+		width: 100%;
+		display: block;
+		margin: 0 0 0.5em 0;
+		
+		&:before {
+			display: none;
+		}
+	}
+	
+	.mix-it-up__container {
+		grid-template-columns: 100%;
+	}
+}
+
+.container.contact {
+	margin: 0;
+	padding: 4em;
+	
+	.main-content {
+		grid-template-columns: 100%;
+		
+		.info {
+			text-align: center;
+			margin-bottom: 2em;
+			
+			.text, span {
+				font-size: 1em;
+			}
+		}
+		
+		.wpcf7#wpcf7-f2068-o1 .button {
+			width: 100%;
 		}
 	}
 }
