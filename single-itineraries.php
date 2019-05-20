@@ -59,88 +59,92 @@ the_post(); ?>
 		
 		<h2 class="heading heading__md heading__secondary-color center mt2"><?php the_field("duration"); ?></h2>
 		
-		<div class="content-timeline mt2">
-		
-			<div class="itinerary-description closed">
-				
-		        <?php echo get_field("description"); ?>
-		        
-		    </div>
-		    
-		    <div class="read-more">Read More</div>
-		    
-		    <table class="table-timeline mt3">
-		    
-		    <?php
-
-			if( have_rows('days') ):
-		
-				while ( have_rows('days') ) : the_row(); ?>
-				
-				<tr>
-					<th>
-						<div class="heading heading__secondary-color font600"><?php the_sub_field('name'); ?>
-							<div class="circle"></div>
-						</div>
-					</th>
-					
-					<td class="pb2">
-				
-						<div class="item-timeline">
-							
-							<h3 class="heading"><?php the_sub_field('title'); ?></h3>
-							
-							<div class="collapsible">
-								
-								<?php if(get_sub_field('image')): ?>
-							
-								<img style="background:url(<?php the_sub_field('image'); ?>)"/>
-								
-								<?php endif; ?>
-								
-								<div class="text">
-								
-									<div><?php the_sub_field('description'); ?></div>
-								
-									<?php
-									
-									if(get_sub_field('related_camp')): $camp = get_sub_field('related_camp'); ?>
-									
-										<a class="button" href="<?php echo get_permalink($camp->ID); ?>">
-											<i class="fas fa-campground"></i>
-											<span>Find out more about <span><?php echo $camp->post_title; ?></span></span>
-										</a>
-										
-										<?php
-											
-										$destination = get_the_terms($camp->ID, 'destinations');
-										
-										if($destination): ?>
-										
-										<a class="button" href="<?php echo get_term_link($destination[0]->term_id); ?>">
-											<i class="fas fa-globe-africa"></i>
-											<span>Find out more about <span><?php echo $destination[0]->name; ?></span></span>
-										</a>
-										
-										<?php endif;
-											
-									endif; ?>
-								</div>
-							</div>
-							
-						</div>
-					</td>
-				
-				</tr>
-					
-				<?php endwhile;
-				
-			endif;
-			    
-			?>
+		<div class="wrapper-timeline">
 			
-		    </table>
-		    
+			<div class="content-timeline mt2">
+			
+				<div class="itinerary-description closed">
+					
+			        <?php echo get_field("description"); ?>
+			        
+			    </div>
+			    
+			    <div class="read-more">Read More</div>
+			    
+			    <table class="table-timeline mt3">
+			    
+			    <?php
+	
+				if( have_rows('days') ):
+			
+					while ( have_rows('days') ) : the_row(); ?>
+					
+					<tr>
+						<th>
+							<div class="heading heading__secondary-color font600"><?php the_sub_field('name'); ?>
+								<div class="circle"></div>
+							</div>
+						</th>
+						
+						<td class="pb2">
+					
+							<div class="item-timeline">
+								
+								<h3 class="heading"><?php the_sub_field('title'); ?></h3>
+								
+								<div class="collapsible">
+									
+									<?php if(get_sub_field('image')): ?>
+								
+									<div class="img" style="background:url(<?php the_sub_field('image'); ?>)"></div>
+									
+									<?php endif; ?>
+									
+									<div class="text">
+									
+										<div><?php the_sub_field('description'); ?></div>
+									
+										<?php
+										
+										if(get_sub_field('related_camp')): $camp = get_sub_field('related_camp'); ?>
+										
+											<a class="button" href="<?php echo get_permalink($camp->ID); ?>">
+												<i class="fas fa-campground"></i>
+												<span>Find out more about <span><?php echo $camp->post_title; ?></span></span>
+											</a>
+											
+											<?php
+												
+											$destination = get_the_terms($camp->ID, 'destinations');
+											
+											if($destination): ?>
+											
+											<a class="button" href="<?php echo get_term_link($destination[0]->term_id); ?>">
+												<i class="fas fa-globe-africa"></i>
+												<span>Find out more about <span><?php echo $destination[0]->name; ?></span></span>
+											</a>
+											
+											<?php endif;
+												
+										endif; ?>
+									</div>
+								</div>
+								
+							</div>
+						</td>
+					
+					</tr>
+						
+					<?php endwhile;
+					
+				endif;
+				    
+				?>
+				
+			    </table>
+			    
+			</div>
+		
 		</div>
 	
 	</div><!--c-->

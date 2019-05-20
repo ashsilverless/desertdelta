@@ -22,7 +22,7 @@ the_post(); ?>
 
 <!-- ******************* Hero Content END ******************* -->
 	
-	<div class="container">
+	<div class="container cares-children">
 		
 	    <?php get_template_part('template-parts/breadcrumb'); ?>
 	    
