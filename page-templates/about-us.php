@@ -19,11 +19,11 @@ get_header();?>
 
 <!-- ******************* Hero Content END ******************* -->
 	
-	<div class="container center">
+	<div class="container large center">
 		
 		<div class="row">
             
-            <div class="col-6 offset-3 pt5 text-center mb5">
+            <div class="col-6 offset-3 mt5 text-center mb5">
 	                
                 <?php get_template_part('template-parts/text-block');?>
                 
@@ -31,56 +31,60 @@ get_header();?>
 
         </div>
         
-        <div class="content-timeline">
-        
-	        <table class="table-itinerary">
-			    
-		    <?php
-	
-			if( have_rows('timeline') ):
+        <div class="wrapper-timeline">
+	        
+	        <div class="content-timeline">
+	        
+		        <table class="table-itinerary">
+				    
+			    <?php
 		
-				while ( have_rows('timeline') ) : the_row(); ?>
-				
-				<tr>
-					<th>
-						<div class="heading heading__secondary-color font600"><?php the_sub_field('name'); ?>
-							<div class="circle"></div>
-						</div>
-					</th>
-					
-					<td class="pb2">
-				
-						<div class="item-timeline">
-							
-							<h3 class="heading"><?php the_sub_field('title'); ?></h3>
-							
-							<div class="collapsible">
-								
-								<?php if(get_sub_field('image')): ?>
-							
-								<img style="background:url(<?php the_sub_field('image'); ?>)"/>
-								
-								<?php endif; ?>
-								
-								<div class="text">
-								
-									<div><?php the_sub_field('description'); ?></div>
-									
-								</div>
-							</div>
-							
-						</div>
-					</td>
-				
-				</tr>
-					
-				<?php endwhile;
-				
-			endif;
-			    
-			?>
+				if( have_rows('timeline') ):
 			
-		    </table>
+					while ( have_rows('timeline') ) : the_row(); ?>
+					
+					<tr>
+						<th>
+							<div class="heading heading__secondary-color font600"><?php the_sub_field('name'); ?>
+								<div class="circle"></div>
+							</div>
+						</th>
+						
+						<td class="pb2">
+					
+							<div class="item-timeline">
+								
+								<h3 class="heading"><?php the_sub_field('title'); ?></h3>
+								
+								<div class="collapsible">
+									
+									<?php if(get_sub_field('image')): ?>
+								
+									<img style="background:url(<?php the_sub_field('image'); ?>)"/>
+									
+									<?php endif; ?>
+									
+									<div class="text">
+									
+										<div><?php the_sub_field('description'); ?></div>
+										
+									</div>
+								</div>
+								
+							</div>
+						</td>
+					
+					</tr>
+						
+					<?php endwhile;
+					
+				endif;
+				    
+				?>
+				
+			    </table>
+	        </div>
+        
         </div>
 		
 	</div><!--c-->

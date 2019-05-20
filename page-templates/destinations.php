@@ -20,11 +20,11 @@ get_header();?>
 
 <!-- ******************* Hero Content END ******************* -->
 	
-	<div class="container">
+	<div class="container large">
 		
 		<div class="row">
             
-            <div class="col-6 offset-3 pt5 text-center mb5">
+            <div class="col-6 offset-3 mt5 text-center mb5">
 	                
                 <?php get_template_part('template-parts/text-block');?>
                 

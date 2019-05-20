@@ -165,6 +165,11 @@ h5 {
      border-radius: 0;
  }
  
+.row {
+	margin-left: 0;
+	margin-right: 0;
+}
+
 /*===========HEADER==========*/
 
 .site-wrapper {
@@ -232,7 +237,6 @@ nav {
     }
     
     .brand {
-        width: 100%;
         margin: 2em 0 3em;
         text-align: center;
         

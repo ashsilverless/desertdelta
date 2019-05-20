@@ -20,8 +20,6 @@
     }
     
     &__brand {
-        display: block;
-        width: 100%;
         padding-top: 3em;
         text-align: center;
         
@@ -33,6 +31,7 @@
     }
     
     &__content {
+	    margin: 0 2em;
         position: relative;
         z-index: 10;
         text-align: center;

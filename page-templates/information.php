@@ -19,7 +19,7 @@ get_header();?>
 
 <!-- ******************* Hero Content END ******************* -->
 	
-	<div class="container">
+	<div class="container container-information">
 		
 		<?php get_template_part('template-parts/breadcrumb'); ?>
 		

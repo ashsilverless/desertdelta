@@ -760,6 +760,7 @@
 		width: 33%;
 		padding: 1em;
 		display: inline-block;
+		min-width: 300px;
 		
 		&.light .info-card {
 			background: $body-color;
@@ -776,7 +777,7 @@
 .wrapper-destinations {
 	display: grid;
 	column-gap: 1.5em;
-	grid-template-columns: 25% 75%;
+	grid-template-columns: calc(25% - 0.75em) calc(75% - 0.75em);
 
 	.wrapper-cards-horizontal {
 		display: block;
@@ -1274,7 +1275,7 @@
 			display: none;
 		}
 		
-		img {
+		.img {
 			@include backgroundCover;
 			height: 350px;
 			width: 100%;

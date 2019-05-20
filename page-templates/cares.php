@@ -33,56 +33,59 @@ get_header();?>
 
         </div>
         
-        <div class="content-timeline">
-        
-	        <table class="table-cares">
-			    
-		    <?php
-	
-			if( have_rows('letters') ):
+        <div class="wrapper-timeline">
+	        
+	        <div class="content-timeline">
+	        
+		        <table class="table-cares">
+				    
+			    <?php
 		
-				while ( have_rows('letters') ) : the_row(); ?>
-				
-				<tr>
-					<th>
-						<div class="heading heading__secondary-color font600">
-							<div class="circle large"><?php the_sub_field('name'); ?></div>
-						</div>
-					</th>
-					
-					<td class="pb2">
-				
-						<div class="item-timeline">
-							
-							<h3 class="heading"><?php the_sub_field('title'); ?></h3>
-							
-							<div class="collapsible">
-								
-								<?php if(get_sub_field('image')): ?>
-							
-								<img style="background:url(<?php the_sub_field('image'); ?>)"/>
-								
-								<?php endif; ?>
-								
-								<div class="text">
-								
-									<div><?php the_sub_field('description'); ?></div>
-									
-								</div>
-							</div>
-							
-						</div>
-					</td>
-				
-				</tr>
-					
-				<?php endwhile;
-				
-			endif;
-			    
-			?>
+				if( have_rows('letters') ):
 			
-		    </table>
+					while ( have_rows('letters') ) : the_row(); ?>
+					
+					<tr>
+						<th>
+							<div class="heading heading__secondary-color font600">
+								<div class="circle large"><?php the_sub_field('name'); ?></div>
+							</div>
+						</th>
+						
+						<td class="pb2">
+					
+							<div class="item-timeline">
+								
+								<h3 class="heading"><?php the_sub_field('title'); ?></h3>
+								
+								<div class="collapsible">
+									
+									<?php if(get_sub_field('image')): ?>
+								
+									<div class="img" style="background:url(<?php the_sub_field('image'); ?>)"></div>
+									
+									<?php endif; ?>
+									
+									<div class="text">
+									
+										<div><?php the_sub_field('description'); ?></div>
+										
+									</div>
+								</div>
+								
+							</div>
+						</td>
+					
+					</tr>
+						
+					<?php endwhile;
+					
+				endif;
+				    
+				?>
+				
+			    </table>
+	        </div>
         </div>
 		
 	</div><!--c-->
