@@ -63,6 +63,10 @@ div.information > .container {
 	text-align: left;
 }
 
+.newsletter-form span input {
+	width: auto;
+}
+
 }
 
 /*===========LARGE (1200px)==========*/
@@ -572,7 +576,7 @@ body {
 			}
 		}
 		
-		.wpcf7#wpcf7-f2068-o1 .button {
+		.contact-form .button {
 			width: 100%;
 		}
 	}
@@ -680,6 +684,10 @@ body {
 		}
 	}
 
+}
+
+nav .menu-trigger {
+	margin-left: -2em;
 }
 
 /*---FOOTER---*/
