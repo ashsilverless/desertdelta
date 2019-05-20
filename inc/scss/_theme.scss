@@ -970,8 +970,17 @@
 		grid-template-rows: max-content min-content max-content;
 		grid-column-gap: 2px;
 		width: 100%;
-		background-color: $brand-primary;
 		margin-bottom: 1rem;
+		position: relative;
+		
+		&:before {
+			content: "";
+			position: absolute;
+			height: 100%;
+			width: 2px;
+			background: $brand-primary;
+			left: 50%;
+		}
 		
 		* {
 			background-color: $body-color;
@@ -1061,6 +1070,14 @@
 				&.active::before {
 					bottom: -4.5em;
 				}
+			}
+			
+			.long-text, .short-text {
+				grid-column: 3;
+			}
+			
+			.short-text {
+				display: none;
 			}
 		}
 		
@@ -1448,15 +1465,19 @@
 				grid-row: 1/3;
 				position: relative;
 				
-				&:before {
-					content: '';
-					position: absolute;
-					top: 4%;
-					left: 2%;
-					width: 96%;
-					height: 92%;
-					border: 1px solid white;
-					z-index: 1;
+				.effect-img {
+					position: relative;
+					
+					&:before {
+						content: '';
+						position: absolute;
+						top: 4%;
+						left: 2%;
+						width: 96%;
+						height: 92%;
+						border: 1px solid white;
+						z-index: 1;
+					}
 				}
 			}
 			

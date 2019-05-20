@@ -96,7 +96,7 @@ the_post(); ?>
 				    
 				    <?php if( have_rows('data') ): while ( have_rows('data') ) : the_row(); ?>
 					
-					<div class="row-data mb5">
+					<div class="row-data pb5">
 	
 						<h3 class="heading heading__alt-font font700"><?php the_sub_field('info_title'); ?></h3>
 						

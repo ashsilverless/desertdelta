@@ -4,7 +4,7 @@
 	
 	<div class="wrapper mb2">
 		
-		<div class="img"><img src="<?php the_sub_field('image'); ?>"/></div>
+		<div class="img"><div class="effect-img"><img src="<?php the_sub_field('image'); ?>"/></div></div>
 		
 	    <label><?php the_sub_field('name'); ?></label>
 	    

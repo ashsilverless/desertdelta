@@ -46,7 +46,8 @@ $term = get_queried_object();
 		        <div class="custom-actions">
 			        <div><button name="lodges" class="active"><i class="fas fa-campground"></i>Lodges</button></div>
 			        <div><button name="gallery"><i class="fas fa-camera"></i>Gallery</button></div>
-			        <div><button name="data"><i class="fas fa-cogs"></i>Quick facts</button></div>
+			        <div class="long-text"><button name="data"><i class="fas fa-cogs"></i>Quick facts</button></div>
+			        <div class="short-text"><button name="data"><i class="fas fa-cogs"></i>Facts</button></div>
 		        </div>
 		    </div>
 	        
@@ -118,7 +119,7 @@ $term = get_queried_object();
 					
 					if( sizeof($quick_facts) > 0 ): ?>
 				    
-				    <ul class="custom-list mt3 mb5">
+				    <ul class="custom-list mt3 pb5">
 					    
 					    <?php foreach($quick_facts as $fact): ?>
 					    
