@@ -1,9 +1,7 @@
 <?php if (have_rows('cta_contact', 'options')):
     while (have_rows('cta_contact', 'options')) : the_row();?>
 
-<?php $ctaContactImage = get_sub_field('image');?>
-
-    <div class="cta contact" style="background-image: url(<?php echo $ctaContactImage['url']; ?>);">
+    <div class="cta contact" style="background-image: url(<?php the_sub_field('image');; ?>);">
                 
         <div class="content">
             

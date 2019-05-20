@@ -44,12 +44,16 @@
 		<nav>
             
             <div class="nav-menu">
-            
-                <a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>" class="brand">
-                
-                <?php get_template_part('template-parts/logo');?>
-                
-                </a>           
+            	
+            	<div class="center">
+	            	
+	                <a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>" class="brand">
+	                
+	                <?php get_template_part('template-parts/logo');?>
+	                
+	                </a>   
+	                        
+            	</div>
 
             <?php
             wp_nav_menu( array(
@@ -59,7 +63,7 @@
             
             </div>
 				
-			<div class="container">
+			<div class="ml2 container container-nav">
 
 				<div class="row">
 
@@ -83,5 +87,11 @@
 			</div>
 
 		</nav>
+		
+		<!-- Modal Video -->
+		
+		<?php get_template_part('template-parts/modal');?>
+		
+		<!-- Modal Video END -->
 
 	<main>

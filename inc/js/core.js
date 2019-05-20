@@ -41,23 +41,97 @@ jQuery(document).ready(function( $ ) {
 			more.html("Read more");
 	});
 	
-/* TOGGLE ACTIVE DIV IN CAMP PAGE */
+/* TOGGLE ACTIVE DIV IN CAMP AND DESTINATION PAGE */
 
-	$(".camp-actions button").click(function() {
-		$(".camp-actions button").removeClass("active");
+	$(".custom-actions button").click(function() {
+		$(".custom-actions button").removeClass("active");
 		$(this).addClass("active");
 		
-		var active = ".camp-info ." + $(this).attr("name");
-		$(".camp-info > div").addClass("hidden");
+		var active = ".custom-info ." + $(this).attr("name");
+		$(".custom-info > div").addClass("hidden");
 		$(active).removeClass("hidden");
 	});
 
 /* TOGGLE COLLAPSE ON ITINERARY PAGE */
 
-	$(".item-itinerary h3").click(function() {
+	$(".item-timeline h3").click(function() {
 		$(this).parent().find(".collapsible").slideToggle();
 		$(this).closest("tr").siblings().find(".collapsible").slideUp();
 	});
+	
+/* TRIGGER TIMELINE AFTER CLICK ON CIRCLE */
+
+	$(".circle").click(function() {
+		$(this).parents("tr").find(".item-timeline h3").trigger("click");
+	});
+	
+/* FILTER DESTINATION */
+
+	$(".wrapper-destinations .menu button").click(function() {
+		var destination = $(this).attr("name");
+		
+		$(this).siblings().removeClass("active");
+		$(this).addClass("active");
+		
+		if(destination == "all") {
+			$(".wrapper-cards-horizontal .wrapper-card").slideDown();
+		} else {
+			$(".wrapper-cards-horizontal .wrapper-card:not(." + destination + ")").slideUp();
+			$(".wrapper-cards-horizontal .wrapper-card." + destination).slideDown();
+		}
+	});
+
+/* TRIGGER TIMELINE AFTER CLICK ON CIRCLE */
+
+	$(".contact .collapsible span").click(function() {
+		$(this).parent().siblings(".collapsible").find("div").slideUp();
+		$(this).next().slideToggle();
+	});
+	
+/* LOAD VIDEOS */
+		
+	$(".modal-toggle").on("click", function() {
+		if(!$('.modal').hasClass("is-visible")) {
+			$(".modal video source").attr("src", $(this).attr("video-url"));
+			$(".modal video").get(0).load();
+			$(".modal video").trigger("focus");
+			$(".modal").css("top", window.scrollY);
+		}
+		$('.modal').toggleClass('is-visible');
+		$('html').toggleClass('no-scroll');
+	});
+	
+/* TRIGGER COLLAPSE IN FLEXIBLE CONTENT */
+
+	$(".flexible-content.toggle-block label").click(function() {
+		$(this).siblings("label").removeClass("collapsed");
+		$(this).siblings("label").next().slideUp();
+		$(this).toggleClass("collapsed");
+		$(this).next().slideToggle();
+	});
+	
+/* SHOW POPUP ON MAP */
+
+	$(".camps svg circle").click(function() {
+		var height   = parseFloat($(".camps svg").height());       // Content height
+		var width    = parseFloat($(".camps svg").width());        // Content width
+		var v_height = parseFloat($(".camps svg").attr("height")); // Viewbox height
+		var v_width  = parseFloat($(".camps svg").attr("width"));  // Viewbox width
+		var v_bottom = parseFloat(v_height - $(this).attr("cy"));    // Viewbox distance top
+		var v_left   = parseFloat($(this).attr("cx"));             // Viewbox distance left
+		
+		var bottom  = (v_bottom  * height) / v_height;
+		var left    = (v_left * width)  / v_width;
+		
+		$(".popup").css({
+			"bottom":  bottom  + "px",
+			"left": left + "px"
+		});
+		$(".popup").show();
+		
+		$("html, body").animate({ scrollTop: $(".popup").offset().top - 200}, 500);
+	});
+
 
 /* CLASS AND FOCUS ON CLICK */
 
@@ -190,6 +264,55 @@ jQuery(document).ready(function( $ ) {
 			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
 		}
 	});
+	
+// ========== Actions on resize - alter popup camp position
+
+	$(window).on("resize", function() {
+		
+		if($(".popup").hasClass("clicked")) {
+			var circle   = $(".camps svg circle.clicked");
+			var height   = parseFloat($(".camps svg").height());        // Content height
+			var width    = parseFloat($(".camps svg").width());         // Content width
+			var v_height = parseFloat($(".camps svg").attr("height"));  // Viewbox height
+			var v_width  = parseFloat($(".camps svg").attr("width"));   // Viewbox width
+			var v_bottom = parseFloat(v_height - $(circle).attr("cy")); // Viewbox distance top
+			var v_left   = parseFloat($(circle).attr("cx"));            // Viewbox distance left
+			
+			var bottom  = (v_bottom  * height) / v_height;
+			var left    = (v_left * width)  / v_width;
+			
+			$(".popup").css({
+				"bottom":  bottom  + "px",
+				"left": left + "px"
+			});
+		}
+		
+	});
+	
+	$(".camps svg circle").click(function() {
+		var height   = parseFloat($(".camps svg").height());       // Content height
+		var width    = parseFloat($(".camps svg").width());        // Content width
+		var v_height = parseFloat($(".camps svg").attr("height")); // Viewbox height
+		var v_width  = parseFloat($(".camps svg").attr("width"));  // Viewbox width
+		var v_bottom = parseFloat(v_height - $(this).attr("cy"));  // Viewbox distance top
+		var v_left   = parseFloat($(this).attr("cx"));             // Viewbox distance left
+		
+		var bottom  = (v_bottom  * height) / v_height;
+		var left    = (v_left * width)  / v_width;
+		
+		$(".camps svg circle").removeClass("clicked");
+		$(this).addClass("clicked");
+		$(".popup").addClass("clicked");
+
+		$(".popup").css({
+			"bottom":  bottom  + "px",
+			"left": left + "px"
+		});
+				
+		$(".popup").show();
+		
+		$("html, body").animate({ scrollTop: $(".popup").offset().top - 200}, 500);
+	});
 
 // ========== Add class if in viewport on page load
 
@@ -244,31 +367,31 @@ return elementBottom > viewportTop && elementTop < viewportBottom;
 };
 
 $(window).on('resize scroll', function() {
-  $('.experience-level').each(function() {
-    if ($(this).isInViewport()) {
-      $(this).addClass('active');
-    } 
-  });
-  $('.slide-up').each(function() {
-    if ($(this).isInViewport()) {
-      $(this).addClass('active');    
-    } 
-  });   
-    $('.slide-down').each(function() {
-    if ($(this).isInViewport()) {
-      $(this).addClass('active');    
-    } 
-  }); 
-    $('.slide-right').each(function() {
-    if ($(this).isInViewport()) {
-      $(this).addClass('active');    
-    } 
-  });  
-    $('.slow-fade').each(function() {
-    if ($(this).isInViewport()) {
-      $(this).addClass('active');    
-    } 
-  });    
+	$('.experience-level').each(function() {
+		if ($(this).isInViewport()) {
+			$(this).addClass('active');
+		} 
+	});
+	$('.slide-up').each(function() {
+		if ($(this).isInViewport()) {
+			$(this).addClass('active');    
+		} 
+	});   
+	$('.slide-down').each(function() {
+		if ($(this).isInViewport()) {
+			$(this).addClass('active');    
+		} 
+	}); 
+	$('.slide-right').each(function() {
+		if ($(this).isInViewport()) {
+			$(this).addClass('active');    
+		} 
+	});  
+	$('.slow-fade').each(function() {
+		if ($(this).isInViewport()) {
+			$(this).addClass('active');    
+		} 
+	});
     
 });
 

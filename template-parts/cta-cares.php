@@ -3,7 +3,7 @@ while (have_rows('cta_cares', 'options')) : the_row();?>
 
 <?php $ctaCaresImage = get_sub_field('image');?>
 
-<div class="container">
+<div class="container container-cares">
 
     <div class="cta cares mt5 mb5" style="background-image: url(<?php echo $ctaCaresImage['url']; ?>);">
         

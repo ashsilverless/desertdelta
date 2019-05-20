@@ -2,6 +2,10 @@
 html {
     font-size: 18px;
     overflow-y: scroll;
+    
+    &.no-scroll {
+	    overflow: hidden;
+    }
 }
  
 html,
@@ -161,6 +165,11 @@ h5 {
      border-radius: 0;
  }
  
+.row {
+	margin-left: 0;
+	margin-right: 0;
+}
+
 /*===========HEADER==========*/
 
 .site-wrapper {
@@ -175,8 +184,14 @@ header {
     z-index: 1000;
 }
 
+.container-nav {
+	max-width: 100%;
+}
+
 nav {
-    position: fixed;
+	position: absolute;
+	top: 0;
+	left: 0;
     width: 100%;
     padding-bottom: 1em;
     font-family: $supporting-font;
@@ -222,7 +237,6 @@ nav {
     }
     
     .brand {
-        width: 100%;
         margin: 2em 0 3em;
         text-align: center;
         
