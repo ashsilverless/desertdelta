@@ -633,6 +633,7 @@
 		padding: 0;
 		font-weight: 100;
 	    letter-spacing: 0.05em;
+	    margin-bottom: 0.5em;
 		
 		&:not(:first-child)::before {
 			content: "";
@@ -1358,7 +1359,7 @@
 	.main-content {
 		font-family: $supporting-font;
 		display: grid;
-		grid-template-columns: 30% 60%;
+		grid-template-columns: calc(35% - 1em) calc(65% - 1em);
 		column-gap: 2em;
 		
 		.info {

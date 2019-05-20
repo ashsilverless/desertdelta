@@ -21,7 +21,7 @@ get_header();?>
 
 <!-- ******************* Hero Content ******************* -->
 
-    <div class="container contact mt5 mb5">
+    <div class="container contact large mt5 mb5">
 	    
 	    <div class="main-content">
 	    
