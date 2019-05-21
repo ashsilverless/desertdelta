@@ -21,7 +21,7 @@ foreach($posts as $post) {
 
 ?>
 
-<div class="map camps" <?php printf('camps="%s">', htmlspecialchars(json_encode($camps), ENT_QUOTES, 'UTF-8')); ?> >
+<div class="map camps" <?php printf('camps="%s"', htmlspecialchars(json_encode($camps), ENT_QUOTES, 'UTF-8')); ?>>
 	
 	<div class="popup">
 		
