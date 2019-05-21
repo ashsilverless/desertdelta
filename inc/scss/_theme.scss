@@ -134,7 +134,13 @@
         }
         
         .area-destination {
+	        transition: $slowEffect;
 	        fill: #b5b98a;
+	        opacity: 1;
+	        
+	        &.hidden {
+		        opacity: 0;
+	        }
         }
         
     }

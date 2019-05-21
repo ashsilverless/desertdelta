@@ -151,6 +151,10 @@ body {
 	min-height: 20em !important;
 }
 
+.map svg circle {
+	r: 15;
+}
+
 /*---FOOTER---*/
 
 .pre-socket {
@@ -329,6 +333,10 @@ main .content .row {
 
 .gallery {
 	grid-template-columns: auto auto;
+}
+
+.map svg circle {
+	r: 17;
 }
 
 /*---FOOTER---*/
@@ -692,6 +700,18 @@ nav {
 
 nav .menu-trigger {
 	margin-left: -2em;
+}
+
+.map {
+	margin-top: -5em;
+	
+	svg circle {
+		r: 19;
+	}
+	
+	.popup .content {
+		width: 60vw;
+	}
 }
 
 /*---FOOTER---*/

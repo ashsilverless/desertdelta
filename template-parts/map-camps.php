@@ -191,18 +191,18 @@ foreach($posts as $post) {
     
 <path id="link3" fill="#222323" d="M1076.7,343c0,2.7,2.1,4.9,4.7,5.2v39.3h-23.9v22.8h1v-21.8h46.8v21.8h1v-22.8h-23.9v-39.3
     c2.7-0.3,4.7-2.5,4.7-5.2c0-2.9-2.3-5.2-5.2-5.2S1076.7,340.1,1076.7,343z"/>
-<circle id="chobe-game-lodge" fill="#F6E71B" cx="1105.8" cy="410.3" r="10.3"/>
-<circle id="chobe-savanna-lodge" fill="#F6E71B" cx="1058" cy="410.3" r="10.3"/>
-<circle id="savute-safari-lodge" fill="#F6E71B" cx="867.2" cy="517.4" r="10.3"/>
+<circle id="chobe-game-lodge" fill="#F6E71B" cx="1105.8" cy="410.3" r="12"/>
+<circle id="chobe-savanna-lodge" fill="#F6E71B" cx="1058" cy="410.3" r="12"/>
+<circle id="savute-safari-lodge" fill="#F6E71B" cx="867.2" cy="517.4" r="12"/>
 <path id="link2" fill="#222323" d="M647.9,619.4c0,2.7,2.1,4.9,4.7,5.2v39.3h-23.9v22.8h1v-21.8h46.8v21.8h1v-22.8h-23.9v-39.3
     c2.7-0.3,4.7-2.5,4.7-5.2c0-2.9-2.3-5.2-5.2-5.2S647.9,616.5,647.9,619.4z"/>
-<circle id="camp-okavango" fill="#F6E71B" cx="677" cy="686.7" r="10.3"/>
-<circle id="xugana-island-lodge" fill="#F6E71B" cx="629.2" cy="686.7" r="10.3"/>
+<circle id="camp-okavango" fill="#F6E71B" cx="677" cy="686.7" r="12"/>
+<circle id="xugana-island-lodge" fill="#F6E71B" cx="629.2" cy="686.7" r="12"/>
 <path id="link1" fill="#222323" d="M769.5,671.1c0,2.7,2.1,4.9,4.7,5.2v39.3h-23.9v22.8h1v-21.8h46.8v21.8h1v-22.8h-23.9v-39.3
     c2.7-0.3,4.7-2.5,4.7-5.2c0-2.9-2.3-5.2-5.2-5.2S769.5,668.2,769.5,671.1z"/>
-<circle id="camp-moremi" fill="#F6E71B" cx="798.7" cy="738.4" r="10.3"/>
-<circle id="camp-xacanaxa" fill="#F6E71B" cx="750.8" cy="738.4" r="10.3"/>
-<circle id="leroo-la-tau" fill="#F6E71B" cx="961.4" cy="938.5" r="10.3"/>
+<circle id="camp-moremi" fill="#F6E71B" cx="798.7" cy="738.4" r="12"/>
+<circle id="camp-xacanaxa" fill="#F6E71B" cx="750.8" cy="738.4" r="12"/>
+<circle id="leroo-la-tau" fill="#F6E71B" cx="961.4" cy="938.5" r="12"/>
 </svg>
 
 </div>

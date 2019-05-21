@@ -75,10 +75,13 @@ jQuery(document).ready(function( $ ) {
 		
 		if(destination == "all") {
 			$(".wrapper-cards-horizontal .wrapper-card").slideDown();
+			$(".area-destination").removeClass("hidden");
 		} else {
 			$(".wrapper-cards-horizontal .wrapper-card:not(." + destination + ")").slideUp();
 			$(".wrapper-cards-horizontal .wrapper-card." + destination).slideDown();
 			$(".wrapper-cards-horizontal .wrapper-card." + destination + " .info-card").addClass('active');
+			$(".area-destination:not(#" + destination + ")").addClass("hidden");
+			$(".area-destination#" + destination).removeClass("hidden");
 		}
 	});
 
