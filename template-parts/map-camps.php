@@ -14,7 +14,7 @@ foreach($posts as $post) {
 		"title_camp"  => $post->post_title,
 		"link"        => get_permalink($post->ID),
 		"destination" => get_the_terms($post->ID, 'destinations')[0]->name,
-		"description" => wp_strip_all_tags(substr(get_field("description", $post->ID), 0, 110) . "...", true),
+		"description" => substr(wp_strip_all_tags(get_field("description", $post->ID), true), 0, 110) . "...",
 		"image"       => wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium' )[0]
 	);
 }
