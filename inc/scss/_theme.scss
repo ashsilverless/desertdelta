@@ -153,6 +153,14 @@
 			@include backgroundCover;
 		}
 		
+		.close-popup {
+			color: $body-color;
+			float: right;
+			padding: 0.5em;
+			font-size: 1.2em;
+			cursor: pointer;
+		}
+		
 		span {
 			text-transform: uppercase;
 			font-family: "Noto Sans", sans-serif;
