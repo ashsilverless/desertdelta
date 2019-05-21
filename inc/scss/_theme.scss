@@ -98,8 +98,7 @@
 
 .map {
     position: relative;
-    margin-top: -12em;
-    z-index: 2;
+    margin-top: -7em;
     
     &:before {
         content:'';
@@ -131,7 +130,7 @@
             cursor: pointer;
         }
         
-        path.destination, polygon.destination {
+        .area-destination {
 	        fill: #b5b98a;
         }
         
@@ -144,7 +143,7 @@
 	    width: 300px;
 		z-index: 999;
 		margin-left: 70px;
-		margin-bottom: 1.2em;
+		margin-bottom: 1em;
 		
 		.content {
 			background: #e9e6e2;
@@ -152,7 +151,7 @@
 	    
 	    .path-dotted {
 			height: 90px;
-			border-left: 7px dotted #b6b7ad;
+			border-left: 7px dotted #8e9457;
 			z-index: -1;
 			margin-left: 77px;
 		}
@@ -161,6 +160,14 @@
 			background: url("http://desert---delta.local/wp-content/uploads/2019/05/IMG_1336-1024x683.jpg");
 			height: 150px;
 			@include backgroundCover;
+		}
+		
+		.close-popup {
+			color: $body-color;
+			float: right;
+			padding: 0.5em;
+			font-size: 1.2em;
+			cursor: pointer;
 		}
 		
 		span {

@@ -123,13 +123,27 @@ jQuery(document).ready(function( $ ) {
 		var bottom  = (v_bottom  * height) / v_height;
 		var left    = (v_left * width)  / v_width;
 		
+		$(".camps svg.map-camps circle").removeClass("clicked");
+		$(this).addClass("clicked");
+		$(".popup").addClass("clicked");
+		
 		$(".popup").css({
-			"bottom":  bottom  + "px",
+			"bottom": bottom + "px",
 			"left": left + "px"
 		});
 		$(".popup").show();
 		
 		$("html, body").animate({ scrollTop: $(".popup").offset().top - 200}, 500);
+	});
+	
+/* CLOSE POPUP */
+
+	$(".popup .close-popup").click(function() {
+		
+		$(".popup").hide();
+		$(".popup").removeClass("clicked");
+		$(".camps svg.map-camps circle").removeClass("clicked");
+		
 	});
 
 
