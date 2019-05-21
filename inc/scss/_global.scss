@@ -235,10 +235,10 @@ nav {
             }
             
             &:nth-of-type(1) {
-	            text-shadow: 1px 1px 5px black, 1px 1px 1px $brand-primary;
+	            text-shadow: -1px -1px 2px hsla(0, 0%, 0%, 0.30), 1px -1px 2px hsla(0, 0%, 0%, 0.30), -1px 1px 2px hsla(0, 0%, 0%, 0.30), 1px 1px 2px hsla(0, 0%, 0%, 0.30);
 	            
 	            &:before {
-		            box-shadow: 1px 1px 5px black, 1px 1px 1px $brand-primary;
+		            box-shadow: -1px -1px 2px hsla(0, 0%, 0%, 0.30), 1px -1px 2px hsla(0, 0%, 0%, 0.30), -1px 1px 2px hsla(0, 0%, 0%, 0.30), 1px 1px 2px hsla(0, 0%, 0%, 0.30);
 	            }
             }
         }

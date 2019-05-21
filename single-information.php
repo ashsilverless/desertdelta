@@ -81,8 +81,9 @@ the_post(); ?>
 		<?php
 	
 		$args = array(
-			'numberposts' => -1,
-			'post_type'   => 'information'
+			'numberposts'  => -1,
+			'post_type'    => 'information',
+			'post__not_in' => array(get_the_ID())
 		);
 		$posts = get_posts( $args ); ?>
 		
