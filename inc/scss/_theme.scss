@@ -91,10 +91,15 @@
 
 /*===========BODY==========*/
 
+.content > .container, .content-news, .cares-videos .container {
+	z-index: 3;
+    position: relative;
+}
+
 .map {
     position: relative;
     margin-top: -12em;
-    z-index: -1;
+    z-index: 2;
     
     &:before {
         content:'';
@@ -124,6 +129,10 @@
             animation: shadow-pulse 1.5s infinite;
             stroke:$brand-primary;
             cursor: pointer;
+        }
+        
+        path.destination, polygon.destination {
+	        fill: #b5b98a;
         }
         
     }
@@ -689,9 +698,16 @@
 		margin: 0 2em;
 		
 		&.info-read-more {
+			cursor: pointer;
 			border: 1px solid grey;
 			color: grey;
 			margin: 2em;
+			transition: $fastEffect;
+			
+			&:hover {
+				background: grey;
+				color: white;
+			}
 		}
 		
 		&.button {
@@ -780,6 +796,8 @@
 	display: grid;
 	column-gap: 1.5em;
 	grid-template-columns: calc(25% - 0.75em) calc(75% - 0.75em);
+	z-index: 3;
+    position: relative;
 
 	.wrapper-cards-horizontal {
 		display: block;

@@ -60,7 +60,7 @@ get_header();?>
 									
 									<?php if(get_sub_field('image')): ?>
 								
-									<img style="background:url(<?php the_sub_field('image'); ?>)"/>
+									<div class="img" style="background:url(<?php the_sub_field('image'); ?>)"></div>
 									
 									<?php endif; ?>
 									
