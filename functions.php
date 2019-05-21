@@ -404,7 +404,7 @@ add_action( 'admin_menu', 'remove_admin_menus' );
 */
 add_theme_support( 'post-thumbnails' ); 
 
-/**
+/*
  * Remove the 'description' column from the table in 'edit-tags.php'
  * but only for the 'post_tag' taxonomy
  */
@@ -416,3 +416,19 @@ function remove_description_taxonomy( $columns ) {
     return $columns;
 };
 add_filter('manage_edit-destinations_columns', 'remove_description_taxonomy');
+
+/*
+ * Order camps by name
+ */
+function camps_order_post_type($query) {
+  if($query->is_admin) {
+
+        if ($query->get('post_type') == 'camps')
+        {
+          $query->set('orderby', 'title');
+          $query->set('order', 'ASC');
+        }
+  }
+  return $query;
+}
+add_filter('pre_get_posts', 'camps_order_post_type');
