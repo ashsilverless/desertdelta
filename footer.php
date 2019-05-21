@@ -142,7 +142,9 @@
     </div><!-- #page -->
 
     <?php wp_footer(); ?>
-    
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin.min.js"></script>    
     </body>
     
 </html>

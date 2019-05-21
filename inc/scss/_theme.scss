@@ -93,14 +93,15 @@
 
 .map {
     position: relative;
-    z-index: 1;
+    margin-top: -12em;
+    z-index: -1;
     
     &:before {
         content:'';
         position: absolute;
         width: 100%;
         height:10em;
-        background-image: linear-gradient($body-color, transparent);
+        background: linear-gradient(180deg, hsl(60, 7%, 94%) 0%, hsla(60, 7%, 94%, 0.8295693277310925) 73%, hsla(60, 7%, 94%, 0) 100%);
         
     }
 
