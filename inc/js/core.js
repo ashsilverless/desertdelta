@@ -78,6 +78,7 @@ jQuery(document).ready(function( $ ) {
 		} else {
 			$(".wrapper-cards-horizontal .wrapper-card:not(." + destination + ")").slideUp();
 			$(".wrapper-cards-horizontal .wrapper-card." + destination).slideDown();
+			$(".wrapper-cards-horizontal .wrapper-card." + destination + " .info-card").addClass('active');
 		}
 	});
 
@@ -131,6 +132,18 @@ jQuery(document).ready(function( $ ) {
 			"bottom": bottom + "px",
 			"left": left + "px"
 		});
+		
+		
+		var camps = JSON.parse($(".map.camps").attr("camps"));
+		var current = camps[$(this).attr("id")];
+		
+		$(".popup .content h2").text(current.title_camp);
+		$(".popup .content span").text(current.destination);
+		$(".popup .content p").text(current.description);
+		$(".popup .content a").attr("href", current.link);
+		$(".popup .content .img").css("background", "url(" + current.image + ")");
+		
+		
 		$(".popup").show();
 		
 		$("html, body").animate({ scrollTop: $(".popup").offset().top - 200}, 500);
