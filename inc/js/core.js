@@ -370,6 +370,7 @@ $.fn.isOnScreen = function(){
       $(this).addClass('active');    
     } 
   });  
+    
 
 // ========== Add class on entering viewport
 
@@ -407,9 +408,157 @@ $(window).on('resize scroll', function() {
 			$(this).addClass('active');    
 		} 
 	});
+	$('#canvas').each(function() {
+		if($(this).isInViewport() && !$(this).hasClass("active")) {
+			
+			$(this).addClass('active');
+			var margin = $(".hero").height() - $(this).offset().top - 60;
+			$(this).css("margin-top", margin + "px");
+			
+			setTimeout(function() {
+				percentDirection = -4;
+				radiusDirection = 1.2;
+			}, 2500);
+		} 
+	});
     
 });
 
+// ========== Animation Play Video on Cares children pages
+
+if($("body").hasClass("page-template-cares-children")) {
+		
+	var sideCount = 3;
+	
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");;
+	ctx.lineWidth = 2;
+	ctx.fillStyle = '#FFFFFF';
+	
+	var PI2 = Math.PI * 2;
+	var cx = 30;
+	var cy = 30;
+	
+	var radius = 5;
+	var radiusDirection = 0;
+	
+	var xx = function (a) {
+	    return (cx + radius * Math.cos(a));
+	}
+	var yy = function (a) {
+	    return (cy + radius * Math.sin(a));
+	}
+	var lerp = function (a, b, x) {
+	    return (a + x * (b - a));
+	}
+	
+	var sides = [];
+	for (var i = 0; i < sideCount; i++) {
+	    sides.push(makeSide(i, sideCount));
+	}
+	
+	var percent = 100;
+	var percentDirection = 0;
+	
+	$('#canvas').each(function() {
+		if($(this).isOnScreen()) {
+			
+			$(this).addClass('active');
+			var margin = $(".hero").height() - $(this).offset().top - 60;
+			$(this).css("margin-top", margin + "px");
+			
+			setTimeout(function() {
+				percentDirection = -4;
+				radiusDirection = 1.2;
+			}, 2500);
+		} 
+	}); 
+	
+	animate();
+	
+	// functions
+	
+	function animate() {
+	  
+	    requestAnimationFrame(animate);
+	    drawSides(percent);
+	    percent += percentDirection;
+	  
+	    radius += radiusDirection;
+	
+	  
+	    if (percent > 100) {
+	        percent = 100;
+	    }
+	    if (percent < 0) {
+	        percent = 0;
+	    }
+	    if (radius > 30) {
+	        radius = 30;
+	    }
+	    if (radius < 5) {
+	        radius = 5;
+	    }
+	}
+	
+	function drawSides(pct) {
+	  
+	    ctx.clearRect(0, 0, canvas.width, canvas.height);
+	    if (pct == 100) {
+	        ctx.beginPath();
+	        ctx.arc(cx, cy, radius, 0, PI2);
+	        ctx.closePath();
+	        ctx.fill();
+	    } else {
+	          for (var i = 0; i < sideCount; i++) {
+	              sides[i] = makeSide(i, sideCount);
+	          }
+	      
+	        ctx.beginPath();
+	        ctx.moveTo(sides[0].x0, sides[0].y0);
+	        for (var i = 0; i < sideCount; i++) {
+	            var side = sides[i];
+	            var cpx = lerp(side.midX, side.cpX, pct / 100);
+	            var cpy = lerp(side.midY, side.cpY, pct / 100);
+	            ctx.quadraticCurveTo(cpx, cpy, side.x2, side.y2);
+	        }
+	        ctx.fill();
+	    }
+	}
+	
+	function makeSide(n, sideCount) {
+	    var sweep = PI2 / sideCount;
+	    var sAngle = sweep * (n - 1);
+	    var eAngle = sweep * n;
+	
+	    var x0 = xx(sAngle);
+	    var y0 = yy(sAngle);
+	    var x1 = xx((eAngle + sAngle) / 2);
+	    var y1 = yy((eAngle + sAngle) / 2);
+	    var x2 = xx(eAngle);
+	    var y2 = yy(eAngle);
+	
+	    var dx = x2 - x1;
+	    var dy = y2 - y1;
+	    var a = Math.atan2(dy, dx);
+	    var midX = lerp(x0, x2, 0.50);
+	    var midY = lerp(y0, y2, 0.50);
+	    var cpX = 2 * x1 - x0 / 2 - x2 / 2;
+	    var cpY = 2 * y1 - y0 / 2 - y2 / 2;
+	
+	    return ({
+	        x0: x0,
+	        y0: y0,
+	        x2: x2,
+	        y2: y2,
+	        midX: midX,
+	        midY: midY,
+	        cpX: cpX,
+	        cpY: cpY,
+	        color: '#FFFFFF'
+	    });
+	}
+}
 
 
 });//Don't remove ---- end of jQuery wrapper
