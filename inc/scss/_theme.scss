@@ -348,14 +348,18 @@
             }
             
             .socials a {
-				margin-right: 1.5em;
 				color: white;
 				font-size: 1.2em;
+				
+				&:not(:last-child) {
+					margin-right: 1.5em;
+				}
             }
         }
     }
     
     &.discover {
+	    border-top: 10px solid white;
 	    
 	    .main-destination {
 		    line-height: unset;

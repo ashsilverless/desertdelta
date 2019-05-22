@@ -462,6 +462,24 @@ nav {
 			left: 50%;
 		}
 	}
+	
+	&.discover {
+		grid-template-columns: 100%;
+		text-align: center;
+		
+		.main-destination {
+			margin-bottom: 2em;
+			grid-column: 1;
+		}
+		
+		.content {
+			grid-column: 1;
+			
+			span:before {
+				left: 50%;
+			}
+		}
+	}
 }
 
 .wrapper-timeline {
