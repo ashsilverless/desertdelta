@@ -32,6 +32,10 @@ $sides: (top, bottom, left, right); // Sides var
 	text-align: center;
 }
 
+.justify {
+	text-align: justify;
+}
+
 /* Height */
 
 $height: (0, 25, 50, 75, 100); // Amount string.

@@ -198,20 +198,11 @@ nav {
     z-index: 500;  
     color: white;
     transition: background 0.5s ease;
-
-    &:before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 50px;
-        background: hsl(311, 13%, 14%);
-        opacity:0;
-        transition:opacity 0.3s ease;
-    }  
     
     .menu-trigger {
-        position: relative;
-        margin-top:2em;  
+        position: absolute;
+        margin-top: 2em;
+        margin-left: 2em;
         z-index: 1000;
         cursor: pointer;
         

@@ -311,7 +311,7 @@
         
     }
     
-    &.contact {
+    &.contact, &.discover {
 	    position: relative;
         grid-template-columns: 1fr 1fr;
         grid-gap:3em;
@@ -353,6 +353,38 @@
 				font-size: 1.2em;
             }
         }
+    }
+    
+    &.discover {
+	    
+	    .main-destination {
+		    line-height: unset;
+		    cursor: pointer;
+		    color: white;
+		    grid-column: 1;
+		    
+		    &:hover {
+			    color: white;
+		    }
+		    
+		    .text {
+				
+				&_discover, &_destination {
+					font-style: italic;
+					letter-spacing: 0.05em;
+				}
+		    }
+		    
+		    svg {
+			    height: 3em;
+			    width: 3em;
+			    margin-bottom: 1em;
+			    
+			    path.itinerary-marker {
+				    fill: white;
+			    }
+		    }
+	    }
     }
     
 }
@@ -855,6 +887,10 @@
 		cursor: pointer;
 		color: hsl(69, 2%, 31%);
 		transition: $fastEffect;
+		
+		&:hover {
+			background-color: #dad1c5;
+		}
 		
 		&.active {
 			background-color: $brand-primary;
@@ -1567,7 +1603,7 @@
 			th {
 				font-size: 1.2em;
 				text-transform: uppercase;
-				color: $brand-primary;
+				color: lighten($brand-primary, 10%);
 			}
 			
 			td {

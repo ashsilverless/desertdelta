@@ -31,7 +31,9 @@
 	
 						$args = array(
 							'numberposts' => -1,
-							'post_type'   => 'camps'
+							'post_type'   => 'camps',
+							'orderby'     => 'title',
+							'order'       => 'ASC'
 						);
 						$posts = get_posts( $args );
 						

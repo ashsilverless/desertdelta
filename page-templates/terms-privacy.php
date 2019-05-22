@@ -22,7 +22,7 @@ the_post(); ?>
 
 <!-- ******************* Hero Content END ******************* -->
 	
-	<div class="container large pt5">
+	<div class="container large justify pt5">
 		
 		<?php the_content(); ?>
 		

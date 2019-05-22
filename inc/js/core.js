@@ -173,7 +173,6 @@ jQuery(document).ready(function( $ ) {
 		
 	});
 
-
 /* CLASS AND FOCUS ON CLICK */
 
     $('.menu-trigger').click(function() {

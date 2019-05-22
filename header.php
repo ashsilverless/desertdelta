@@ -62,28 +62,12 @@
             ?>
             
             </div>
+
+			<div class="menu-trigger">
 				
-			<div class="ml2 container container-nav">
-
-				<div class="row">
-
-					<div class="col-sm-3 col-1">
-
-						<div class="menu-trigger">
-							
-							<span>Menu</span>
-							<span>Close</span>
-							
-						</div>
-
-					</div>
-
-					<div class="col-sm-6 col-10 brand">
-						
-					</div>                    
-
-				</div>
-
+				<span>Menu</span>
+				<span>Close</span>
+				
 			</div>
 
 		</nav>
