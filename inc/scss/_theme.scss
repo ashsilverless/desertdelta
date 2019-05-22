@@ -1179,6 +1179,7 @@
 		}
 		
 		.read-more {
+			display: none;
 			grid-row: 3;
 			grid-column: 2;
 			color: $brand-secondary;
@@ -1311,6 +1312,7 @@
 	}
 	
 	.read-more {
+		display: none;
 		grid-row: 3;
 		grid-column: 2;
 		color: $brand-secondary;
@@ -1437,6 +1439,7 @@
 	font-size: 1.2em;
 
 	.read-more {
+		display: none;
 		color: $brand-secondary;
 		cursor: pointer;
 		font-size: 0.9em;

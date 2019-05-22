@@ -172,6 +172,36 @@ jQuery(document).ready(function( $ ) {
 		$(".path-dotted-small").removeClass("visible");
 		
 	});
+	
+/* HIDE OR SHOW READ MORE */
+
+	$(".wrapper-text-block").each(function() {
+		if(hasOverflow($(this).find(".text-block")[0])) {
+			$(this).find(".read-more").show();
+		} else {
+			$(this).find(".read-more").hide();
+		}
+	});
+	
+	$(".custom-header").each(function() {
+		if(hasOverflow($(this).find(".custom-description")[0])) {
+			$(this).find(".read-more").show();
+		} else {
+			$(this).find(".read-more").hide();
+		}
+	});
+	
+	$(".itinerary-description").each(function() {
+		if(hasOverflow($(this)[0])) {
+			$(this).next().show();
+		} else {
+			$(this).next().hide();
+		}
+	});
+	
+	function hasOverflow(element) {
+		return element.scrollHeight > element.clientHeight;
+	}
 
 /* CLASS AND FOCUS ON CLICK */
 
