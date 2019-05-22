@@ -47,6 +47,8 @@ foreach($posts as $post) {
 		
 	</div>
 	
+	<div class="path-dotted-small"></div>
+	
     <img src="<?php echo get_template_directory_uri(); ?>/inc/img/ddmastermap2.jpg"/>
  
 <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In  -->

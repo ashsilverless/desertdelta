@@ -703,14 +703,35 @@ nav .menu-trigger {
 }
 
 .map {
-	margin-top: -5em;
+	width: 240%;
+	left: -45%;
 	
 	svg circle {
 		r: 19;
 	}
 	
-	.popup .content {
-		width: 60vw;
+	.popup {
+		margin-bottom: 90px;
+		
+		.content {
+			width: 70vw;
+		}
+	}
+	
+	.path-dotted {
+		display: none;
+	}
+	
+	.path-dotted-small {
+		display: none;
+		height: 90px;
+		border-left: 7px dotted #8e9457;
+		position: absolute;
+		z-index: 3;
+		
+		&.visible {
+			display: block;
+		}
 	}
 }
 
@@ -746,4 +767,21 @@ nav .menu-trigger {
 }
   
 }/*---end extra small mq---*/
+
+
+/*===========EXTRA SMALL - SPECIFIC (576px)==========*/
+
+@media only screen and (min-width: 360px) and (max-width: 576px) {
+	.map .popup {
+		left: 33% !important;
+	}
+}
+
+/*===========SUPER EXTRA SMALL (576px)==========*/
+
+@media only screen and (max-width: 360px) {
+	.map .popup {
+		left: 35% !important;
+	}
+}
 

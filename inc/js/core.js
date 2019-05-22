@@ -136,7 +136,6 @@ jQuery(document).ready(function( $ ) {
 			"left": left + "px"
 		});
 		
-		
 		var camps = JSON.parse($(".map.camps").attr("camps"));
 		var current = camps[$(this).attr("id")];
 		
@@ -146,10 +145,21 @@ jQuery(document).ready(function( $ ) {
 		$(".popup .content a").attr("href", current.link);
 		$(".popup .content .img").css("background", "url(" + current.image + ")");
 		
+		// Dotted path
+		
+		$(".path-dotted-small").css({
+			"bottom": (bottom + 15) + "px",
+			"left": (left - 3.5) + "px"
+		});
+		
+		$(".path-dotted-small").addClass("visible");
+		
 		
 		$(".popup").show();
 		
-		$("html, body").animate({ scrollTop: $(".popup").offset().top - 200}, 500);
+		var scrollIndex = window.innerHeight * 0.2;
+		
+		$("html, body").animate({ scrollTop: $(".popup").offset().top - scrollIndex}, 500);
 	});
 	
 /* CLOSE POPUP */
@@ -159,6 +169,7 @@ jQuery(document).ready(function( $ ) {
 		$(".popup").hide();
 		$(".popup").removeClass("clicked");
 		$(".camps svg.map-camps circle").removeClass("clicked");
+		$(".path-dotted-small").removeClass("visible");
 		
 	});
 

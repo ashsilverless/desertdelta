@@ -145,6 +145,10 @@
         
     }
     
+    .path-dotted-small {
+		display: none;
+	}
+    
     .popup {
 	    display: none;
 	    position: absolute;
@@ -175,7 +179,7 @@
 		.close-popup {
 			color: $body-color;
 			float: right;
-			padding: 0.5em;
+			padding: 0.5em 0.5em 4em 4em;
 			font-size: 1.2em;
 			cursor: pointer;
 		}
