@@ -155,7 +155,7 @@ jQuery(document).ready(function( $ ) {
 		$(".path-dotted-small").addClass("visible");
 		
 		
-		$(".popup").show();
+		$(".popup").fadeIn("fast");
 		
 		var scrollIndex = window.innerHeight * 0.2;
 		
@@ -166,7 +166,7 @@ jQuery(document).ready(function( $ ) {
 
 	$(".popup .close-popup").click(function() {
 		
-		$(".popup").hide();
+		$(".popup").fadeOut("fast");
 		$(".popup").removeClass("clicked");
 		$(".camps svg.map-camps circle").removeClass("clicked");
 		$(".path-dotted-small").removeClass("visible");
