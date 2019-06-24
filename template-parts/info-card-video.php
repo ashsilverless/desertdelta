@@ -10,8 +10,8 @@
 	$video   = get_field('video', $id)["video_file"];
 	
 	if($video)
-		$video = $video["url"];
-		
+		$video = "https://player.vimeo.com/video/" . $video;
+	
 	?>
 	
 	<div class="video">

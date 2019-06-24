@@ -343,6 +343,24 @@ a.next-section {
     display: block;
     overflow: auto !important;
     
+    .loading {
+	    position: absolute;
+	    display: none;
+		width: 5em;
+		height: 5em;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		
+		svg {
+			width: 5em;
+		}
+		
+		&.visible {
+			display: block;
+		}
+    }
+    
     &.is-visible {
 	    visibility: visible;
 	    
@@ -377,20 +395,26 @@ a.next-section {
 		z-index: 9999;
 		top: 0;
 		right: 50%;
-		width: 90vw;
+		width: 80vw;
+		height: calc(80vw * 3 / 5.1);
 		margin-left: -16em;
+		
+		.modal-body {
+			height: 100%;
+			width: 100%;
+		}
 
 		.modal-header {
 			border: none;
             position: absolute;
             top: 2em;
-            right: 2em;
+            left: 2em;
             z-index: 999999;
 			
 			.modal-close {
 				position: absolute;
 				top: 0;
-				right: 0;
+				left: 0;
 				padding: 1em;
 				color: $body-color;
 				background: none;
@@ -425,6 +449,17 @@ a.next-section {
 		.modal-content {
 			background-color: $body-color;
 			padding: 1em;
+			height: 100%;
+			width: 100%;
+			
+			iframe {
+				display: none;
+				border: 0;
+				
+				&.visible {
+					display: block;
+				}
+			}
 		
 			video {
 				position: relative;

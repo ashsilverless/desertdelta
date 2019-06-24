@@ -41,7 +41,15 @@ the_post(); ?>
 	        <h1 class="heading heading__md heading__light heading__title-case center slow-fade"><?php the_field( 'hero_sub_heading' );?></h1>
 	        
 	        <div>
-	        	<canvas id="canvas" class="modal-toggle" video-url="<?php echo get_field('video')["video_file"]["url"]; ?>" width=60 height=60></canvas>
+		        
+		        <?php
+			        
+			    $video = get_field('video')["video_file"];
+			    
+			    if($video)
+			    	$video = "https://player.vimeo.com/video/" . $video; ?>
+			    
+	        	<canvas id="canvas" class="modal-toggle" video-url="<?php echo $video; ?>" width=60 height=60></canvas>
 	        </div>
 	   
 	    </div>       

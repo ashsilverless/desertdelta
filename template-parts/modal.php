@@ -14,12 +14,10 @@
 			
 			<div class="modal-content">
 				
-				<video autoplay controls class="video">
-        
-					<source src="<?php the_field('video_file');?>" type="video/mp4">
+				<div class="loading"><?php get_template_part("inc/img/loading"); ?></div>
 				
-				</video>
-				
+				<iframe width="100%" height="100%" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"> </iframe>
+
 			</div>
 			
 		</div>

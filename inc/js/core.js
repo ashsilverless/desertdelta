@@ -95,14 +95,26 @@ jQuery(document).ready(function( $ ) {
 /* LOAD VIDEOS */
 		
 	$(".modal-toggle").on("click", function() {
+		
 		if(!$('.modal').hasClass("is-visible")) {
-			$(".modal video source").attr("src", $(this).attr("video-url"));
-			$(".modal video").get(0).load();
-			$(".modal video").trigger("focus");
+			$('.modal iframe').remove();
+			$('.modal-content').append('<iframe width="100%" src="' + $(this).attr("video-url") + '" height="100%" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"> </iframe>');
+		
+			$('.modal .loading').addClass('visible');
+			$('.modal').addClass('is-visible');
+			$('html').addClass('no-scroll');
 			$(".modal").css("top", window.scrollY);
+				
+			$('.modal iframe').load(function() {
+				$('.modal .loading').removeClass('visible');
+				$('.modal iframe').addClass('visible');
+			});
+		} else {
+			$('.modal iframe').removeClass('visible');
+			$('.modal').removeClass('is-visible');
+			$('html').removeClass('no-scroll');
 		}
-		$('.modal').toggleClass('is-visible');
-		$('html').toggleClass('no-scroll');
+		
 	});
 	
 /* TRIGGER COLLAPSE IN FLEXIBLE CONTENT */
