@@ -4,7 +4,7 @@
 	    
     $id = get_option("page_on_front");
     
-    $links = get_field("sub_hero2", $id)["links"];
+    $links = get_field("sub_hero", $id)["links"];
     
     foreach($links as $link): $page = url_to_postid($link["page"]);
     

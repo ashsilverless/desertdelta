@@ -117,6 +117,12 @@ jQuery(document).ready(function( $ ) {
 		
 	});
 	
+	$('.wrapper-video iframe').load(function() {
+		setTimeout(function() {
+			$(".wrapper-video").css("opacity", 1);
+		}, 1500);
+	});
+	
 /* TRIGGER COLLAPSE IN FLEXIBLE CONTENT */
 
 	$(".flexible-content.toggle-block label").click(function() {
