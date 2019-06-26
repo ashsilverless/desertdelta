@@ -1,4 +1,4 @@
-<div class="other-itineraries">
+<div class="latest-news">
 	
 	<div class="container">
 		

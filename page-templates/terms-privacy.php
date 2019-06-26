@@ -31,12 +31,14 @@ the_post(); ?>
 	<?php get_template_part('template-parts/map', 'camps');?>
   
     <?php get_template_part('template-parts/our-latest-news');?>
+    
+    <?php get_template_part('template-parts/cta', 'newsletter');?>
 
     <?php get_template_part('template-parts/cta', 'cares');?>
     
-    <?php get_template_part('template-parts/cta', 'itinerary');?>
+    <hr>
     
-    <?php get_template_part('template-parts/cta', 'newsletter');?>
+    <?php get_template_part('template-parts/cta', 'itinerary');?>
 
 </div><!--content-->
 

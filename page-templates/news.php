@@ -90,14 +90,16 @@ get_header();?>
 		</div>
 		
 	</div><!--c-->
+ 
+    <?php get_template_part('template-parts/cta', 'newsletter');?> 
 	
     <?php get_template_part('template-parts/map', 'camps');?>
+    
+    <hr>
 
     <?php get_template_part('template-parts/cta', 'cares');?>
     
     <?php get_template_part('template-parts/cta', 'itinerary');?>
- 
-    <?php get_template_part('template-parts/cta', 'newsletter');?> 
 
     <?php get_template_part('template-parts/cta', 'contact');?> 
 

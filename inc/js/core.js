@@ -271,6 +271,10 @@ jQuery(document).ready(function( $ ) {
       	$('.toggle.active').removeClass("active"); 
         $(this).addClass("active");   
     });
+    
+    $(".toggle-newsletter .button, .close-newsletter").click(function() {
+	    $(".collapse-newsletter").slideToggle();
+    });
 
 // GLOBAL OWL CAROUSEL SETTINGS
 

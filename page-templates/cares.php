@@ -128,12 +128,12 @@ get_header();?>
 		</div>
 		
 	</div>
+    
+    <?php get_template_part('template-parts/cta', 'newsletter');?>
 	
 	<?php get_template_part('template-parts/map', 'camps');?>
     
     <?php get_template_part('template-parts/cta', 'itinerary');?>
-    
-    <?php get_template_part('template-parts/cta', 'newsletter');?>
 
 </div><!--content-->
  

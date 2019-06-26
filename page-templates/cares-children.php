@@ -61,7 +61,7 @@ the_post(); ?>
 
 <!-- ******************* Hero Content END ******************* -->
 	
-	<div class="container cares-children">
+	<div class="container cares-children pb3">
 		
 	    <?php get_template_part('template-parts/breadcrumb'); ?>
 	    
@@ -99,12 +99,12 @@ the_post(); ?>
 		</div>
     
 	</div>
+    
+    <?php get_template_part('template-parts/cta', 'newsletter');?>
 	
 	<?php get_template_part('template-parts/map', 'camps');?>
 	
     <?php get_template_part('template-parts/cta', 'itinerary');?>
-    
-    <?php get_template_part('template-parts/cta', 'newsletter');?>
 
 </div><!--content-->
 

@@ -282,10 +282,10 @@
     }
     
     &.newsletter {
+	    position: relative;
         grid-template-columns: 1fr 1fr;
         grid-gap: 3em;
         padding:3em 20%;
-        border-bottom:10px solid white;
         background: $brand-mid-grey;
         color: white;
         
@@ -409,7 +409,25 @@
     
 }
 
+.wrapper-newsletter {
+	text-align: center;
+	z-index: 100;
+    position: relative;
+}
 
+.collapse-newsletter {
+	display: none;
+	padding-top: 4em;
+}
+
+.close-newsletter {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 1.5em;
+	padding: 1em 2em;
+	cursor: pointer;
+}
 
 
 
@@ -700,7 +718,7 @@
     }
 }
 
-.all-news, .other-camps, .other-itineraries, .cares-videos {
+.all-news, .other-camps, .other-itineraries, .cares-videos, .latest-news {
 	background-color: $body-color;
 	padding: 3em 5em;
 	

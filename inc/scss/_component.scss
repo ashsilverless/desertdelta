@@ -54,6 +54,10 @@
 	    background-color: darken($brand-primary, 10%);
 	    color: white;
     }
+    
+    &:focus {
+	    outline: none;
+    }
 }
 
 .trigger-expand,
