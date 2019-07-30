@@ -45,11 +45,11 @@ the_post(); ?>
 		        
 		        <?php endif;?>
 		        
-		        <div class="custom-description closed">
+		        <div class="custom-description">
 			        <?php echo get_field("description"); ?>
 		        </div>
 		        
-		        <div class="read-more">Read More</div>
+		        <a class="read-more anchor" href="#footer-text">Read More</a>
 		        
 		        <div class="custom-actions">
 			        <div><button name="video" class="active"><i class="fas fa-video"></i>Video</button></div>
@@ -126,7 +126,7 @@ the_post(); ?>
 	    
 	    <div class="camp-plan h50" style='background-image: url(<?php echo get_field('plan_image')["url"]; ?>)'></div>
 	    
-	    <div class="container">
+	    <div class="container" id="footer-text">
 		    
 		    <div class="custom-footer-text mt4"><div><?php the_field('footer_text'); ?></div></div>
 		    

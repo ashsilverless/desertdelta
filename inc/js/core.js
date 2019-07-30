@@ -1,7 +1,5 @@
 //@prepros-prepend jquery.magnific-popup.js
 //@prepros-prepend mixitup.js
-//@prepros-prepend mixitup-pagination.js
-//@prepros-prepend jquery.magnific-popup.js
 //@prepros-prepend owl.carousel.min.js
 
 jQuery(document).ready(function( $ ) {
@@ -25,10 +23,55 @@ jQuery(document).ready(function( $ ) {
             $("body").removeClass("scrolled");
         }
     });
+   
+/* SMOOTH SCROLL TO ANCHOR */
+
+	$('a[href*=#]:not([href=#])').click(function() {
+		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+	
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+				
+			$('html,body').animate({
+				scrollTop: target.offset().top
+			}, 1000);
+			return false;
+		}
+	});
+
+/* TOGGLE CAMP PULSE ON ITINERARY PAGE */
+
+	if($("body").hasClass("single-itineraries")) {
+		
+		// Display only camps inside itinerary
+		var visibleCamps = JSON.parse($(".visible-camps").attr("visible-camps"));
+		$("svg.map-camps circle").not(visibleCamps.join(", ")).addClass("no-pulse");
+		
+		// Draw line between points
+		var pathPoints = [];
+		
+		for(var i = 0; i < visibleCamps.length; i++) {
+			var points = $("circle" + visibleCamps[i]).attr("cx") + "," + $("circle" + visibleCamps[i]).attr("cy");
+			if(i == 0) {
+				pathPoints.push("M " + points);
+			} else {
+				pathPoints.push("L " + points);
+			}
+		}
+		var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+		path.setAttribute("d", pathPoints.join(" "));
+		path.setAttribute("class", "drawing");
+		
+		$("#draw-paths").append(path);
+		var length = path.getTotalLength();
+		
+		path.setAttribute("stroke-dasharray", length);
+		path.setAttribute("stroke-dashoffset", length);
+	}
     
 /* TOGGLE SLIDE OF CAMP LONG DESCRIPTION */
 
-	$(".read-more").click(function() {
+	$(".read-more.expand").click(function() {
 		
 		$(this).prev().toggleClass("closed");
 		
@@ -55,9 +98,15 @@ jQuery(document).ready(function( $ ) {
 /* TOGGLE COLLAPSE ON ITINERARY PAGE */
 
 	$(".item-timeline h3").click(function() {
-		$(this).parent().find(".collapsible").slideToggle();
-		$(this).closest("tr").siblings().find(".collapsible").slideUp();
+		var self = this;
+		$(this).closest("tr").siblings().find(".collapsible").slideUp(500);
+		$(this).parent().find(".collapsible").slideToggle(500, function() {
+			$('html,body').animate({
+				scrollTop: $(self).offset().top - 30
+			}, 500);
+		});
 	});
+	
 	
 /* TRIGGER TIMELINE AFTER CLICK ON CIRCLE */
 
@@ -201,14 +250,6 @@ jQuery(document).ready(function( $ ) {
 		}
 	});
 	
-	$(".custom-header").each(function() {
-		if(hasOverflow($(this).find(".custom-description")[0])) {
-			$(this).find(".read-more").show();
-		} else {
-			$(this).find(".read-more").hide();
-		}
-	});
-	
 	$(".itinerary-description").each(function() {
 		if(hasOverflow($(this)[0])) {
 			$(this).next().show();
@@ -277,6 +318,25 @@ jQuery(document).ready(function( $ ) {
     });
 
 // GLOBAL OWL CAROUSEL SETTINGS
+
+	$('.itinerary-gallery-slider').owlCarousel({
+		loop:true,
+        margin:10,
+        nav:true,
+    	navClass: ['owl-prev', 'owl-next'],
+        dots:false,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:1
+            }
+        }
+	});
 
     $('.carousel').owlCarousel({
         animateOut: 'fadeOut',
@@ -421,7 +481,13 @@ $.fn.isOnScreen = function(){
     if ($(this).isOnScreen()) {
       $(this).addClass('active');    
     } 
-  });  
+  });
+  
+  $("#draw-paths .drawing").each(function() {
+	if ($(this).isOnScreen()) {
+		$(this).addClass('active');
+	} 
+  });
     
 
 // ========== Add class on entering viewport
@@ -471,6 +537,12 @@ $(window).on('resize scroll', function() {
 				percentDirection = -4;
 				radiusDirection = 1.2;
 			}, 2500);
+		} 
+	});
+	
+	$("#draw-paths .drawing").each(function() {
+		if ($(this).isInViewport()) {
+			$(this).addClass('active');
 		} 
 	});
     

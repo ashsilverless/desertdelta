@@ -131,6 +131,12 @@
             animation: shadow-pulse 1.5s infinite;
             stroke:$brand-primary;
             cursor: pointer;
+            
+            &.no-pulse {
+	            animation: none;
+	            fill: #949855;
+	            stroke: #949855;
+            }
         }
         
         .area-destination {
@@ -1122,25 +1128,10 @@
 			grid-row: 1/3;
 			grid-column: 2;
 			color: grey;
-		    max-height: 200vh;
-		    overflow: hidden;
-		    text-overflow: ellipsis;
 		    width: 100%;
-		    transition: $fastEffect;
 		    
-		    & * {
-			    transition: $fastEffect;
+		    p {
 			    font-size: 1em;
-				line-height: 1.3em;
-		    }
-		    
-		    &.closed {
-			    max-height: 1.3em * 5; // 5 lines
-			    
-			    & * {
-				    margin: 0;
-					padding: 0;
-			    }
 		    }
 		}
 		
@@ -1197,7 +1188,6 @@
 		}
 		
 		.read-more {
-			display: none;
 			grid-row: 3;
 			grid-column: 2;
 			color: $brand-secondary;
@@ -1475,16 +1465,60 @@
     
     & * {
 	    transition: $fastEffect;
-	    font-size: 1em;
-		line-height: 1.3em;
+	    font-size: "";
+		line-height: 1.5em;
     }
+    
+    p {
+		font-size: 1em;
+	}
     
     &.closed {
 	    max-height: 1.5  * 4em; // 4 lines
 	    
 	    & * {
+		    font-size: 1em;
 		    margin: 0;
 			padding: 0;
+	    }
+    }
+    
+    strong {
+	    text-shadow: 0.2px 0.2px 0.2px black;
+    }
+}
+
+.itinerary-gallery-slider {
+	width: 664px;
+	
+	.owl-prev, .owl-next {
+	    &:before {
+		    display: none;
+	    }
+	    
+	    &:after {
+		    font-family: "Font Awesome 5 Free";
+		    font-weight: 900;
+		    background: none !important;
+		    color: $brand-tertiary;
+		    opacity: 0.7;
+		    text-shadow: -1px -1px 2px rgba(0, 0, 0, 0.3), 1px -1px 2px rgba(0, 0, 0, 0.3), -1px 1px 2px rgba(0, 0, 0, 0.3), 1px 1px 2px rgba(0, 0, 0, 0.3);
+	    }
+    }
+    
+    .owl-prev {
+	    margin-left: 0em;
+	    
+	    &:after {
+		    content: '\f053' !important;
+	    }
+    }
+    
+    .owl-next {
+	    margin-right: 0em;
+	    
+	    &:after {
+		    content: '\f054' !important;
 	    }
     }
 }
@@ -1565,6 +1599,7 @@
 		}
 		
 		div {
+			font-size: 1.2em;
 			display: none;
 			text-align: justify;
 		}
@@ -1668,6 +1703,12 @@
 			td:last-child * {
 				font-size: 1em;
 			}
+		}
+	}
+	
+	&.flexible-text-block {
+		strong {
+			text-shadow: 0.2px 0.2px 0.2px black
 		}
 	}
 }

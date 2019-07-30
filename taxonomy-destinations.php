@@ -41,7 +41,7 @@ $term = get_queried_object();
 			        <?php echo get_field("description", $term); ?>
 		        </div>
 		        
-		        <div class="read-more">Read More</div>
+		        <a class="read-more anchor" href="#footer-text">Read More</a>
 		        
 		        <div class="custom-actions">
 			        <div><button name="lodges" class="active"><i class="fas fa-campground"></i>Lodges</button></div>
@@ -137,9 +137,9 @@ $term = get_queried_object();
 		
 	    </div>
 	    
-	    <div class="container">
+	    <div class="container" id="footer-text">
 		    
-		    <div class="custom-footer-text mt4"><div><?php the_field('footer_text', $terms); ?></div></div>
+		    <div class="custom-footer-text mt4"><div><?php the_field('footer_text', $term); ?></div></div>
 		    
 	    </div>
 	

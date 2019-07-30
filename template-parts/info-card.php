@@ -14,7 +14,15 @@
 		$id      = $post->ID;
 		$title   = $post->post_title;
 		$image   = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' )[0];
-		$content = $post->post_content ? $post->post_content : get_field("description", $post->ID);
+		
+		$content = "";
+		if($post->post_content)
+			$content = $post->post_content;
+		else if(get_field("description", $post->ID))
+			$content = get_field("description", $post->ID);
+		else if(get_field("introduction_text", $post->ID))
+			$content = get_field("introduction_text", $post->ID);
+			
 		$link    = get_permalink( $id );
 	}
 	

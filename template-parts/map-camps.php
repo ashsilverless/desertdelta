@@ -52,7 +52,7 @@ foreach($posts as $post) {
     <img src="<?php echo get_template_directory_uri(); ?>/inc/img/ddmastermap2.jpg"/>
  
 <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In  -->
-<svg class="map-camps" version="1.1" baseProfile="tiny"
+<svg class="map-camps" id="map-camps" version="1.1" baseProfile="tiny"
      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
      x="0px" y="0px" width="2130px" height="1043px" viewBox="0 0 2130 1043" xml:space="preserve">
 <defs>
@@ -193,6 +193,9 @@ foreach($posts as $post) {
     
 <path id="link3" fill="#222323" d="M1076.7,343c0,2.7,2.1,4.9,4.7,5.2v39.3h-23.9v22.8h1v-21.8h46.8v21.8h1v-22.8h-23.9v-39.3
     c2.7-0.3,4.7-2.5,4.7-5.2c0-2.9-2.3-5.2-5.2-5.2S1076.7,340.1,1076.7,343z"/>
+    
+<g id="draw-paths"></g>
+    
 <circle id="chobe-game-lodge" fill="#F6E71B" cx="1105.8" cy="410.3" r="12"/>
 <circle id="chobe-savanna-lodge" fill="#F6E71B" cx="1058" cy="410.3" r="12"/>
 <circle id="savute-safari-lodge" fill="#F6E71B" cx="867.2" cy="517.4" r="12"/>
@@ -205,6 +208,7 @@ foreach($posts as $post) {
 <circle id="camp-moremi" fill="#F6E71B" cx="798.7" cy="738.4" r="12"/>
 <circle id="camp-xacanaxa" fill="#F6E71B" cx="750.8" cy="738.4" r="12"/>
 <circle id="leroo-la-tau" fill="#F6E71B" cx="961.4" cy="938.5" r="12"/>
+
 </svg>
 
 </div>

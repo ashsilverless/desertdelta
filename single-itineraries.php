@@ -69,11 +69,13 @@ the_post(); ?>
 			        
 			    </div>
 			    
-			    <div class="read-more">Read More</div>
+			    <div class="read-more expand">Read More</div>
 			    
 			    <table class="table-timeline mt3">
 			    
 			    <?php
+				    
+				$map_camps = array();
 	
 				if( have_rows('days') ):
 			
@@ -94,9 +96,23 @@ the_post(); ?>
 								
 								<div class="collapsible">
 									
-									<?php if(get_sub_field('image')): ?>
-								
-									<div class="img" style="background:url(<?php the_sub_field('image'); ?>)"></div>
+									<?php $gallery = get_sub_field("gallery");
+									
+									if($gallery && sizeof($gallery) > 0): ?>
+										
+									<div class="itinerary-gallery-wrapper">
+										
+										<div class="owl-carousel itinerary-gallery-slider">
+									
+											<?php foreach($gallery as $image): ?>
+												
+												<div class="itinerary-gallery-slider__item img" style="background:url(<?php echo $image["url"]; ?>);"></div>
+											
+											<?php endforeach; ?>
+										
+										</div>
+										
+									</div>
 									
 									<?php endif; ?>
 									
@@ -107,6 +123,8 @@ the_post(); ?>
 										<?php
 										
 										if(get_sub_field('related_camp')): $camp = get_sub_field('related_camp'); ?>
+										
+										<?php array_push($map_camps, "#" . $camp->post_name); ?>
 										
 											<a class="button" href="<?php echo get_permalink($camp->ID); ?>">
 												<i class="fas fa-campground"></i>
@@ -148,6 +166,9 @@ the_post(); ?>
 		</div>
 	
 	</div><!--c-->
+	
+	
+	<div class="visible-camps" <?php printf('visible-camps="%s"', htmlspecialchars(json_encode($map_camps), ENT_QUOTES, 'UTF-8')); ?>></div>
 	
 	<?php get_template_part('template-parts/map', 'camps');?>
 	

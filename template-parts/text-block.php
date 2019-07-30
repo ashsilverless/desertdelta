@@ -8,6 +8,6 @@
 	    
 	</div>
 	
-	<div class="read-more pt1 dark-dot">Read More</div>
+	<div class="read-more expand pt1 dark-dot">Read More</div>
 	
 </div>

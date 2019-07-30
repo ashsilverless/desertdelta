@@ -24,7 +24,7 @@ get_header();?>
 		
 		<div class="row">
             
-            <div class="col-6 offset-3 mt5 text-center mb5">
+            <div class="col-8 offset-2 mt5 text-center mb5">
 	                
                 <?php get_template_part('template-parts/text-block');?>
                 
