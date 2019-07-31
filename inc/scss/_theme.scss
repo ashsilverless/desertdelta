@@ -212,7 +212,7 @@
     }
     
     #view-route {
-		z-index: 800;
+		z-index: 100;
 		position: absolute;
 		top: 8em;
 		right: 3em;
@@ -221,6 +221,10 @@
 			width: 2em;
 			position: relative;
 			margin-right: 0.5em;
+			
+			path {
+				fill: white;
+			}
 	    }
 	}
     

@@ -621,7 +621,7 @@ $(window).on('resize scroll', function() {
 				animationStarted = false;
 			}
 			
-			if(framesElapsed % 9 > 2 && allCoordinates[framesElapsed - 1].insideCircle == false) {
+			if(framesElapsed % 4 > 1 && allCoordinates[framesElapsed - 1].insideCircle == false) {
 				ctx.strokeStyle = "#50514d";
 			} else {
 				ctx.strokeStyle = "transparent"
