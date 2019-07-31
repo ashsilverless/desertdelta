@@ -67,6 +67,18 @@ div.information > .container {
 	width: auto;
 }
 
+.content-timeline table.content-itinerary th {
+
+	.heading {
+		padding-right: 3em;
+		margin-left: -2em;
+	}
+	
+	span {
+		width: 4em;
+	}
+}
+
 }
 
 /*===========LARGE (1200px)==========*/
@@ -183,6 +195,10 @@ body {
 	ul li {
 		font-size: 0.8em;
 	}
+}
+
+.itinerary-gallery-slider, .itinerary-gallery-slider .owl-carousel.owl-drag .owl-item {
+	width: 500px;
 }
   
 }/*---end medium mq---*/
@@ -337,6 +353,25 @@ main .content .row {
 
 .map svg circle {
 	r: 17;
+}
+
+.itinerary-gallery-slider, .itinerary-gallery-slider .owl-carousel.owl-drag .owl-item {
+	width: 400px;
+}
+
+.content-timeline table.content-itinerary {
+	
+	.img {
+		height: 250px;
+	}
+	
+	th {
+
+		.heading {
+			padding-right: 4em;
+			margin-left: 4em;
+		}
+	}
 }
 
 /*---FOOTER---*/
@@ -749,6 +784,31 @@ nav {
 	}
 }
 
+.itinerary-gallery-slider, .itinerary-gallery-slider .owl-carousel.owl-drag .owl-item {
+	width: 72vw;
+}
+
+.content-timeline table.content-itinerary th {
+
+	.heading {
+		right: 0.75rem;
+		padding: 0.5em 0;
+	}
+	
+	span {
+		width: unset;
+	}
+}
+
+.content-timeline table {
+	transform: translateX(-6.5rem);
+}
+
+.map #view-route {
+	width: 15em;
+	left: calc(20% + 2em);
+}
+
 /*---FOOTER---*/
 
 .pre-socket {
@@ -789,13 +849,52 @@ nav {
 	.map .popup {
 		left: 33% !important;
 	}
+	
+	.wrapper-timeline .content-timeline .table-itinerary th .heading, .wrapper-timeline .content-timeline .table-timeline th .heading {
+		right: 0.3rem;
+		padding: 0.5em 0;
+	}
+	.content-timeline table tr:not(:last-child) th:before {
+		right: calc(1.2rem + 10px);
+	}
 }
 
-/*===========SUPER EXTRA SMALL (576px)==========*/
+/*===========SUPER EXTRA SMALL (360px)==========*/
 
 @media only screen and (max-width: 360px) {
 	.map .popup {
 		left: 35% !important;
 	}
+	
+	.itinerary-gallery-slider, .itinerary-gallery-slider .owl-carousel.owl-drag .owl-item {
+		width: 72vw;
+	}
+
+	.content-timeline table.content-itinerary th {
+	
+		.heading {
+			right: 0.75rem;
+			padding: 0.5em 0;
+		}
+		
+		span {
+			width: unset;
+		}
+	}
+	
+	.wrapper-timeline .content-timeline .table-itinerary th .heading, .wrapper-timeline .content-timeline .table-timeline th .heading {
+		right: 0.2rem;
+		padding: 0.5em 0;
+	}
+	.content-timeline table tr:not(:last-child) th:before {
+		right: calc(1rem + 10px);
+	}
 }
 
+@media only screen and (max-width: 320px) {
+	
+	.itinerary-gallery-slider, .itinerary-gallery-slider .owl-carousel.owl-drag .owl-item {
+		width: 67vw;
+	}
+
+}

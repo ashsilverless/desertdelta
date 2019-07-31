@@ -71,7 +71,7 @@ the_post(); ?>
 			    
 			    <div class="read-more expand">Read More</div>
 			    
-			    <table class="table-timeline mt3">
+			    <table class="table-timeline content-itinerary mt3">
 			    
 			    <?php
 				    
@@ -83,7 +83,8 @@ the_post(); ?>
 					
 					<tr>
 						<th>
-							<div class="heading heading__secondary-color font600"><?php the_sub_field('name'); ?>
+							<div class="heading heading__secondary-color font600 day-info">
+								<span><?php the_sub_field('name'); ?></span>
 								<div class="circle"></div>
 							</div>
 						</th>

@@ -38,36 +38,6 @@ jQuery(document).ready(function( $ ) {
 			return false;
 		}
 	});
-
-/* TOGGLE CAMP PULSE ON ITINERARY PAGE */
-
-	if($("body").hasClass("single-itineraries")) {
-		
-		// Display only camps inside itinerary
-		var visibleCamps = JSON.parse($(".visible-camps").attr("visible-camps"));
-		$("svg.map-camps circle").not(visibleCamps.join(", ")).addClass("no-pulse");
-		
-		// Draw line between points
-		var pathPoints = [];
-		
-		for(var i = 0; i < visibleCamps.length; i++) {
-			var points = $("circle" + visibleCamps[i]).attr("cx") + "," + $("circle" + visibleCamps[i]).attr("cy");
-			if(i == 0) {
-				pathPoints.push("M " + points);
-			} else {
-				pathPoints.push("L " + points);
-			}
-		}
-		var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-		path.setAttribute("d", pathPoints.join(" "));
-		path.setAttribute("class", "drawing");
-		
-		$("#draw-paths").append(path);
-		var length = path.getTotalLength();
-		
-		path.setAttribute("stroke-dasharray", length);
-		path.setAttribute("stroke-dashoffset", length);
-	}
     
 /* TOGGLE SLIDE OF CAMP LONG DESCRIPTION */
 
@@ -462,32 +432,29 @@ $.fn.isOnScreen = function(){
     
 };
 
-  $('.slide-up').each(function() {
-    if ($(this).isOnScreen()) {
-      $(this).addClass('active');    
-    } 
-  });   
-    $('.slide-down').each(function() {
-    if ($(this).isOnScreen()) {
-      $(this).addClass('active');    
-    } 
-  });   
-    $('.slide-right').each(function() {
-    if ($(this).isOnScreen()) {
-      $(this).addClass('active');    
-    } 
-  });  
-    $('.slow-fade').each(function() {
-    if ($(this).isOnScreen()) {
-      $(this).addClass('active');    
-    } 
-  });
-  
-  $("#draw-paths .drawing").each(function() {
-	if ($(this).isOnScreen()) {
-		$(this).addClass('active');
-	} 
-  });
+	$('.slide-up').each(function() {
+		if ($(this).isOnScreen()) {
+			$(this).addClass('active');    
+		} 
+	});
+	
+	$('.slide-down').each(function() {
+		if ($(this).isOnScreen()) {
+			$(this).addClass('active');    
+		} 
+	});
+	  
+	$('.slide-right').each(function() {
+		if ($(this).isOnScreen()) {
+			$(this).addClass('active');    
+		} 
+	});
+	
+	$('.slow-fade').each(function() {
+		if ($(this).isOnScreen()) {
+			$(this).addClass('active');    
+		} 
+	});
     
 
 // ========== Add class on entering viewport
@@ -540,13 +507,143 @@ $(window).on('resize scroll', function() {
 		} 
 	});
 	
-	$("#draw-paths .drawing").each(function() {
-		if ($(this).isInViewport()) {
-			$(this).addClass('active');
-		} 
-	});
+	$("#map-canvas").each(function() {
+		if($(this).isInViewport() && !$(this).hasClass("active")) {
+			$(this).addClass("active");
+			setTimeout(function() {
+				startMapAnimation();
+			}, 500);
+		}
+	})
     
 });
+
+/* TOGGLE CAMP PULSE ON ITINERARY PAGE */
+
+	if($("body").hasClass("single-itineraries")) {
+		
+		// Display only camps inside itinerary
+		var visibleCamps = JSON.parse($(".visible-camps").attr("visible-camps"));
+		$("svg.map-camps circle").not(visibleCamps.join(", ")).addClass("no-pulse");
+		
+		// Define radius and coordinates
+		var coordinates = [];
+		var radius;
+		
+		for(var i = 0; i < visibleCamps.length; i++) {	
+			if(i == 0)
+				radius = parseFloat($("circle" + visibleCamps[i]).attr("r"));
+			
+			coordinates.push({
+				x: parseFloat($("circle" + visibleCamps[i]).attr("cx")),
+				y: parseFloat($("circle" + visibleCamps[i]).attr("cy"))
+			});
+		}
+		
+		if(coordinates.length == 3 && coordinates[0].x == coordinates[2].x && coordinates[0].y == coordinates[2].y) {
+			coordinates.pop();
+		}
+		
+		// Dimensions settings
+		var mapMeasures = $("#map-camps")[0].getBBox();
+
+		var container = document.getElementById("canvas-wrapper");
+		container.setAttribute("width", mapMeasures.width);
+		container.setAttribute("height", mapMeasures.height);
+		container.setAttribute("x", mapMeasures.x);
+		container.setAttribute("y", mapMeasures.y);
+		
+		var canvas = document.createElement('canvas');
+		canvas.setAttribute("id", "map-canvas");
+		canvas.setAttribute("width", mapMeasures.width);
+		canvas.setAttribute("height", mapMeasures.height);
+		canvas.style.position = "absolute";
+		canvas.setAttribute("x", mapMeasures.x);
+		canvas.setAttribute("y", mapMeasures.y);
+		
+		container.appendChild(canvas);
+		
+		
+		// Define animation variables and line settings
+		var framesElapsed;
+		var allCoordinates = calcWaypoints(coordinates);
+		var ctx = canvas.getContext("2d");
+		
+		// Function that starts animation
+		var animationStarted = false;
+		
+		function startMapAnimation() {
+			animationStarted = true;
+			canvas.width = canvas.width;
+			ctx.lineWidth = 4;
+			framesElapsed = 1;
+			animateLine(allCoordinates);
+		}
+		
+		$("#view-route").click(function() {
+			if(!animationStarted)
+				startMapAnimation();
+		});
+		
+		// Calculate coordinates inside path
+		function calcWaypoints(coordinates) {
+			var waypoints = [];
+			
+			for(var i = 1; i < coordinates.length; i++) {
+				var pt0 = coordinates[i - 1];
+				var pt1 = coordinates[i];
+				
+				var dx = pt1.x - pt0.x;
+				var dy = pt1.y - pt0.y;
+				
+				var distance = Math.round(Math.sqrt(dx * dx + dy * dy)/4);
+				
+				for(var j = 0; j < distance; j++) {
+					var x = pt0.x + dx * j / distance;
+					var y = pt0.y + dy * j / distance;
+					
+					waypoints.push({
+						x: x,
+						y: y,
+						insideCircle: insideCircle(coordinates, x, y)
+					});
+				}
+			}
+			
+			return waypoints;
+		}
+		
+		// Animate path drawing
+		function animateLine() {
+			if(framesElapsed < allCoordinates.length - 1) {
+				requestAnimationFrame(animateLine);
+			} else {
+				animationStarted = false;
+			}
+			
+			if(framesElapsed % 9 > 2 && allCoordinates[framesElapsed - 1].insideCircle == false) {
+				ctx.strokeStyle = "#50514d";
+			} else {
+				ctx.strokeStyle = "transparent"
+			}
+			
+			ctx.beginPath();
+			ctx.moveTo(allCoordinates[framesElapsed - 1].x, allCoordinates[framesElapsed - 1].y);
+			ctx.lineTo(allCoordinates[framesElapsed].x, allCoordinates[framesElapsed].y);
+			ctx.stroke();
+			
+			framesElapsed++;
+		}
+		
+		function insideCircle(coordinates, x, y) {
+			
+			for(var i = 0; i < coordinates.length; i++)
+				if(Math.pow(x - coordinates[i].x, 2) + Math.pow(y - coordinates[i].y, 2) < Math.pow(radius, 2)) {
+					return true;				}
+			
+			return false;
+		}
+	}
 
 // ========== Animation Play Video on Cares children pages
 

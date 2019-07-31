@@ -111,26 +111,3 @@ $weight: (100, 200, 300, 400, 500, 600, 700, 800, 900); // Amount string.
         opacity:1;
     }
 }
-
-
-
-#map-camps {
-  
-  .drawing {
-    stroke: #55573d;
-    stroke-width: 3;
-    fill: transparent;
-    
-    &.active {
-		transition: stroke-dashoffset 4s linear;
-	    stroke-dashoffset: 0;
-    }
-  }
-  
-}
-
-
-
-
-
-

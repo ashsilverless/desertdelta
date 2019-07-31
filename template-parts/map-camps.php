@@ -4,18 +4,18 @@ $args = array(
 	'numberposts' => -1,
 	'post_type'   => 'camps'
 );
-$posts = get_posts( $args );
+$allCamps = get_posts( $args );
 
 $camps = array();
 
-foreach($posts as $post) {
+foreach($allCamps as $camp) {
 	
-	$camps[$post->post_name] = array(
-		"title_camp"  => $post->post_title,
-		"link"        => get_permalink($post->ID),
-		"destination" => get_the_terms($post->ID, 'destinations')[0]->name,
-		"description" => substr(wp_strip_all_tags(get_field("description", $post->ID), true), 0, 110) . "...",
-		"image"       => wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium' )[0]
+	$camps[$camp->post_name] = array(
+		"title_camp"  => $camp->post_title,
+		"link"        => get_permalink($camp->ID),
+		"destination" => get_the_terms($camp->ID, 'destinations')[0]->name,
+		"description" => substr(wp_strip_all_tags(get_field("description", $camp->ID), true), 0, 110) . "...",
+		"image"       => wp_get_attachment_image_src( get_post_thumbnail_id($camp->ID), 'medium' )[0]
 	);
 }
 
@@ -23,6 +23,15 @@ foreach($posts as $post) {
 
 <div class="map camps" <?php printf('camps="%s"', htmlspecialchars(json_encode($camps), ENT_QUOTES, 'UTF-8')); ?>>
 	
+	<?php if($post->post_type == "itineraries" && get_query_var('pagename') != "itineraries"): ?>
+	
+	<div id="view-route" class="button">
+		<?php include(get_template_directory() . '/inc/img/itinerary-icon.svg'); ?>
+		<span>View route</span>
+	</div>
+	
+	<?php endif; ?>
+
 	<div class="popup">
 		
 		<div class="content">
@@ -50,6 +59,7 @@ foreach($posts as $post) {
 	<div class="path-dotted-small"></div>
 	
     <img src="<?php echo get_template_directory_uri(); ?>/inc/img/ddmastermap2.jpg"/>
+ 
  
 <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In  -->
 <svg class="map-camps" id="map-camps" version="1.1" baseProfile="tiny"
@@ -195,6 +205,7 @@ foreach($posts as $post) {
     c2.7-0.3,4.7-2.5,4.7-5.2c0-2.9-2.3-5.2-5.2-5.2S1076.7,340.1,1076.7,343z"/>
     
 <g id="draw-paths"></g>
+<foreignObject id="canvas-wrapper"></foreignObject>
     
 <circle id="chobe-game-lodge" fill="#F6E71B" cx="1105.8" cy="410.3" r="12"/>
 <circle id="chobe-savanna-lodge" fill="#F6E71B" cx="1058" cy="410.3" r="12"/>

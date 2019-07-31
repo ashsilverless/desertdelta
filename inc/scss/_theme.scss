@@ -211,6 +211,19 @@
 		}
     }
     
+    #view-route {
+		z-index: 800;
+		position: absolute;
+		top: 8em;
+		right: 3em;
+	    
+	    svg {
+			width: 2em;
+			position: relative;
+			margin-right: 0.5em;
+	    }
+	}
+    
 }
 
 @keyframes shadow-pulse
