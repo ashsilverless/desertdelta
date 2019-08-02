@@ -813,10 +813,11 @@
 		margin: 0 2em;
 		
 		&.info-read-more {
+    		display: inline-block;
 			cursor: pointer;
 			border: 1px solid grey;
 			color: grey;
-			margin: 2em;
+			margin: 2em 3em;
 			transition: $fastEffect;
 			
 			&:hover {
@@ -919,7 +920,7 @@
 		
 		.wrapper-card .info-card {
 			display: grid;
-		    grid-template-columns: 60% 40%;
+		    grid-template-columns: 40% 60%;
 		    height: auto;
 		    width: 100%;
 		    background-color: $brand-tertiary;
@@ -958,6 +959,55 @@
 			color: white;
 		}
 	}
+}
+
+.camp-activities {
+
+    &__icon {
+        position: relative;    
+        padding: 0.5em 0 1em;        
+        
+        &:first -of-type {
+            padding-left: 0;
+        }
+        
+        svg {
+            height:1.5em;
+            transition: all 0.5s ease;
+            
+            path {
+                fill: #acacac;            
+                transition: all 0.5s ease;
+            }
+            
+        }
+    
+        p {
+            display: inline-block;
+            position: relative;
+            padding: 0 0.5em;
+            white-space: nowrap;
+            font-family: $supporting-font;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            font-weight: 100;
+            z-index: 99;
+            max-width:0;
+            opacity:0;
+            transition: max-width 0.5s ease, opacity 0.1s 0 ease;
+        }
+        
+        &:hover svg path {
+            fill:$brand-primary;
+        }
+        
+        &:hover p {
+            max-width: 10em;
+            opacity:1; 
+            cursor: default;
+            transition: max-width 0.5s ease, opacity 0.5s 0.2s ease;
+        }
+    }
 }
 
 .carousel-wrapper {

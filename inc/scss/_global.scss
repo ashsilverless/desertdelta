@@ -226,8 +226,8 @@ nav {
             }
             
             &:nth-of-type(1) {
-	            text-shadow: -1px -1px 2px hsla(0, 0%, 0%, 0.30), 1px -1px 2px hsla(0, 0%, 0%, 0.30), -1px 1px 2px hsla(0, 0%, 0%, 0.30), 1px 1px 2px hsla(0, 0%, 0%, 0.30);
-	            
+	            text-shadow: -1px -1px 36px rgba(0, 0, 0, 0.3), 1px -1px 26px rgba(0, 0, 0, 0.3), -1px 1px 37px rgba(0, 0, 0, 0.3), 1px 1px 76px rgba(0, 0, 0, 0.3);
+	            	            
 	            &:before {
 		            box-shadow: -1px -1px 2px hsla(0, 0%, 0%, 0.30), 1px -1px 2px hsla(0, 0%, 0%, 0.30), -1px 1px 2px hsla(0, 0%, 0%, 0.30), 1px 1px 2px hsla(0, 0%, 0%, 0.30);
 	            }

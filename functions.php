@@ -158,14 +158,6 @@ function remove_menus(){
 }
 add_action( 'admin_menu', 'remove_menus' );
 
-/**= Allow SVG Upload =**/
-
-function cc_mime_types($mimes) {
-  $mimes['svg'] = 'image/svg+xml';
-  return $mimes;
-}
-add_filter('upload_mimes', 'cc_mime_types');
-
 /**= Set WooCommerce Theme Support =**/
 
 add_action( 'after_setup_theme', function() {
@@ -432,3 +424,34 @@ function camps_order_post_type($query) {
   return $query;
 }
 add_filter('pre_get_posts', 'camps_order_post_type');
+
+function silverless_allow_svg($data, $file, $filename, $mimes) {
+ 
+	global $wp_version;
+	if($wp_version !== '5.2.2') {
+		return $data;
+	}
+	
+	$filetype = wp_check_filetype( $filename, $mimes );
+	
+	return [
+		'ext'             => $filetype['ext'],
+		'type'            => $filetype['type'],
+		'proper_filename' => $data['proper_filename']
+	];
+ 
+}
+ 
+function cc_mime_types( $mimes ){
+	$mimes['svg'] = 'image/svg+xml';
+	return $mimes;
+}
+ 
+function fix_svg() {
+	echo '<style type="text/css">
+			.attachment-266x266, .thumbnail img {
+				width: 100% !important;
+				height: auto !important;
+			}
+		</style>';
+}

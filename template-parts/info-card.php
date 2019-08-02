@@ -44,9 +44,30 @@
 			
 			<?php endif; ?>
 			
+            <div class="camp-activities">
+                <?php if( have_rows('activities') ):?>
+            
+                <div class="row"> 	
+            
+                    <?php while ( have_rows('activities') ) : the_row();
+                        $activityIcon   = get_sub_field("icon")["url"];	?>
+            
+                        <div class="camp-activities__icon">
+                            <?php echo file_get_contents($activityIcon); ?>
+                            <p><?php the_sub_field('title'); ?></p>
+                        </div>
+            
+                    <?php endwhile;?>
+                
+                </div><!--r-->
+            
+            <?php endif;?>
+            
+            </div><!--camp activities-->
+			
 			<h3 class="heading"><?php echo $title; ?></h3>
 				
-			<p><?php echo wp_strip_all_tags(substr($content, 0, 150) . "...", true); ?></p>
+			<p><?php echo wp_strip_all_tags(substr($content, 0, 250) . "...", true); ?></p>
 		
 		</div>
 			

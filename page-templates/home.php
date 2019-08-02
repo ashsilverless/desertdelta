@@ -44,7 +44,7 @@ get_header();?>
     
     <?php get_template_part('template-parts/cta', 'itinerary');?>
     
-    <?php get_template_part('template-parts/cta', 'contact');?> 
+    <!--<?php get_template_part('template-parts/cta', 'contact');?>-->
     
 </div><!--content-->
  
