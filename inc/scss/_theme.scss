@@ -925,8 +925,8 @@
 		    width: 100%;
 		    background-color: $brand-tertiary;
 		    
-		    img {
-			    height: 100%;
+		    .img {
+			    @include backgroundCover;
 		    }
 		    
 		    .heading {

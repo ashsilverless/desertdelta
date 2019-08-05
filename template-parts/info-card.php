@@ -27,8 +27,16 @@
 	}
 	
 	?>
-		
+	
+	<?php if($image_as_background): ?>
+	
+	<div class="img" style="background-image: url(<?php echo $image; ?>);"></div>
+	
+	<?php else: ?>
+	
 	<img src="<?php echo $image; ?>"/>
+	
+	<?php endif; ?>
 	
 	<div>
 		

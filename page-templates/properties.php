@@ -73,6 +73,7 @@ get_header();?>
 				set_query_var('post', $post);
 				set_query_var('location', true);
 				set_query_var('date', false);
+				set_query_var('image_as_background', true);
 				get_template_part('template-parts/info-card');
 				
 				?>

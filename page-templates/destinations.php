@@ -59,7 +59,8 @@ get_header();?>
 				<div class="wrapper-card mb2 <?php echo $term->slug; ?>">
 					
 				<?php
-		
+				
+				set_query_var('image_as_background', true);
 				set_query_var('destinations_taxonomy', $term);
 				set_query_var('date', false);
 				get_template_part('template-parts/info-card');
