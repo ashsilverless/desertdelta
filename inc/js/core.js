@@ -286,6 +286,14 @@ jQuery(document).ready(function( $ ) {
     $(".toggle-newsletter .button, .close-newsletter").click(function() {
 	    $(".collapse-newsletter").slideToggle();
     });
+    
+    $("body:not(.page-template-destinations) .camps svg.map-camps circle").click(function() {
+	    $("#" + $(this).attr("parent")).addClass("selected").siblings(".area-destination").removeClass("selected");
+    });
+    
+    $("body:not(.page-template-destinations) .map .popup .close-popup").click(function() {
+	    $(".area-destination").removeClass("selected");
+    });
 
 // GLOBAL OWL CAROUSEL SETTINGS
 

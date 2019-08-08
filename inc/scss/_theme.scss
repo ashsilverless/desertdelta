@@ -140,7 +140,7 @@
         }
         
         .area-destination {
-	        transition: $slowEffect;
+	        transition: all 0.5s ease;
 	        fill: #b5b98a;
 	        opacity: 1;
 	        
@@ -1920,6 +1920,17 @@ hr {
 	    }
 	}
 
+}
+
+body:not(.page-template-destinations) {
+	
+	.map svg .area-destination {
+		opacity: 0.4;
+		
+		&.selected {
+			opacity: 1;
+		}
+	}
 }
 
 /*===========VENDOR ADJUSTMENTS==========*/
