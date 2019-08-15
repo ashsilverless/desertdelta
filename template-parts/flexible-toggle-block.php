@@ -1,3 +1,4 @@
+<div class="col-8 offset-2">
 <div class="flexible-content toggle-block pt2 pb1">
 	
 <?php if( have_rows('section') ): while ( have_rows('section') ) : the_row(); ?>
@@ -7,4 +8,5 @@
 
 <?php endwhile; endif; ?>
 	
+</div>
 </div>

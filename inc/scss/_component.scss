@@ -8,7 +8,7 @@
     padding: 1em 2em;
     text-align: center;
     text-transform: uppercase;
-    color: white;
+    color: $brand-dark-grey;
     position: relative;
     vertical-align: middle;
     -webkit-appearance: none;
@@ -148,7 +148,7 @@ a.next-section {
         transition:opacity 0.5s ease-in-out;
     
         path {
-            fill:$brand-primary;
+            fill:$brand-dark-grey;
         }
     }
 
@@ -158,7 +158,7 @@ a.next-section {
         transition: 1s transform ease, 2s opacity ease;
 
         path {
-            fill:$brand-primary;
+            fill:$brand-dark-grey;
         }
     }
 
@@ -193,6 +193,7 @@ a.next-section {
 }
 
 .breadcrumb {
+    display: none;
 	justify-content: center;
 	background: none;
 	
