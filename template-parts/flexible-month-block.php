@@ -1,12 +1,12 @@
-<div class="flexible-content month-block pt2 pb1">
+<div class="col-8 offset-2">
+
+<div class="flexible-content">
 	
 <?php if( have_rows('month') ): while ( have_rows('month') ) : the_row(); ?>
 	
-	<div class="wrapper mb2">
+	<div class="wrapper mb3">
 		
-		<div class="img"><div class="effect-img"><img src="<?php the_sub_field('image'); ?>"/></div></div>
-		
-	    <label><?php the_sub_field('name'); ?></label>
+	    <h2 class="heading heading__sm"><?php the_sub_field('name'); ?></h2>
 	    
 	    <div class="mb2"><?php the_sub_field('description'); ?></div>
 	    
@@ -14,4 +14,6 @@
 	
 <?php endwhile; endif; ?>
 	
+</div>
+
 </div>
