@@ -64,6 +64,10 @@ the_post(); ?>
 				case 'gallery_block':
 					get_template_part('template-parts/flexible-gallery-block');
 				break;
+
+				case 'icon_list':
+					get_template_part('template-parts/flexible-icon-block');
+				break;
 				
 			endswitch; 
 			
