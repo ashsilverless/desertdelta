@@ -63,17 +63,12 @@ the_post(); ?>
 	    <div class="custom-info">
 		    
 		    <div class="video">
-			    <?php if( get_field('video') ): ?>
-			    
-			    <video controls>
-				    
-					<source src="<?php the_field('video'); ?>">
-					
-				</video>
-				
-				<?php endif; ?>
+			    <?php $video = get_field('video');?>
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/<?php echo $video; ?>" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>		    
 		    </div>
-		    
+
 		    <div class="gallery hidden">
 			    
 			    <?php 
