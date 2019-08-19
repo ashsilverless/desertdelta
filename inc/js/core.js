@@ -167,7 +167,7 @@ jQuery(document).ready(function( $ ) {
 		$(".camps svg.map-camps circle").removeClass("clicked");
 		$(this).addClass("clicked");
 		$(".popup").addClass("clicked");
-		
+        		
 		$(".popup").css({
 			"bottom": bottom + "px",
 			"left": left + "px"
@@ -209,7 +209,15 @@ jQuery(document).ready(function( $ ) {
 		$(".path-dotted-small").removeClass("visible");
 		
 	});
-	
+
+/*SHOW CAMP POP ON MAP ON LOAD */
+
+var mapArray = $('.map.camps').attr('camps');
+var mapArray = JSON.parse(mapArray);
+var currentUrl = window.location.pathname.split('/')[2];
+
+	$("#" + currentUrl)[0].click();
+
 /* HIDE OR SHOW READ MORE */
 
 	$(".wrapper-text-block").each(function() {
