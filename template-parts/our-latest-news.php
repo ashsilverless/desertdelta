@@ -22,7 +22,7 @@
 	
 			set_query_var('post', $post);
 			set_query_var('date', false);
-			get_template_part('template-parts/info-card');
+			get_template_part('template-parts/news-card');
 			
 			?>
 			
