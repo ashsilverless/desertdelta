@@ -119,7 +119,9 @@ the_post(); ?>
 		
 	    </div>
 	    
-	    <div class="camp-plan h50" style='background-image: url(<?php echo get_field('plan_image')["url"]; ?>)'></div>
+	    <div class="camp-plan">
+    	    <img src="<?php echo get_field('plan_image')["url"]; ?>"/>
+	    </div>
 	    
 	    <div class="container" id="footer-text">
 		    
