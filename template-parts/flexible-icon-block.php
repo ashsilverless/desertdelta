@@ -7,7 +7,7 @@
             $seasonIcon   = get_sub_field("icon")["url"];
         ?>
     
-        <div class="item mb3">
+        <div class="item">
             <?php echo file_get_contents($seasonIcon); ?>
             <h2 class="heading heading__sm mb1"><?php the_sub_field('title'); ?></h2>
             <?php the_sub_field('copy'); ?>

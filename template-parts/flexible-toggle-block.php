@@ -1,7 +1,7 @@
 <div class="col-8 offset-2">
-<div class="flexible-content toggle-block">
+<div class="flexible-content toggle-block pt3">
 
-    <h2 class="heading heading__md"><?php the_sub_field('heading'); ?></h2>
+    <h2 class="heading heading__sm"><?php the_sub_field('heading'); ?></h2>
 	<p><?php the_sub_field('introduction_text'); ?></p>
 <?php if( have_rows('section') ): while ( have_rows('section') ) : the_row(); ?>
 

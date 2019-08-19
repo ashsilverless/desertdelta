@@ -38,7 +38,7 @@
 	
 	<?php endif; ?>
 	
-	<div>
+	<div class="content">
 		
 		<div class="info-card__text mt2 ml3 mr3">
 			
