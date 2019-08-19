@@ -75,7 +75,7 @@
 			
 			<h3 class="heading"><?php echo $title; ?></h3>
 				
-			<p><?php echo wp_strip_all_tags(substr($content, 0, 250) . "...", true); ?></p>
+			<p><?php echo wp_strip_all_tags($content); ?></p>
 		
 		</div>
 			
