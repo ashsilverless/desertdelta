@@ -767,8 +767,13 @@
 	height: 100%;
 	background: white;
 	color: grey;
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-rows:max-content;
+	
+	.content {
+    	display: grid;
+	    grid-template-rows: auto 7em;
+	}
 	
 	&__text {
 		flex-grow: 1;
@@ -1761,7 +1766,6 @@
 			th {
 				font-size: 1.2em;
 				text-transform: uppercase;
-				color: lighten($brand-primary, 10%);
 			}
 			
 			td {
@@ -1774,7 +1778,6 @@
 			}
 			
 			td:first-child {
-				font-weight: 900;
 				vertical-align: top;
 			}
 			
@@ -1807,11 +1810,18 @@ hr {
 .icon-block {
     
     .item {
+        position: relative;
+        margin-bottom: 3em;
+        
+        &:last-of-type {
+            margin-bottom: 0;
+        }    
         
         svg {
             position: absolute;
-            left:-3em;
-            width:3em;
+            left: -4em;
+            width: 3em;
+            top: -1em;
             
             path {
                 fill: $brand-primary;
@@ -1819,6 +1829,29 @@ hr {
         }
     }
     
+}
+
+.flexible-content {
+    ul {
+        list-style: none;
+        padding-left: 2em;
+        li {
+            position: relative;
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+            
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0.5em;
+                left: -1.5em;
+                width: 5px;
+                height: 5px;
+                margin-top:1px;
+                background: $brand-primary;
+            }
+        }
+    }
 }
 
 /*===========FOOTER==========*/
