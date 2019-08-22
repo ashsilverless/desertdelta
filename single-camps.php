@@ -52,8 +52,8 @@ the_post(); ?>
 		        <a class="read-more anchor" href="#footer-text">Read More</a>
 		        
 		        <div class="custom-actions">
-			        <div><button name="video" class="active"><i class="fas fa-video"></i>Video</button></div>
-			        <div><button name="gallery"><i class="fas fa-camera"></i>Gallery</button></div>
+			        <div><button name="gallery" class="active"><i class="fas fa-camera"></i>Gallery</button></div>
+			        <div><button name="video"><i class="fas fa-video"></i>Video</button></div>
 			        <div><button name="data"><i class="fas fa-cogs"></i>Data</button></div>
 		        </div>
 		    </div>
@@ -61,15 +61,8 @@ the_post(); ?>
 	    </div>
 	    
 	    <div class="custom-info">
-		    
-		    <div class="video">
-			    <?php $video = get_field('video');?>
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/<?php echo $video; ?>" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-</div>		    
-		    </div>
 
-		    <div class="gallery hidden">
+		    <div class="gallery">
 			    
 			    <?php 
 	
@@ -83,6 +76,13 @@ the_post(); ?>
 			        <?php endforeach; ?>
 				<?php endif; ?>
 				
+		    </div>
+		    
+		    <div class="video hidden">
+			    <?php $video = get_field('video');?>
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/<?php echo $video; ?>" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>		    
 		    </div>
 		    
 		    <div class="data hidden">

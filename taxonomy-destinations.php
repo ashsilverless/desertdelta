@@ -147,7 +147,7 @@ $term = get_queried_object();
 	
 	<?php get_template_part('template-parts/map', 'camps');?>
 	
-	<?php get_template_part('template-parts/cta', 'discover');?>
+	<?php get_template_part('template-parts/cta', 'itinerary');?>
 
 </div>
 
