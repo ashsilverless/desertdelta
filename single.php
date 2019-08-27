@@ -89,4 +89,6 @@ get_header();
 
 </div><!--c-->
 
+<hr>
+
 <?php get_footer();

@@ -4,9 +4,9 @@
 	
 	<?php
 		
-	$video = get_field("video")["background_video"];
+	$video = get_field("background_video");
 	
-	if(is_front_page() && $video): 
+	if($video): 
 	
 		$video = "https://player.vimeo.com/video/" . $video; ?>
 		

@@ -22,6 +22,10 @@
 .sub-hero {
         @include gridCenter;    
         grid-template-columns: 1fr 1fr 1fr;
+        
+    &.half {
+	    grid-template-columns: 1fr 1fr;
+    }
     
     &__item {
         position: relative;
@@ -99,6 +103,7 @@
 .map {
     position: relative;
     margin-top: -7em;
+    border-bottom: 10px solid white;
     
     img, svg {
 	    z-index: 2;
@@ -1226,6 +1231,10 @@
 			display: grid;
 			grid-template-columns: repeat(3, auto);
 			
+			&.extended {
+				grid-template-columns: repeat(4, auto);
+			}
+			
 			button {
 				position: relative;
 				text-align: left;
@@ -1306,6 +1315,10 @@
 			border-bottom: 5px solid white;
 		}
 		
+		.layout {
+			border-top: 10px solid white;
+		}
+		
 		.hidden {
 			display: none;
 		}
@@ -1366,6 +1379,10 @@
 	.camp-plan {
 		@include backgroundCover;
 		border-bottom: 10px solid white;
+		
+		img {
+			min-width: 100%;
+		}
 	}
 	
 	.custom-footer-text {

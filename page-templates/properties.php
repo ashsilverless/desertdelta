@@ -14,9 +14,8 @@ get_header();?>
 <?php if( get_field('hero_background_image') ): 
 
     get_template_part('template-parts/hero');
-    get_template_part('template-parts/sub', 'hero');?>
 
-<?php endif;?>
+endif;?>
 
 <!-- ******************* Hero Content END ******************* -->
 	
@@ -64,13 +63,13 @@ get_header();?>
 			
 			<div class="wrapper-cards-horizontal">
 				
-			<?php foreach($posts as $post): ?>
+			<?php foreach($posts as $camp): ?>
 			
 				<div class="wrapper-card mb2 <?php echo get_the_terms($post->ID, 'destinations')[0]->slug; ?>">
 					
 				<?php
 		
-				set_query_var('post', $post);
+				set_query_var('post', $camp);
 				set_query_var('location', true);
 				set_query_var('date', false);
 				set_query_var('image_as_background', true);
@@ -89,6 +88,8 @@ get_header();?>
 	</div><!--c-->
 	
 	<?php get_template_part('template-parts/map', 'camps');?>
+	
+	<?php get_template_part('template-parts/sub', 'hero'); ?>
     
     <?php get_template_part('template-parts/cta', 'itinerary');?>
 

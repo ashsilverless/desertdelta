@@ -94,7 +94,7 @@ div.information > .container {
 
 /*---HEADER---*/
 
-.sub-hero {
+.sub-hero, .sub-hero.half {
 	grid-template-columns: 1fr;
 }
 
@@ -140,7 +140,7 @@ body {
  
 /*---HEADER---*/
 
-.sub-hero {
+.sub-hero, .sub-hero.half {
 	grid-template-columns: 1fr;
 }
 
@@ -200,6 +200,14 @@ body {
 .itinerary-gallery-slider, .itinerary-gallery-slider .owl-carousel.owl-drag .owl-item {
 	width: 500px;
 }
+
+.container-custom .custom-header .custom-actions.extended button {
+	font-size: 0.8em;
+	
+	&:before {
+		font-size: 1.3em;
+	}
+}
   
 }/*---end medium mq---*/
 
@@ -233,7 +241,7 @@ header {
     overflow: hidden;
 }
 
-.sub-hero {
+.sub-hero, .sub-hero.half {
 	grid-template-columns: 1fr;
 }
 
@@ -246,7 +254,7 @@ header {
 	}
 }
 
-.sub-hero {
+.sub-hero, .sub-hero.half {
 	grid-template-columns: 1fr;
 }
 
@@ -374,6 +382,14 @@ main .content .row {
 	}
 }
 
+.container-custom .custom-header .custom-actions.extended button {
+	font-size: 0.8em;
+	
+	&:before {
+		font-size: 1.3em;
+	}
+}
+
 /*---FOOTER---*/
 .footer {
 	.socket, .socials {
@@ -444,7 +460,7 @@ nav {
     height:75vh;
 }
 
-.sub-hero {
+.sub-hero, .sub-hero.half {
 	grid-template-columns: 1fr;
 }
 
@@ -692,6 +708,14 @@ nav {
 	.custom-info .custom-list {
 		padding: 2em 0;
 		margin: 0;
+	}
+}
+
+.container-custom .custom-header .custom-actions.extended button {
+	font-size: 0.9em;
+	
+	&:before {
+		font-size: 1.3em;
 	}
 }
 

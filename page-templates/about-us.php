@@ -97,6 +97,8 @@ get_header();?>
 
     <?php get_template_part('template-parts/cta', 'cares');?>
     
+    <hr>
+    
     <?php get_template_part('template-parts/cta', 'itinerary');?>
 
 </div><!--content-->

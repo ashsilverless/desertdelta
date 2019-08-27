@@ -51,10 +51,11 @@ the_post(); ?>
 		        
 		        <a class="read-more anchor" href="#footer-text">Read More</a>
 		        
-		        <div class="custom-actions">
+		        <div class="custom-actions extended">
 			        <div><button name="gallery" class="active"><i class="fas fa-camera"></i>Gallery</button></div>
 			        <div><button name="video"><i class="fas fa-video"></i>Video</button></div>
 			        <div><button name="data"><i class="fas fa-cogs"></i>Data</button></div>
+			        <div><button name="layout"><i class="fas fa-map"></i>Layout</button></div>
 		        </div>
 		    </div>
 	        
@@ -116,11 +117,13 @@ the_post(); ?>
 			    </div>
 			    
 		    </div>
+		    
+		    <div class="layout hidden">
+			    <div class="camp-plan">
+					<img src="<?php echo get_field('plan_image')["url"]; ?>"/>
+				</div>
+		    </div>
 		
-	    </div>
-	    
-	    <div class="camp-plan">
-    	    <img src="<?php echo get_field('plan_image')["url"]; ?>"/>
 	    </div>
 	    
 	    <div class="container" id="footer-text">

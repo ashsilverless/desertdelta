@@ -14,9 +14,8 @@ get_header();?>
 <?php if( get_field('hero_background_image') ): 
 
     get_template_part('template-parts/hero');
-    get_template_part('template-parts/sub', 'hero');?>
 
-<?php endif;?>
+endif;?>
 
 <!-- ******************* Hero Content END ******************* -->
 	
@@ -56,13 +55,15 @@ get_header();?>
 			
 			</div>
 		
-		<?php endforeach; ?>
+		<?php endforeach; wp_reset_postdata(); ?>
 		
 		</div>
 		
 	</div><!--c-->
 	
 	<?php get_template_part('template-parts/map', 'camps');?>
+	
+	<?php get_template_part('template-parts/sub', 'hero'); ?>
 
 </div><!--content-->
  

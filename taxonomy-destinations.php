@@ -17,6 +17,22 @@ $term = get_queried_object();
 	<?php $heroImage = get_field("image", $term)["url"]; ?>
 	
 	<div class="hero h75" style="background-image: url(<?php echo $heroImage; ?>);">
+		
+		<?php
+		
+		$video = get_field("background_video", $term);
+		
+		if($video): 
+		
+			$video = "https://player.vimeo.com/video/" . $video; ?>
+			
+			<div class="wrapper-video">
+				
+				<iframe src="<?php echo $video; ?>?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				
+			</div>
+				
+		<?php endif; ?>
 	
 	    <a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>" class="hero__brand slide-down">
 	        <?php get_template_part('template-parts/logo');?>
