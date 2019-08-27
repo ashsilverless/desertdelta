@@ -153,6 +153,8 @@ jQuery(document).ready(function( $ ) {
 	
 /* SHOW POPUP ON MAP */
 
+	var clickTriggered = false;
+
 	$(".camps svg.map-camps circle").click(function() {
 		var height   = parseFloat($(".camps svg.map-camps").height());       // Content height
 		var width    = parseFloat($(".camps svg.map-camps").width());        // Content width
@@ -194,9 +196,12 @@ jQuery(document).ready(function( $ ) {
 		
 		$(".popup").fadeIn("fast");
 		
-		var scrollIndex = window.innerHeight * 0.2;
+		if(!clickTriggered) {
+			var scrollIndex = window.innerHeight * 0.2;
+			$("html, body").animate({ scrollTop: $(".popup").offset().top - scrollIndex}, 500);
+		}
 		
-		$("html, body").animate({ scrollTop: $(".popup").offset().top - scrollIndex}, 500);
+		clickTriggered = false;
 	});
 	
 /* CLOSE POPUP */
@@ -209,14 +214,26 @@ jQuery(document).ready(function( $ ) {
 		$(".path-dotted-small").removeClass("visible");
 		
 	});
-
-/*SHOW CAMP POP ON MAP ON LOAD */
-
-var mapArray = $('.map.camps').attr('camps');
-var mapArray = JSON.parse(mapArray);
-var currentUrl = window.location.pathname.split('/')[2];
-
-	$("#" + currentUrl)[0].click();
+	
+/* SHOW POPUP ON ENTER CAMP */
+	
+	activateCamp();
+	
+	function activateCamp() {
+		var currentUrl = window.location.pathname.split("/").filter(Boolean);
+		
+		if(currentUrl.length == 2 && currentUrl[0] == "camps") {
+			var currentCamp = $("#" + currentUrl[1]);
+			var camps = JSON.parse($(".map.camps").attr("camps"));
+			
+			if(currentCamp.length) {
+				clickTriggered = true;
+				var event = document.createEvent("SVGEvents");
+				event.initEvent("click", true, true);
+				currentCamp[0].dispatchEvent(event);
+			}
+		}
+	}
 
 /* HIDE OR SHOW READ MORE */
 
