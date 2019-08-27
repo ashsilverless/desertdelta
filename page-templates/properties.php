@@ -63,13 +63,13 @@ endif;?>
 			
 			<div class="wrapper-cards-horizontal">
 				
-			<?php foreach($posts as $camp): ?>
+			<?php foreach($posts as $post): ?>
 			
 				<div class="wrapper-card mb2 <?php echo get_the_terms($post->ID, 'destinations')[0]->slug; ?>">
 					
 				<?php
 		
-				set_query_var('post', $camp);
+				set_query_var('post', $post);
 				set_query_var('location', true);
 				set_query_var('date', false);
 				set_query_var('image_as_background', true);
@@ -79,7 +79,7 @@ endif;?>
 				
 				</div>
 			
-			<?php endforeach; ?>
+			<?php endforeach; wp_reset_postdata(); ?>
 		        
 	        </div>
 	        
