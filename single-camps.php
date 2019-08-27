@@ -41,7 +41,7 @@ the_post(); ?>
 		        
 		        ?>
 			        
-		        <div class="custom-location"><a href="<?php echo get_term_link($destination->term_id); ?>"><?php echo $destination->name; ?></a></div>
+		        <div class="custom-location"><a href="<?php echo get_term_link($destination->term_id); ?>"><i class="fas fa-map-marker-alt"></i> <?php echo $destination->name; ?></a></div>
 		        
 		        <?php endif;?>
 		        

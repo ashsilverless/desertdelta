@@ -1185,7 +1185,26 @@
 			color: $brand-secondary;
 			text-transform: uppercase;
 			font-family: $supporting-font;
-			font-size: 1.2em;
+			
+			a {
+                border: 1px solid #99957a;
+                padding: 0.5em 1.5em;
+                margin-top: 0.5em;
+                font-size: 0.8em;
+                transition: 0.5s ease all;
+                
+                i {
+                    vertical-align: top;
+                    margin-right: 0.25em;
+                    background: transparent;
+                }
+                
+                &:hover {
+                    background: $brand-secondary;
+                    color: white;
+                    cursor: pointer;
+                }
+			}
 		}
 		
 		.custom-description {
