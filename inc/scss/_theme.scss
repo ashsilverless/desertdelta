@@ -127,9 +127,9 @@
         width: 100%;
         
         circle {
-            fill:$brand-dark-grey;
+            fill:#908e83;
             animation: shadow-pulse 1.5s infinite;
-            stroke:$brand-dark-grey;
+            stroke:#a29f93;
             cursor: pointer;
             
             &.no-pulse {
