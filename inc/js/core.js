@@ -145,8 +145,9 @@ jQuery(document).ready(function( $ ) {
 /* TRIGGER COLLAPSE IN FLEXIBLE CONTENT */
 
 	$(".flexible-content.toggle-block label").click(function() {
-		$(this).siblings("label").removeClass("collapsed");
-		$(this).siblings("label").next().slideUp();
+		var otherLabels = $(this).parent().siblings(".item").find("label");
+		otherLabels.removeClass("collapsed");
+		otherLabels.next().slideUp();
 		$(this).toggleClass("collapsed");
 		$(this).next().slideToggle();
 	});

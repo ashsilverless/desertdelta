@@ -27,6 +27,10 @@
 		$link = get_permalink( $id );
 	}
 	
+	if($date) {
+		$content = apply_filters( 'the_content', substr($content, 0, 400) . "..." );
+	}
+	
 	?>
 	
 	<?php if($image_as_background): ?>
