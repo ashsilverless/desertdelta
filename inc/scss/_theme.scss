@@ -161,13 +161,33 @@
 	}
     
     .popup {
-	    display: none;
 	    position: absolute;
 	    transform: translateX(-50%);
 	    width: 300px;
 		z-index: 100;
 		margin-left: 70px;
 		margin-bottom: 1em;
+		display: flex;
+		flex-direction: column;
+		opacity: 0;
+		transition: opacity 0.5s ease-in-out;
+		
+		&.visible {
+			opacity: 1;
+		}
+		
+		&.popup-top {
+			margin-bottom: 0;
+			margin-top: 1em;
+				
+			.content {
+				order: 2;
+			}
+			
+			.path-dotted {
+				order: 1;
+			}
+		}
 		
 		.content {
 			background: #e9e6e2;

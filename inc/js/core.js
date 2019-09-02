@@ -161,19 +161,36 @@ jQuery(document).ready(function( $ ) {
 		var width    = parseFloat($(".camps svg.map-camps").width());        // Content width
 		var v_height = parseFloat($(".camps svg.map-camps").attr("height")); // Viewbox height
 		var v_width  = parseFloat($(".camps svg.map-camps").attr("width"));  // Viewbox width
-		var v_bottom = parseFloat(v_height - $(this).attr("cy"));            // Viewbox distance top
+		var v_top    = parseFloat($(this).attr("cy"));                       // Viewbox distance top
+		var v_bottom = parseFloat(v_height - v_top);                         // Viewbox distance bottom
 		var v_left   = parseFloat($(this).attr("cx"));                       // Viewbox distance left
 		
-		var bottom  = (v_bottom  * height) / v_height;
-		var left    = (v_left * width)  / v_width;
+		var top     = ((v_top     * height) / v_height) + "px";
+		var bottom  = ((v_bottom  * height) / v_height) + "px";
+		var left    = ((v_left    * width)  / v_width)  + "px";
+		
+		var popup_top    = (parseFloat(top)    + 15)  + "px";
+		var popup_bottom = (parseFloat(bottom) + 15)  + "px";
+		var popup_left   = (parseFloat(left)   - 3.5) + "px";
+		
+		if($(this).hasClass("popup-top") || window.innerWidth < 1600) {
+			$(".popup").addClass("popup-top");
+			bottom = "auto";
+			popup_bottom = "auto";
+		} else {
+			$(".popup").removeClass("popup-top");
+			top = "auto";
+			popup_top = "auto";
+		}
 		
 		$(".camps svg.map-camps circle").removeClass("clicked");
 		$(this).addClass("clicked");
 		$(".popup").addClass("clicked");
         		
 		$(".popup").css({
-			"bottom": bottom + "px",
-			"left": left + "px"
+			"top":    top,
+			"bottom": bottom,
+			"left":   left
 		});
 		
 		var camps = JSON.parse($(".map.camps").attr("camps"));
@@ -188,14 +205,15 @@ jQuery(document).ready(function( $ ) {
 		// Dotted path
 		
 		$(".path-dotted-small").css({
-			"bottom": (bottom + 15) + "px",
-			"left": (left - 3.5) + "px"
+			"top":    popup_top,
+			"bottom": popup_bottom,
+			"left":   popup_left
 		});
 		
 		$(".path-dotted-small").addClass("visible");
 		
-		
-		$(".popup").fadeIn("fast");
+		$(".popup").css("display", "flex");
+		$(".popup").addClass("visible");
 		
 		if(!clickTriggered) {
 			var scrollIndex = window.innerHeight * 0.2;
@@ -209,7 +227,10 @@ jQuery(document).ready(function( $ ) {
 
 	$(".popup .close-popup").click(function() {
 		
-		$(".popup").fadeOut("fast");
+		$(".popup").removeClass("visible");
+		setTimeout(function() {
+			$(".popup").css("display", "none");
+		}, 500);
 		$(".popup").removeClass("clicked");
 		$(".camps svg.map-camps circle").removeClass("clicked");
 		$(".path-dotted-small").removeClass("visible");
@@ -431,15 +452,38 @@ jQuery(document).ready(function( $ ) {
 			var width    = parseFloat($(".camps svg.map-camps").width());         // Content width
 			var v_height = parseFloat($(".camps svg.map-camps").attr("height"));  // Viewbox height
 			var v_width  = parseFloat($(".camps svg.map-camps").attr("width"));   // Viewbox width
-			var v_bottom = parseFloat(v_height - $(circle).attr("cy")); // Viewbox distance top
-			var v_left   = parseFloat($(circle).attr("cx"));            // Viewbox distance left
+			var v_top    = parseFloat($(circle).attr("cy"));                      // Viewbox distance top
+			var v_bottom = parseFloat(v_height - v_top);                          // Viewbox distance bottom
+			var v_left   = parseFloat($(circle).attr("cx"));                      // Viewbox distance left
 			
-			var bottom  = (v_bottom  * height) / v_height;
-			var left    = (v_left * width)  / v_width;
+			var top     = ((v_top     * height) / v_height) + "px";
+			var bottom  = ((v_bottom  * height) / v_height) + "px";
+			var left    = ((v_left    * width)  / v_width)  + "px";
+			
+			var popup_top    = (parseFloat(top)    + 15)  + "px";
+			var popup_bottom = (parseFloat(bottom) + 15)  + "px";
+			var popup_left   = (parseFloat(left)   - 3.5) + "px";
+			
+			if($(circle).hasClass("popup-top")) {
+				$(".popup").addClass("popup-top");
+				bottom = "auto";
+				popup_bottom = "auto";
+			} else {
+				$(".popup").removeClass("popup-top");
+				top = "auto";
+				popup_top = "auto";
+			}
 			
 			$(".popup").css({
-				"bottom":  bottom  + "px",
-				"left": left + "px"
+				"top":    top,
+				"bottom": bottom,
+				"left":   left
+			});
+			
+			$(".path-dotted-small").css({
+				"top":    popup_top,
+				"bottom": popup_bottom,
+				"left":   popup_left
 			});
 		}
 		

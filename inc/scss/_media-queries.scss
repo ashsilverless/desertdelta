@@ -788,7 +788,12 @@ nav {
 	}
 	
 	.popup {
-		margin-bottom: 90px;
+		margin-bottom: 60px;
+		
+		&.popup-top {
+			margin-top: 60px;
+			margin-bottom: 0;
+		}
 		
 		.content {
 			width: 70vw;
