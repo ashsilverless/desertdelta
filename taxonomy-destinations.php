@@ -71,7 +71,7 @@ $term = get_queried_object();
 	    
 	    <div class="custom-info">
 		    
-		    <div class="lodges container">
+		    <div class="lodges container hidden">
 			    
 			    <?php
 	
@@ -88,7 +88,7 @@ $term = get_queried_object();
 				);
 				$posts = get_posts( $args ); ?>
 				
-				<div class="wrapper-cards hidden">
+				<div class="wrapper-cards">
 					
 				<?php foreach($posts as $post): ?>
 				
