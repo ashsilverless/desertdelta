@@ -88,7 +88,7 @@ $term = get_queried_object();
 				);
 				$posts = get_posts( $args ); ?>
 				
-				<div class="wrapper-cards">
+				<div class="wrapper-cards hidden">
 					
 				<?php foreach($posts as $post): ?>
 				
@@ -110,7 +110,7 @@ $term = get_queried_object();
 			    
 		    </div>
 		    
-		    <div class="gallery hidden">
+		    <div class="gallery">
 			    
 			    <?php 
 	
