@@ -60,8 +60,8 @@ $term = get_queried_object();
 		        <a class="read-more anchor" href="#footer-text">Read More</a>
 		        
 		        <div class="custom-actions">
-			        <div><button name="lodges" class="active"><i class="fas fa-campground"></i>Lodges</button></div>
-			        <div><button name="gallery"><i class="fas fa-camera"></i>Gallery</button></div>
+			        <div><button name="gallery" class="active"><i class="fas fa-camera"></i>Gallery</button></div>
+			        <div><button name="lodges"><i class="fas fa-campground"></i>Lodges</button></div>
 			        <div class="long-text"><button name="data"><i class="fas fa-cogs"></i>Quick facts</button></div>
 			        <div class="short-text"><button name="data"><i class="fas fa-cogs"></i>Facts</button></div>
 		        </div>
