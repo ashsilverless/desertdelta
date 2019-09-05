@@ -601,12 +601,28 @@ $(window).on('resize scroll', function() {
 	if($("body").hasClass("single-itineraries")) {
 		
 		// Display only camps inside itinerary
-		var visibleCamps = JSON.parse($(".visible-camps").attr("visible-camps"));
+		var routeInfo = JSON.parse($(".visible-camps").attr("visible-camps"));
+		var visibleCamps  = routeInfo["camps"];
+		var startLocation = routeInfo["start"];
+		var endLocation   = routeInfo["end"];
+		
 		$("svg.map-camps circle").not(visibleCamps.join(", ")).addClass("no-pulse");
 		
 		// Define radius and coordinates
 		var coordinates = [];
 		var radius;
+		var start_size, end_size;
+		
+		if(startLocation) {
+			start_size = {
+				width:  $(startLocation).attr("width"),
+				height: $(startLocation).attr("height")
+			}
+			coordinates.push({
+				x: parseFloat($(startLocation).attr("x")),
+				y: parseFloat($(startLocation).attr("y"))
+			});
+		}
 		
 		for(var i = 0; i < visibleCamps.length; i++) {	
 			if(i == 0)
@@ -618,9 +634,22 @@ $(window).on('resize scroll', function() {
 			});
 		}
 		
+		if(endLocation) {
+			end_size = {
+				width:  $(endLocation).attr("width"),
+				height: $(endLocation).attr("height")
+			}
+			coordinates.push({
+				x: parseFloat($(endLocation).attr("x")),
+				y: parseFloat($(endLocation).attr("y"))
+			});
+		}
+		
+		/* REMOVE SINGLE LINE DUPLICATION
 		if(coordinates.length == 3 && coordinates[0].x == coordinates[2].x && coordinates[0].y == coordinates[2].y) {
 			coordinates.pop();
 		}
+		*/
 		
 		// Dimensions settings
 		var mapMeasures = $("#map-camps")[0].getBBox();
