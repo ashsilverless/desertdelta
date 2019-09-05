@@ -57,7 +57,7 @@ get_header();?>
 	
 	<?php get_template_part('template-parts/map', 'camps');?>
 
-    <?php get_template_part('template-parts/cta', 'contact');?> 
+    <?php get_template_part('template-parts/cta', 'itinerary');?>
 
 </div><!--content-->
  

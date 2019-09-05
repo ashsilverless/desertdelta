@@ -64,10 +64,18 @@ the_post(); ?>
 	<div class="container cares-children pb3">
 		
 	    <?php get_template_part('template-parts/breadcrumb'); ?>
+	        
+		<div class="row">
+            
+            <div class="col-8 offset-2 text-center mt2 mb5">
 	    
 	    <div class="content pt2 dark-dot">
 	    	<?php the_content(); ?>
 	    </div>
+
+            </div>
+            
+		</div>
 	    
 	    <?php
 		
