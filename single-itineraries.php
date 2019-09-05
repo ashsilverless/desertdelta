@@ -168,8 +168,20 @@ the_post(); ?>
 	
 	</div><!--c-->
 	
+	<?php
 	
-	<div class="visible-camps" <?php printf('visible-camps="%s"', htmlspecialchars(json_encode($map_camps), ENT_QUOTES, 'UTF-8')); ?>></div>
+	$start_location = get_field("itinerary_start");
+	$end_location   = get_field("itinerary_end");
+	
+	$visible_camps = array(
+		"camps" => $map_camps,
+		"start" => $start_location,
+		"end"	=> $end_location
+	);
+	
+	?>
+	
+	<div class="visible-camps" <?php printf('visible-camps="%s"', htmlspecialchars(json_encode($visible_camps), ENT_QUOTES, 'UTF-8')); ?>></div>
 	
 	<?php get_template_part('template-parts/map', 'camps');?>
 	
