@@ -23,7 +23,7 @@
                     
                     <div class="col-4">
     
-                        <h4 class="heading heading__sm heading__alt-font heading__primary-color">Camps</h4>
+                        <h4 class="heading heading__sm heading__alt-font heading__primary-color font500">Camps</h4>
                         
                         <ul class="columns">
     
@@ -49,7 +49,7 @@
 
                     <div class="col-2">
     
-                        <h4 class="heading heading__sm heading__alt-font heading__primary-color">Reservations</h4>
+                        <h4 class="heading heading__sm heading__alt-font heading__primary-color font500">Reservations</h4>
     
                         <ul>
                             
@@ -62,7 +62,7 @@
 
                     <div class="col-2">
     
-                        <h4 class="heading heading__sm heading__alt-font heading__primary-color">Marketing</h4>
+                        <h4 class="heading heading__sm heading__alt-font heading__primary-color font500">Marketing</h4>
 
                         <ul>
                             
