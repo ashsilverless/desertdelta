@@ -255,6 +255,22 @@
     
 }
 
+#map-camps-regions {
+	z-index: 0;
+}
+
+#map-canvas {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+}
+
+#map-camps-info {
+	z-index: 2;
+}
+
 #chobenationalpark {
     fill:#e4e5da;
 }
@@ -1507,6 +1523,10 @@
 					right: 1.5rem;
 					position: absolute;
 					cursor: pointer;
+					
+					&.aligned-top {
+						align-self: flex-start;
+					}
 					
 					&.large {
 						width: 2em;

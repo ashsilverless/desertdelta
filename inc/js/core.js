@@ -585,14 +585,16 @@ $(window).on('resize scroll', function() {
 		} 
 	});
 	
-	$("#map-canvas").each(function() {
-		if($(this).isInViewport() && !$(this).hasClass("active")) {
-			$(this).addClass("active");
-			setTimeout(function() {
-				startMapAnimation();
-			}, 500);
-		}
-	})
+	if($("body").hasClass("single-itineraries")) {
+		$("#map-canvas").each(function() {
+			if($(this).isInViewport() && !$(this).hasClass("active")) {
+				$(this).addClass("active");
+				setTimeout(function() {
+					startMapAnimation();
+				}, 500);
+			}
+		});
+	}
     
 });
 
@@ -611,17 +613,20 @@ $(window).on('resize scroll', function() {
 		// Define radius and coordinates
 		var coordinates = [];
 		var radius;
-		var start_size, end_size;
 		
 		if(startLocation) {
-			start_size = {
-				width:  $(startLocation).attr("width"),
-				height: $(startLocation).attr("height")
-			}
 			coordinates.push({
-				x: parseFloat($(startLocation).attr("x")),
-				y: parseFloat($(startLocation).attr("y"))
+				x: parseFloat($(startLocation).attr("x")) + $(startLocation).attr("width")/2,
+				y: parseFloat($(startLocation).attr("y")) + $(startLocation).attr("height")/2,
+				camp: false
 			});
+			
+			startLocation = {
+				x: parseFloat($(startLocation).attr("x")) + $(startLocation).attr("width")/2,
+				y: parseFloat($(startLocation).attr("y")) + $(startLocation).attr("height")/2,
+				height: parseFloat($(startLocation).attr("height")),
+				width:  parseFloat($(startLocation).attr("width"))
+			}
 		}
 		
 		for(var i = 0; i < visibleCamps.length; i++) {	
@@ -630,19 +635,24 @@ $(window).on('resize scroll', function() {
 			
 			coordinates.push({
 				x: parseFloat($("circle" + visibleCamps[i]).attr("cx")),
-				y: parseFloat($("circle" + visibleCamps[i]).attr("cy"))
+				y: parseFloat($("circle" + visibleCamps[i]).attr("cy")),
+				camp: true
 			});
 		}
 		
 		if(endLocation) {
-			end_size = {
-				width:  $(endLocation).attr("width"),
-				height: $(endLocation).attr("height")
-			}
 			coordinates.push({
-				x: parseFloat($(endLocation).attr("x")),
-				y: parseFloat($(endLocation).attr("y"))
+				x: parseFloat($(endLocation).attr("x")) + $(endLocation).attr("width")/2,
+				y: parseFloat($(endLocation).attr("y")) + $(endLocation).attr("height")/2,
+				camp: false
 			});
+			
+			endLocation = {
+				x: parseFloat($(endLocation).attr("x")) + $(endLocation).attr("width")/2,
+				y: parseFloat($(endLocation).attr("y")) + $(endLocation).attr("height")/2,
+				height: parseFloat($(endLocation).attr("height")),
+				width:  parseFloat($(endLocation).attr("width"))
+			}
 		}
 		
 		/* REMOVE SINGLE LINE DUPLICATION
@@ -652,23 +662,13 @@ $(window).on('resize scroll', function() {
 		*/
 		
 		// Dimensions settings
-		var mapMeasures = $("#map-camps")[0].getBBox();
-
-		var container = document.getElementById("canvas-wrapper");
-		container.setAttribute("width", mapMeasures.width);
-		container.setAttribute("height", mapMeasures.height);
-		container.setAttribute("x", mapMeasures.x);
-		container.setAttribute("y", mapMeasures.y);
+		var mapMeasures = $("#map-camps-regions")[0].getBBox();
 		
-		var canvas = document.createElement('canvas');
-		canvas.setAttribute("id", "map-canvas");
+		var canvas = document.getElementById('map-canvas');
 		canvas.setAttribute("width", mapMeasures.width);
 		canvas.setAttribute("height", mapMeasures.height);
-		canvas.style.position = "absolute";
 		canvas.setAttribute("x", mapMeasures.x);
 		canvas.setAttribute("y", mapMeasures.y);
-		
-		container.appendChild(canvas);
 		
 		
 		// Define animation variables and line settings
@@ -745,8 +745,8 @@ $(window).on('resize scroll', function() {
 		function insideCircle(coordinates, x, y) {
 			
 			for(var i = 0; i < coordinates.length; i++)
-				if(Math.pow(x - coordinates[i].x, 2) + Math.pow(y - coordinates[i].y, 2) < Math.pow(radius, 2)) {
-					return true;				}
+				if(Math.pow(x - coordinates[i].x, 2) + Math.pow(y - coordinates[i].y, 2) < Math.pow(radius, 2))
+					return true;
 			
 			return false;
 		}
