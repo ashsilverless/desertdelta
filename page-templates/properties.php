@@ -90,8 +90,6 @@ endif;?>
 	<?php get_template_part('template-parts/map', 'camps');?>
 	
 	<?php get_template_part('template-parts/sub', 'hero'); ?>
-    
-    <?php get_template_part('template-parts/cta', 'itinerary');?>
 
 </div><!--content-->
  
