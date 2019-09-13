@@ -85,7 +85,7 @@ the_post(); ?>
 						<th>
 							<div class="heading heading__secondary-color font600 day-info">
 								<span><?php the_sub_field('name'); ?></span>
-								<div class="circle"></div>
+								<div class="circle aligned-top"></div>
 							</div>
 						</th>
 						
