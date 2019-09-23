@@ -28,7 +28,7 @@ $term = get_queried_object();
 			
 			<div class="wrapper-video">
 				
-				<iframe src="<?php echo $video; ?>?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				<iframe src="" data-src="<?php echo $video; ?>?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 				
 			</div>
 				
@@ -166,6 +166,16 @@ $term = get_queried_object();
 	<?php get_template_part('template-parts/cta', 'itinerary');?>
 
 </div>
+
+<script>
+function init() {
+var vidDefer = document.getElementsByTagName('iframe');
+for (var i=0; i<vidDefer.length; i++) {
+if(vidDefer[i].getAttribute('data-src')) {
+vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
+} } }
+window.onload = init;
+</script>
 
 <?php
 	
