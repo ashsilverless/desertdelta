@@ -35,11 +35,11 @@
 	
 	<?php if($image_as_background): ?>
 	
-	<div class="img" style="background-image: url(<?php echo $image; ?>);"></div>
+	<div class="img" style="background-image: url(<?php echo $image; ?>);"><a href="<?php echo $link; ?>"></a></div>
 	
 	<?php else: ?>
 	
-	<img src="<?php echo $image; ?>"/>
+	<a href="<?php echo $link; ?>"><img src="<?php echo $image; ?>"/></a>
 	
 	<?php endif; ?>
 	
@@ -80,7 +80,9 @@
             
             </div><!--camp activities-->
 			
-			<h3 class="heading"><?php echo $title; ?></h3>
+			<a href="<?php echo $link; ?>">
+    			<h3 class="heading"><?php echo $title; ?></h3>
+            </a>
 				
 			<p><?php echo wp_strip_all_tags($content); ?></p>
 		

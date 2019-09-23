@@ -159,6 +159,10 @@ h5 {
         font-size: 0.75em;        
     }   
 
+    &__underline {
+        border-bottom: 1px solid #666666;
+        padding-bottom: 0.5em;
+    }
 }
 
  input {

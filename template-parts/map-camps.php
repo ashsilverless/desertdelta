@@ -36,11 +36,14 @@ foreach($allCamps as $camp) {
 		
 		<div class="content">
 			
-			<div class="img"><i class="fas fa-times close-popup"></i></div>
+			<div class="img">
+    			<a href="<?php echo $link; ?>"></a>
+    			<i class="fas fa-times close-popup"></i>
+            </div>
 			
 			<div class="pb2 pt1 pl2 pr2">
 				
-				<h2 class="heading heading__sm slide-up"></h2>
+				<a href="<?php echo $link; ?>"><h2 class="heading heading__sm slide-up"></h2></a>
 				
 				<span></span>
 				

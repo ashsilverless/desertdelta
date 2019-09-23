@@ -225,7 +225,7 @@ jQuery(document).ready(function( $ ) {
 	
 /* CLOSE POPUP */
 
-	$(".popup .close-popup").click(function() {
+$(".popup .close-popup").click(function() {
 		
 		$(".popup").removeClass("visible");
 		setTimeout(function() {
@@ -236,7 +236,7 @@ jQuery(document).ready(function( $ ) {
 		$(".path-dotted-small").removeClass("visible");
 		
 	});
-	
+
 /* SHOW POPUP ON ENTER CAMP */
 	
 	activateCamp();

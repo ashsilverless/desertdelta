@@ -202,12 +202,20 @@
 		}
 		
 		.img {
-			background: url("http://desert---delta.local/wp-content/uploads/2019/05/IMG_1336-1024x683.jpg");
 			height: 150px;
 			@include backgroundCover;
+			position: relative;
+			a {
+    			display: block;
+    			width:100%;
+    			height: 100%;
+			}
 		}
 		
 		.close-popup {
+            position: absolute;
+            top: 0;
+            right: 0;
 			color: $body-color;
 			float: right;
 			padding: 0.5em 0.5em 4em 4em;
@@ -281,6 +289,20 @@
 
 #other-countries {
     fill:hsla(0, 0%, 0%, 0.1);
+}
+
+.camp-label {
+    font-size: 1em;
+    transition: 0.5s all ease;
+    opacity: 0;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 900;
+    fill: #5e5e5e;
+}
+
+.popup-top:hover + .camp-label,
+.popup-bottom:hover + .camp-label {
+    opacity:1;
 }
 
 @keyframes shadow-pulse
@@ -860,12 +882,12 @@
 	}
 	
 	a {
-		padding: 1em 2em;
 		display: block;
 		text-align: left;
-		margin: 0 2em;
 		
 		&.info-read-more {
+			margin: 0 2em;
+    		padding: 1em 2em;
     		display: inline-block;
 			cursor: pointer;
 			border: 1px solid grey;
@@ -880,7 +902,7 @@
 		}
 		
 		&.button {
-			margin-bottom: 2em;
+			margin: 0 3em 2em;
 			display: flex;
 			align-items: center;
 			
@@ -979,6 +1001,12 @@
 		    
 		    .img {
 			    @include backgroundCover;
+			    
+			    a {
+    			    display: block;
+    			    width:100%;
+    			    height: 100%;
+			    }
 		    }
 		    
 		    .heading {
@@ -1025,6 +1053,7 @@
         
         svg {
             height:1.5em;
+            width:2em;
             transition: all 0.5s ease;
             
             path {
@@ -1035,18 +1064,34 @@
         }
     
         p {
-            display: inline-block;
-            position: relative;
-            padding: 0 0.5em;
+            position: absolute;
+            top: -1.25em;
+            left: -50%;
+            transform: translateX(-50%);
+            margin-left: 100%;
+            padding: 1px 5px 0;
+            background: #acacac;
+            color: white;
             white-space: nowrap;
             font-family: $supporting-font;
             font-size: 0.75em;
             text-transform: uppercase;
             font-weight: 100;
-            z-index: 99;
-            max-width:0;
             opacity:0;
-            transition: max-width 0.5s ease, opacity 0.1s 0 ease;
+            transition: all 0.5s ease;
+            
+            &:before {
+                content: '';
+                position: absolute;
+                bottom: -3px;
+                left: 50%;
+                margin-left: -3px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 3px 3px 0 3px;
+                border-color: #acacac transparent transparent transparent;
+            }
         }
         
         &:hover svg path {
@@ -1054,10 +1099,7 @@
         }
         
         &:hover p {
-            max-width: 10em;
-            opacity:1; 
-            cursor: default;
-            transition: max-width 0.5s ease, opacity 0.5s 0.2s ease;
+            opacity:1;
         }
     }
 }

@@ -579,4 +579,5 @@
 
 <circle id="leroo-la-tau" parent="makgadikgadi-pans-national-park" class="popup-bottom" fill="#F6E71B" cx="961.4" cy="938.5" r="12"/>
 
+
 </svg>

@@ -11,13 +11,37 @@ remove_action('wp_head', 'print_emoji_detection_script', 7);
 
 remove_action('wp_print_styles', 'print_emoji_styles');
 
+/** = Enable async and defer in scripts  = */ 
+
+if(!is_admin()) {
+    function add_asyncdefer_attribute($tag, $handle) {
+        // if the unique handle/name of the registered script has 'async' in it
+        if (strpos($handle, 'async') !== false) {
+            // return the tag with the async attribute
+            return str_replace( '<script ', '<script async ', $tag );
+        }
+        // if the unique handle/name of the registered script has 'defer' in it
+        else if (strpos($handle, 'defer') !== false) {
+            // return the tag with the defer attribute
+            return str_replace( '<script ', '<script defer ', $tag );
+        }
+        // otherwise skip
+        else {
+            return $tag;
+        }
+    }
+    add_filter('script_loader_tag', 'add_asyncdefer_attribute', 10, 2);
+}
+
+
 /** = Enqueue scripts and styles = */ 
 
 function desertdelta_scripts() {
 	
 	wp_enqueue_style( 'desertdelta-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'desertdelta-core-js', get_template_directory_uri() . '/inc/js/compiled.js', array('jquery'), true); 
+	wp_register_script( 'corejs-async', get_template_directory_uri() . '/inc/js/compiled.js', array('jquery'), true); 
+	wp_enqueue_script('corejs-async');
 	
 }
 

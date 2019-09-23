@@ -8,6 +8,7 @@
 		<?php
 	
 		$args = array(
+		    'orderby'   => 'rand',
 			'numberposts' => 3,
 			'post_type'   => 'camps',
 			'post__not_in' => array(get_the_ID())

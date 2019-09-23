@@ -16,23 +16,34 @@
     c2.7-0.3,4.7-2.5,4.7-5.2c0-2.9-2.3-5.2-5.2-5.2S1076.7,340.1,1076.7,343z"/>
     
 <circle id="chobe-game-lodge" parent="chobe-river-front" class="popup-top" fill="#F6E71B" cx="1105.8" cy="410.3" r="12"/>
+<text transform="matrix(1 0 0 1 1057.69 446.6)" class="camp-label"><tspan x="0" y="0" class="">CHOBE GAME</tspan><tspan x="25.2" y="16.8" class="">LODGE</tspan></text>
 
 <circle id="chobe-savanna-lodge" parent="chobe-river-front" class="popup-top" fill="#F6E71B" cx="1058" cy="410.3" r="12"/>
+<text transform="matrix(1 0 0 1 998.69 446.6)" class="camp-label"><tspan x="0" y="0" class="">CHOBE SAVANNA</tspan><tspan x="39.2" y="16.8" class="">LODGE</tspan></text>
 
 <circle id="savute-safari-lodge" parent="savute-region" class="popup-top" fill="#F6E71B" cx="867.2" cy="517.4" r="12"/>
+<text transform="matrix(1 0 0 1 815.69, 551.6)" class="camp-label"><tspan x="0" y="0" class="">SAVUTI SAFARI</tspan><tspan x="25.2" y="16.8" class="">LODGE</tspan></text>
 
 <path id="link2" fill="#222323" d="M647.9,619.4c0,2.7,2.1,4.9,4.7,5.2v39.3h-23.9v22.8h1v-21.8h46.8v21.8h1v-22.8h-23.9v-39.3
     c2.7-0.3,4.7-2.5,4.7-5.2c0-2.9-2.3-5.2-5.2-5.2S647.9,616.5,647.9,619.4z"/>
     
 <circle id="camp-okavango" parent="okavango-delta" class="popup-bottom" fill="#F6E71B" cx="677" cy="686.7" r="12"/>
+<text transform="matrix(1 0 0 1 652.69, 720.6)" class="camp-label"><tspan x="0" y="0" class="">CAMP</tspan><tspan x="-19.2" y="16.8" class="">OKAVANGO</tspan></text>
+
+
 <circle id="xugana-island-lodge" parent="okavango-delta" class="popup-bottom" fill="#F6E71B" cx="629.2" cy="686.7" r="12"/>
+<text transform="matrix(1 0 0 1 566.69, 720.6)" class="camp-label"><tspan x="0" y="0" class="">XUGANA ISLAND</tspan><tspan x="35.2" y="16.8" class="">LODGE</tspan></text>
 
 <path id="link1" fill="#222323" d="M769.5,671.1c0,2.7,2.1,4.9,4.7,5.2v39.3h-23.9v22.8h1v-21.8h46.8v21.8h1v-22.8h-23.9v-39.3
     c2.7-0.3,4.7-2.5,4.7-5.2c0-2.9-2.3-5.2-5.2-5.2S769.5,668.2,769.5,671.1z"/>
     
 <circle id="camp-moremi" parent="moremi-game-reserve" class="popup-bottom" fill="#F6E71B" cx="798.7" cy="738.4" r="12"/>
+<text transform="matrix(1 0 0 1 776.69, 770.6)" class="camp-label"><tspan x="0" y="0" class="">CAMP</tspan><tspan x="-10.2" y="16.8" class="">MOREMI</tspan></text>
+
 <circle id="camp-xakanaxa" parent="moremi-game-reserve" class="popup-bottom" fill="#F6E71B" cx="750.8" cy="738.4" r="12"/>
+<text transform="matrix(1 0 0 1 727.69, 770.6)" class="camp-label"><tspan x="0" y="0" class="">CAMP</tspan><tspan x="-19.2" y="16.8" class="">XAKANAXA</tspan></text>
 
 <circle id="leroo-la-tau" parent="makgadikgadi-pans-national-park" class="popup-bottom" fill="#F6E71B" cx="961.4" cy="938.5" r="12"/>
+<text transform="matrix(1 0 0 1 940.69, 972.6)" class="camp-label"><tspan x="0" y="0" class="">LEROO</tspan><tspan x="-2.2" y="16.8" class="">LA TAU</tspan></text>
 
 </svg>
