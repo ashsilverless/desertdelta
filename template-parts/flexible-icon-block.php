@@ -5,10 +5,11 @@
     	
         <?php if( have_rows('item') ): while ( have_rows('item') ) : the_row(); 
             $seasonIcon   = get_sub_field("icon")["url"];
+            $seasonIcon   = explode("/wp-content/", $seasonIcon)[1];
         ?>
     
         <div class="item">
-            <?php echo file_get_contents($seasonIcon); ?>
+            <?php echo file_get_contents("./wp-content/" . $seasonIcon, FILE_USE_INCLUDE_PATH); ?>
             <h2 class="heading heading__sm mb1"><?php the_sub_field('title'); ?></h2>
             <?php the_sub_field('copy'); ?>
         </div>

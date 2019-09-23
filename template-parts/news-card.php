@@ -58,10 +58,12 @@
                 <div class="row"> 	
             
                     <?php while ( have_rows('activities') ) : the_row();
-                        $activityIcon   = get_sub_field("icon")["url"];	?>
+                        $activityIcon   = get_sub_field("icon")["url"];
+                        $activityIcon   = explode("/wp-content/", $activityIcon)[1];
+                        ?>
             
                         <div class="camp-activities__icon">
-                            <?php echo file_get_contents($activityIcon); ?>
+                            <?php echo file_get_contents("./wp-content/" . $activityIcon, FILE_USE_INCLUDE_PATH); ?>
                             <p><?php the_sub_field('title'); ?></p>
                         </div>
             
