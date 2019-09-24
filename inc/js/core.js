@@ -225,6 +225,10 @@ jQuery(document).ready(function( $ ) {
 			
 			clickTriggered = false;
 			
+			if(!($("body").hasClass("page-template-destinations"))) {
+				$("#" + $(this).attr("parent")).addClass("selected").siblings(".area-destination").removeClass("selected");
+			}
+			
 		} else {
 			$(".popup .close-popup")[0].click();
 		}
@@ -232,7 +236,7 @@ jQuery(document).ready(function( $ ) {
 	
 /* CLOSE POPUP */
 
-$(".popup .close-popup").click(function() {
+	$(".popup .close-popup").click(function() {
 		
 		$(".popup").removeClass("visible");
 		setTimeout(function() {
@@ -339,10 +343,6 @@ $(".popup .close-popup").click(function() {
     
     $(".toggle-newsletter .button, .close-newsletter").click(function() {
 	    $(".collapse-newsletter").slideToggle();
-    });
-    
-    $("body:not(.page-template-destinations) .camps svg.map-camps circle").click(function() {
-	    $("#" + $(this).attr("parent")).addClass("selected").siblings(".area-destination").removeClass("selected");
     });
     
     $("body:not(.page-template-destinations) .map .popup .close-popup").click(function() {
