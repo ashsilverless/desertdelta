@@ -157,70 +157,77 @@ jQuery(document).ready(function( $ ) {
 	var clickTriggered = false;
 
 	$(".camps svg.map-camps circle").click(function() {
-		var height   = parseFloat($(".camps svg.map-camps").height());       // Content height
-		var width    = parseFloat($(".camps svg.map-camps").width());        // Content width
-		var v_height = parseFloat($(".camps svg.map-camps").attr("height")); // Viewbox height
-		var v_width  = parseFloat($(".camps svg.map-camps").attr("width"));  // Viewbox width
-		var v_top    = parseFloat($(this).attr("cy"));                       // Viewbox distance top
-		var v_bottom = parseFloat(v_height - v_top);                         // Viewbox distance bottom
-		var v_left   = parseFloat($(this).attr("cx"));                       // Viewbox distance left
 		
-		var top     = ((v_top     * height) / v_height) + "px";
-		var bottom  = ((v_bottom  * height) / v_height) + "px";
-		var left    = ((v_left    * width)  / v_width)  + "px";
+		if(!$(this).hasClass("clicked")) {
 		
-		var popup_top    = (parseFloat(top)    + 15)  + "px";
-		var popup_bottom = (parseFloat(bottom) + 15)  + "px";
-		var popup_left   = (parseFloat(left)   - 3.5) + "px";
-		
-		if($(this).hasClass("popup-top") || window.innerWidth < 1600) {
-			$(".popup").addClass("popup-top");
-			bottom = "auto";
-			popup_bottom = "auto";
+			var height   = parseFloat($(".camps svg.map-camps").height());       // Content height
+			var width    = parseFloat($(".camps svg.map-camps").width());        // Content width
+			var v_height = parseFloat($(".camps svg.map-camps").attr("height")); // Viewbox height
+			var v_width  = parseFloat($(".camps svg.map-camps").attr("width"));  // Viewbox width
+			var v_top    = parseFloat($(this).attr("cy"));                       // Viewbox distance top
+			var v_bottom = parseFloat(v_height - v_top);                         // Viewbox distance bottom
+			var v_left   = parseFloat($(this).attr("cx"));                       // Viewbox distance left
+			
+			var top     = ((v_top     * height) / v_height) + "px";
+			var bottom  = ((v_bottom  * height) / v_height) + "px";
+			var left    = ((v_left    * width)  / v_width)  + "px";
+			
+			var popup_top    = (parseFloat(top)    + 15)  + "px";
+			var popup_bottom = (parseFloat(bottom) + 15)  + "px";
+			var popup_left   = (parseFloat(left)   - 3.5) + "px";
+			
+			if($(this).hasClass("popup-top") || window.innerWidth < 1600) {
+				$(".popup").addClass("popup-top");
+				bottom = "auto";
+				popup_bottom = "auto";
+			} else {
+				$(".popup").removeClass("popup-top");
+				top = "auto";
+				popup_top = "auto";
+			}
+			
+			$(".camps svg.map-camps circle").removeClass("clicked");
+			$(this).addClass("clicked");
+			$(".popup").addClass("clicked");
+	        		
+			$(".popup").css({
+				"top":    top,
+				"bottom": bottom,
+				"left":   left
+			});
+			
+			var camps = JSON.parse($(".map.camps").attr("camps"));
+			var current = camps[$(this).attr("id")];
+			
+			$(".popup .content h2").text(current.title_camp);
+			$(".popup .content span").text(current.destination);
+			$(".popup .content p").text(current.description);
+			$(".popup .content a").attr("href", current.link);
+			$(".popup .content .img").css("background", "url(" + current.image + ")");
+			
+			// Dotted path
+			
+			$(".path-dotted-small").css({
+				"top":    popup_top,
+				"bottom": popup_bottom,
+				"left":   popup_left
+			});
+			
+			$(".path-dotted-small").addClass("visible");
+			
+			$(".popup").css("display", "flex");
+			$(".popup").addClass("visible");
+			
+			if(!clickTriggered) {
+				var scrollIndex = window.innerHeight * 0.2;
+				$("html, body").animate({ scrollTop: $(".popup").offset().top - scrollIndex}, 500);
+			}
+			
+			clickTriggered = false;
+			
 		} else {
-			$(".popup").removeClass("popup-top");
-			top = "auto";
-			popup_top = "auto";
+			$(".popup .close-popup")[0].click();
 		}
-		
-		$(".camps svg.map-camps circle").removeClass("clicked");
-		$(this).addClass("clicked");
-		$(".popup").addClass("clicked");
-        		
-		$(".popup").css({
-			"top":    top,
-			"bottom": bottom,
-			"left":   left
-		});
-		
-		var camps = JSON.parse($(".map.camps").attr("camps"));
-		var current = camps[$(this).attr("id")];
-		
-		$(".popup .content h2").text(current.title_camp);
-		$(".popup .content span").text(current.destination);
-		$(".popup .content p").text(current.description);
-		$(".popup .content a").attr("href", current.link);
-		$(".popup .content .img").css("background", "url(" + current.image + ")");
-		
-		// Dotted path
-		
-		$(".path-dotted-small").css({
-			"top":    popup_top,
-			"bottom": popup_bottom,
-			"left":   popup_left
-		});
-		
-		$(".path-dotted-small").addClass("visible");
-		
-		$(".popup").css("display", "flex");
-		$(".popup").addClass("visible");
-		
-		if(!clickTriggered) {
-			var scrollIndex = window.innerHeight * 0.2;
-			$("html, body").animate({ scrollTop: $(".popup").offset().top - scrollIndex}, 500);
-		}
-		
-		clickTriggered = false;
 	});
 	
 /* CLOSE POPUP */
