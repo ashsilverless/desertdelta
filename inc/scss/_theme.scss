@@ -988,6 +988,14 @@
 	grid-template-columns: calc(25% - 0.75em) calc(75% - 0.75em);
 	z-index: 3;
     position: relative;
+    
+    &.destinations-page {
+	    grid-template-columns: repeat(8, 1fr);
+	    
+	    .wrapper-cards-horizontal {
+		    grid-column: 2/8;
+	    }
+    }
 
 	.wrapper-cards-horizontal {
 		display: block;
@@ -2121,7 +2129,7 @@ hr {
 
 }
 
-body:not(.page-template-destinations) {
+body {
 	
 	.map svg .area-destination {
 		opacity: 0.4;

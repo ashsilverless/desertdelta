@@ -31,25 +31,15 @@ endif;?>
 
         </div>
         
-        <div class="wrapper-destinations">
+        <div class="wrapper-destinations destinations-page">
 	        
-	        <div class="menu">
-		        
-		        <button name="all" class="active">All</button>
-		        
-		        <?php
+	        <?php
 			        
-				$terms = get_terms( 'destinations', array(
-					'hide_empty' => false,
-				));
-				
-				foreach($terms as $term): ?>
-				
-					<button name="<?php echo $term->slug; ?>"><?php echo $term->name; ?></button>
-				
-			    <?php endforeach; ?>
-		        
-	        </div>
+			$terms = get_terms( 'destinations', array(
+				'hide_empty' => false,
+			));
+			
+			?>
 	        
 	        <div class="wrapper-cards-horizontal">
 				

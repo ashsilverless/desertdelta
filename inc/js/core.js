@@ -225,9 +225,7 @@ jQuery(document).ready(function( $ ) {
 			
 			clickTriggered = false;
 			
-			if(!($("body").hasClass("page-template-destinations"))) {
-				$("#" + $(this).attr("parent")).addClass("selected").siblings(".area-destination").removeClass("selected");
-			}
+			$("#" + $(this).attr("parent")).addClass("selected").siblings(".area-destination").removeClass("selected");
 			
 		} else {
 			$(".popup .close-popup")[0].click();
@@ -245,6 +243,7 @@ jQuery(document).ready(function( $ ) {
 		$(".popup").removeClass("clicked");
 		$(".camps svg.map-camps circle").removeClass("clicked");
 		$(".path-dotted-small").removeClass("visible");
+		$(".area-destination").removeClass("selected");
 		
 	});
 
@@ -343,10 +342,6 @@ jQuery(document).ready(function( $ ) {
     
     $(".toggle-newsletter .button, .close-newsletter").click(function() {
 	    $(".collapse-newsletter").slideToggle();
-    });
-    
-    $("body:not(.page-template-destinations) .map .popup .close-popup").click(function() {
-	    $(".area-destination").removeClass("selected");
     });
 
 // GLOBAL OWL CAROUSEL SETTINGS

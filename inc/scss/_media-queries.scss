@@ -390,6 +390,10 @@ main .content .row {
 	}
 }
 
+.wrapper-destinations.destinations-page .wrapper-cards-horizontal {
+	grid-column: 1/9;
+}
+
 /*---FOOTER---*/
 .footer {
 	.socket, .socials {
