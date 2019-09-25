@@ -1403,6 +1403,10 @@
 				width: 100%;
 				outline: none;
 			}
+			
+			h3 + p {
+    			white-space: no-wrap;
+			}
 		}
 		
 		.lodges {
