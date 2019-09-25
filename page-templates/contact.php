@@ -51,7 +51,7 @@ get_header();?>
 				</div>
 				
 				<div>
-					<label>Representation</label>
+					<label>Other Offices</label>
 					<?php
 						
 					$rows = get_field("representation", "options");
