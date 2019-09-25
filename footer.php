@@ -66,8 +66,8 @@
 
                         <ul>
                             
-                            <li><?php the_field('email_address_marketing', 'options');?></li>
-                            <li><?php the_field('telephone_number_marketing', 'options');?></li>
+                            <li><a href="mailto:<?php the_field('email_address_marketing', 'options');?>"><?php the_field('email_address_marketing', 'options');?></a></li>
+                            <li><a href="tel:<?php the_field('telephone_number_marketing', 'options');?>"><?php the_field('telephone_number_marketing', 'options');?></a></li>
                             
                         </ul>
     
