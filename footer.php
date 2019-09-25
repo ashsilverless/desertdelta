@@ -17,7 +17,7 @@
 
                     <div class="col-3">
                         
-                        <h2 class="heading heading__lg heading__title-case">Botswana's most diverse safari portfolio</h2>
+                        <h2 class="heading heading__lg heading__title-case mt1">Botswana's most diverse safari portfolio</h2>
     
                     </div><!--col-->
                     
