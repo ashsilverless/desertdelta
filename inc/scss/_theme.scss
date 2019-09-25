@@ -1777,6 +1777,20 @@
 	}
 }
 
+form select {
+    font-size: 1em;
+    font-family: "Noto Sans", sans-serif;
+    color: #575757;
+    border: none;
+    margin-top: 0.5em;
+    font-weight: 100;
+    letter-spacing: 0.05em;
+    width: 100%;
+    height: 3em;
+    border-radius: 0;
+    background: white;  
+}
+
 .cares-videos {
 	border-top: 10px solid white;
 }
