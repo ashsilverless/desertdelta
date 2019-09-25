@@ -29,14 +29,30 @@ get_header();?>
 			    
 				<div>
 					<label>Reservations</label>
-					<span><?php the_field("email_address_reservations", "options"); ?></span>
-					<span><?php the_field("telephone_number_reservations", "options"); ?></span>
+					<span>
+					    <a href="mailto: <?php the_field("email_address_reservations", "options"); ?>">
+    					    <?php the_field("email_address_reservations", "options"); ?>
+					    </a>
+                    </span>
+					<span>
+					    <a href="tel:<?php the_field("telephone_number_reservations", "options"); ?>">
+                            <?php the_field("telephone_number_reservations", "options"); ?>
+					    </a>
+                    </span>
 				</div>
 			
 				<div>
 					<label>Marketing</label>
-					<span><?php the_field("email_address_marketing", "options"); ?></span>
-					<span><?php the_field("telephone_number_marketing", "options"); ?></span>
+					<span>
+					    <a href="mailto: <?php the_field("email_address_marketing", "options"); ?>">
+    					    <?php the_field("email_address_marketing", "options"); ?>
+    				    </a>
+    				</span>
+					<span>
+					    <a href="tel:<?php the_field("telephone_number_marketing", "options"); ?>">
+    					    <?php the_field("telephone_number_marketing", "options"); ?>
+					    </a>
+                    </span>
 				</div>
 				
 				

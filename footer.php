@@ -53,8 +53,8 @@
     
                         <ul>
                             
-                            <li><?php the_field('email_address_reservations', 'options');?></li>
-                            <li><?php the_field('telephone_number_reservations', 'options');?></li>
+                            <li><a href="mailto:<?php the_field('email_address_reservations', 'options');?>"><?php the_field('email_address_reservations', 'options');?></a></li>
+                            <li><a href="tel:<?php the_field('telephone_number_reservations', 'options');?>"><?php the_field('telephone_number_reservations', 'options');?></a></li>
                             
                         </ul>
     
