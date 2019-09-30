@@ -80,7 +80,7 @@ get_header();?>
 						<span><?php echo "+ " . $row["name"]; ?></span>
 						<div>
     						<a href="mailto:<?php echo $row["description"]; ?>"><?php echo $row["description"]; ?></a>
-    						<?php echo $row["phone"]; ?>
+    						<p><?php echo $row["phone"]; ?></p>
     				    </div>
 					</div>
 						
