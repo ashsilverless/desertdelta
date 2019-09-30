@@ -78,7 +78,10 @@ get_header();?>
 					
 					<div class="text collapsible mb1">
 						<span><?php echo "+ " . $row["name"]; ?></span>
-						<div><?php echo $row["description"]; ?></div>
+						<div>
+    						<a href="mailto:<?php echo $row["description"]; ?>"><?php echo $row["description"]; ?></a>
+    						<?php echo $row["phone"]; ?>
+    				    </div>
 					</div>
 						
 					<?php endforeach; endif; ?>
