@@ -40,7 +40,15 @@
         text-align: right;
     }
 }
-
+.wp-caption.alignleft {
+    width:auto !important;
+    float: left !important;
+    text-align: left;
+    margin-right: 2em;
+    .wp-caption-text {
+        text-align: left;
+    }
+}
 .wp-caption-text {
     color: $brand-secondary;
 }
