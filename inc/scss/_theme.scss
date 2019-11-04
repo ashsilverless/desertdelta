@@ -17,6 +17,16 @@
     @include brandDot;
 }
 
+.wfml-single {
+    width:auto !important;
+    display: inline;
+    .alignright {
+        width:auto !important;
+        float: right !important;
+        text-align: right;
+        margin-left: 2em;        
+    }
+}
 .wp-caption.alignright {
     width:auto !important;
     float: right !important;
