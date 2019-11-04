@@ -59,10 +59,10 @@
 	    outline: none;
     }
 }
-
+ 
 .trigger-expand,
 .trigger-collapse {
-    @include brandDot
+    @include brandDot;
     position: relative;
     transition:$fastEffect;
     font-size: 0.75em;
@@ -80,7 +80,7 @@
         cursor:pointer;
     }
 }
-
+ 
 a.next-section {
     position: absolute;
     bottom: 0;

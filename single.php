@@ -44,12 +44,9 @@ get_header();
         <article class="article-news mt3 mb5 mr3 ml3">
 			
 			<div class="news-container">
-				
 				<?php the_content();
-	
-				endwhile; // End of the loop.
+                    endwhile; // End of the loop.
 				?>
-				
 			</div>
 	        
 	        <div class="adjacent-posts mt5">

@@ -17,6 +17,20 @@
     @include brandDot;
 }
 
+.wp-caption.alignright {
+    width:auto !important;
+    float: right !important;
+    text-align: right;
+    margin-left: 2em;
+    .wp-caption-text {
+        text-align: right;
+    }
+}
+
+.wp-caption-text {
+    color: $brand-secondary;
+}
+
 /*===========HEADER==========*/
 
 .sub-hero {
@@ -558,7 +572,7 @@
     text-transform: uppercase;
 	
 	&:after{
-        @include overflowRight
+        @include overflowRight;
         background: $brand-dark-grey;
     }
     
@@ -674,7 +688,7 @@
     background: $brand-dark-grey;
     
     &:after{
-        @include overflowRight
+        @include overflowRight;
         background: $brand-dark-grey;
     }    
 }
@@ -686,7 +700,7 @@
     color: white;
     
     &:after{
-        @include overflowRight
+        @include overflowRight;
         background: $brand-dark-grey;
     }
 }
@@ -698,7 +712,7 @@
     color: white;
     
     &:after{
-        @include overflowRight
+        @include overflowRight;
         background: $brand-dark-grey;
     }   
     
@@ -738,7 +752,7 @@
     background: $brand-dark-grey;
     
     &:after{
-        @include overflowRight
+        @include overflowRight;
         background: $brand-dark-grey;
     }       
     

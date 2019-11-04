@@ -11,7 +11,7 @@
     z-index: 50; 
     padding-bottom: 2em; 
     border-bottom: 10px solid white;
-    
+
     &:before {
         @include childOverlay;
         background:black;
