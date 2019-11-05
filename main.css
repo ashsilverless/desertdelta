@@ -2575,41 +2575,45 @@ Syntax is mt3 = margin top 3em, pl5 = padding left 5em
     background: #3d3d3d;
     border-radius: 50px; }
 
-/*.wfml-single {
-    width:auto !important;
-    display: inline;
-    .alignright {
-        width:auto !important;
-        float: right !important;
-        text-align: right;
-        margin-left: 2em;        
-    }
-    .alignleft {
-        float:left !important;
-        margin-right: 2em;
-    }
-}
-.wp-caption.alignright {
-    width:auto !important;
+/* line 20, /Volumes/Macintosh HD/Users/ash/Local Sites/desert--delta/app/public/wp-content/themes/desertdelta/inc/scss/_theme.scss */
+.wfml-single {
+  width: auto !important;
+  display: inline; }
+  /* line 23, /Volumes/Macintosh HD/Users/ash/Local Sites/desert--delta/app/public/wp-content/themes/desertdelta/inc/scss/_theme.scss */
+  .wfml-single .alignright {
+    width: auto !important;
     float: right !important;
     text-align: right;
-    margin-left: 2em;
-    .wp-caption-text {
-        text-align: right;
-    }
-}
-.wp-caption.alignleft {
-    width:auto !important;
+    margin-left: 2em; }
+  /* line 29, /Volumes/Macintosh HD/Users/ash/Local Sites/desert--delta/app/public/wp-content/themes/desertdelta/inc/scss/_theme.scss */
+  .wfml-single .alignleft {
     float: left !important;
-    text-align: left;
-    margin-right: 2em;
-    .wp-caption-text {
-        text-align: left;
-    }
-}
+    margin-right: 2em; }
+
+/* line 34, /Volumes/Macintosh HD/Users/ash/Local Sites/desert--delta/app/public/wp-content/themes/desertdelta/inc/scss/_theme.scss */
+.wp-caption.alignright {
+  width: auto !important;
+  float: right !important;
+  text-align: right;
+  margin-left: 2em; }
+  /* line 39, /Volumes/Macintosh HD/Users/ash/Local Sites/desert--delta/app/public/wp-content/themes/desertdelta/inc/scss/_theme.scss */
+  .wp-caption.alignright .wp-caption-text {
+    text-align: right; }
+
+/* line 43, /Volumes/Macintosh HD/Users/ash/Local Sites/desert--delta/app/public/wp-content/themes/desertdelta/inc/scss/_theme.scss */
+.wp-caption.alignleft {
+  width: auto !important;
+  float: left !important;
+  text-align: left;
+  margin-right: 2em; }
+  /* line 48, /Volumes/Macintosh HD/Users/ash/Local Sites/desert--delta/app/public/wp-content/themes/desertdelta/inc/scss/_theme.scss */
+  .wp-caption.alignleft .wp-caption-text {
+    text-align: left; }
+
+/* line 52, /Volumes/Macintosh HD/Users/ash/Local Sites/desert--delta/app/public/wp-content/themes/desertdelta/inc/scss/_theme.scss */
 .wp-caption-text {
-    color: $brand-secondary;
-}*/
+  color: #99957a; }
+
 /*===========HEADER==========*/
 /* line 58, /Volumes/Macintosh HD/Users/ash/Local Sites/desert--delta/app/public/wp-content/themes/desertdelta/inc/scss/_theme.scss */
 .sub-hero {
