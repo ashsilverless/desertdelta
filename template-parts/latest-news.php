@@ -27,7 +27,11 @@
 			<img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id($id), 'large' )[0]; ?>"/>
 			
 			<div>
-				<div><?php the_excerpt(); ?></div>
+				<div>
+    				<p>
+                        <?php global $post; echo get_the_excerpt($id);?>
+				    </p>
+				</div>
 				
 				<a href="<?php echo get_permalink( $id ); ?>">Read More</a>
 			</div>
