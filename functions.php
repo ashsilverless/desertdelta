@@ -479,3 +479,10 @@ function fix_svg() {
 			}
 		</style>';
 }
+
+function defer_parsing_of_javascript ( $url ) {
+  if ( FALSE === strpos( $url, '.js' ) ) return $url;
+  if ( strpos( $url, 'jquery.js' ) ) return $url;
+    return "$url' defer ";
+}
+add_filter( 'clean_url', 'defer_parsing_of_javascript', 11, 1 );
