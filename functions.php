@@ -5,13 +5,13 @@
  * @package desertdelta
  */
 
-/** = Ditch Junk = */ 
+/** = Ditch Junk = */
 
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 
 remove_action('wp_print_styles', 'print_emoji_styles');
 
-/** = Enable async and defer in scripts  = */ 
+/** = Enable async and defer in scripts  = */
 
 if(!is_admin()) {
     function add_asyncdefer_attribute($tag, $handle) {
@@ -34,15 +34,15 @@ if(!is_admin()) {
 }
 
 
-/** = Enqueue scripts and styles = */ 
+/** = Enqueue scripts and styles = */
 
 function desertdelta_scripts() {
-	
+
 	wp_enqueue_style( 'desertdelta-style', get_stylesheet_uri() );
 
-	wp_register_script( 'corejs-async', get_template_directory_uri() . '/inc/js/compiled.js', array('jquery'), true); 
+	wp_register_script( 'corejs-async', get_template_directory_uri() . '/inc/js/compiled.js', array('jquery'), true);
 	wp_enqueue_script('corejs-async');
-	
+
 }
 
 add_action( 'wp_enqueue_scripts', 'desertdelta_scripts' );
@@ -63,10 +63,10 @@ add_action( 'init', 'sl_custom_menu' );
 /* Dashboard Config */
 
 add_action('wp_dashboard_setup', 'sl_dashboard_widget');
-  
+
 function sl_dashboard_widget() {
 global $wp_meta_boxes;
- 
+
 wp_add_dashboard_widget('custom_help_widget', 'Silverless Support', 'custom_dashboard_help');
 }
 function custom_dashboard_help() {
@@ -144,9 +144,9 @@ function my_custom_fonts() {
 /**
  * ACF Options Pages.
  */
- 
+
  if( function_exists('acf_add_options_page') ) {
-	
+
 	acf_add_options_page(array(
 		'page_title' 	=> 'Theme Settings',
 		'menu_title'	=> 'Theme Settings',
@@ -154,7 +154,7 @@ function my_custom_fonts() {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
-	
+
 	acf_add_options_page(array(
 		'page_title' 	=> 'Call To Action',
 		'menu_title'	=> 'Call To Action',
@@ -162,7 +162,7 @@ function my_custom_fonts() {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
-	
+
 	acf_add_options_page(array(
 		'page_title' 	=> 'Testimonials',
 		'menu_title'	=> 'Testimonials',
@@ -172,13 +172,13 @@ function my_custom_fonts() {
 	));
 
 }
- 
+
 /**= Remove Default Menu Items =**/
- 
+
 function remove_menus(){
 
   remove_menu_page( 'edit-comments.php' );          //Comments
-  
+
 }
 add_action( 'admin_menu', 'remove_menus' );
 
@@ -246,7 +246,7 @@ add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
 /**= WooCommerce - Custom Customer Message in Checkout =**/
 
-function md_custom_woocommerce_checkout_fields( $fields ) 
+function md_custom_woocommerce_checkout_fields( $fields )
 {
     $fields['order']['order_comments']['placeholder'] = 'Pop any info you need us to know in here, please';
 
@@ -259,31 +259,31 @@ add_filter( 'woocommerce_checkout_fields', 'md_custom_woocommerce_checkout_field
 function desertdelta_social_sharing_buttons($content) {
 	global $post;
 	if(is_singular() || is_home()){
-	
-		// Get current page URL 
+
+		// Get current page URL
 		$desertdeltaURL = urlencode(get_permalink());
- 
+
 		// Get current page title
 		$desertdeltaTitle = htmlspecialchars(urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8')), ENT_COMPAT, 'UTF-8');
 		// $desertdeltaTitle = str_replace( ' ', '%20', get_the_title());
-		
+
 		// Get Post Thumbnail for pinterest
 		$desertdeltaThumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
- 
+
 		// Construct sharing URL without using any script
 		$twitterURL = 'https://twitter.com/intent/tweet?text='.$desertdeltaTitle.'&amp;url='.$desertdeltaURL.'&amp;via=Crunchify';
 		$facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$desertdeltaURL;
- 
+
 		// Based on popular demand added Pinterest too
 		$pinterestURL = 'https://pinterest.com/pin/create/button/?url='.$desertdeltaURL.'&amp;media='.$desertdeltaThumbnail[0].'&amp;description='.$desertdeltaTitle;
- 
+
 		// Add sharing button at the end of page/page content
 		$content .= '<!-- Implement your own superfast social sharing buttons without any JavaScript loading. No plugin required. Detailed steps here: http://crunchify.me/1VIxAsz -->';
 		$content .= '<div class="contactSocials"><h5 class="heading heading__sm">SHARE </h5>';
 		$content .= ' <a href="'. $twitterURL .'" target="_blank"><i class="fab fa-twitter"></i></a>';
 		$content .= '<a href="'.$facebookURL.'" target="_blank"><i class="fab fa-facebook-square"></i></a>';
 		$content .= '</div>';
-		
+
 		return $content;
 	}else{
 		// if not a post/page then don't include sharing button
@@ -300,31 +300,31 @@ require_once ('custom-taxonomies.php');
 
 /**= Filter Custom Type Job =**/
 
-function template_chooser($template) {    
+function template_chooser($template) {
 	global $wpdb;
-	
+
 	global $wp_query;
-	
+
 	$post_type = get_query_var('post_type');
-	
+
 	if( $wp_query->is_search && $post_type == 'job' ) {
-		
+
 		$job = get_query_var('s');
-		
+
 		$location = get_query_var('location');
-	
+
 		$salary = $_GET['salary'];
-		
+
 		$tax_query = array(
 			"relation" => "AND"
 		);
-		
+
 		if($location) {
 			$locationID = get_terms([
 			    'name__like' => $location,
 			    'fields' => 'ids'
 			]);
-			
+
 			array_push($tax_query,
 				array(
 		            'taxonomy' => 'location',
@@ -333,7 +333,7 @@ function template_chooser($template) {
 		        )
 		    );
 		}
-		
+
 		if($salary) {
 			array_push($tax_query,
 				array(
@@ -343,7 +343,7 @@ function template_chooser($template) {
 		        )
 		    );
 		}
-		
+
 		$posts = $wpdb->get_results("
 			SELECT SQL_CALC_FOUND_ROWS $wpdb->posts.ID
 			FROM $wpdb->posts
@@ -357,14 +357,14 @@ function template_chooser($template) {
 			       OR $wpdb->posts.post_status = 'private')
 			GROUP BY $wpdb->posts.ID"
 		);
-		
+
 		$ids = array_map(function($post){
 			return $post->ID;
 		}, $posts);
-		
-		
+
+
 		if(sizeof($ids) > 0) {
-		
+
 			$wp_query->query(
 				array(
 					'post__in'  => $ids,
@@ -374,11 +374,11 @@ function template_chooser($template) {
 			);
 		}
 	}
-	
+
 	return $template;
 }
 
-add_filter('template_include', 'template_chooser');  
+add_filter('template_include', 'template_chooser');
 
 /*********************
 * re-order left admin menu
@@ -399,7 +399,7 @@ function reorder_admin_menu( $__return_true ) {
 		'users.php',                        // Users
 		'tools.php',                        // Tools
 		'options-general.php',              // Settings
-		'wpcf7',                            // Contact Form 7 
+		'wpcf7',                            // Contact Form 7
 
    );
 }
@@ -418,14 +418,14 @@ add_action( 'admin_menu', 'remove_admin_menus' );
 /*
 * Add option of uploading images to posts
 */
-add_theme_support( 'post-thumbnails' ); 
+add_theme_support( 'post-thumbnails' );
 
 /*
  * Remove the 'description' column from the table in 'edit-tags.php'
  * but only for the 'post_tag' taxonomy
  */
 function remove_description_taxonomy( $columns ) {
-	
+
     if( isset( $columns['description'] ) )
         unset( $columns['description'] );
 
@@ -450,27 +450,27 @@ function camps_order_post_type($query) {
 add_filter('pre_get_posts', 'camps_order_post_type');
 
 function silverless_allow_svg($data, $file, $filename, $mimes) {
- 
+
 	global $wp_version;
 	if($wp_version !== '5.2.2') {
 		return $data;
 	}
-	
+
 	$filetype = wp_check_filetype( $filename, $mimes );
-	
+
 	return [
 		'ext'             => $filetype['ext'],
 		'type'            => $filetype['type'],
 		'proper_filename' => $data['proper_filename']
 	];
- 
+
 }
- 
+
 function cc_mime_types( $mimes ){
 	$mimes['svg'] = 'image/svg+xml';
 	return $mimes;
 }
- 
+
 function fix_svg() {
 	echo '<style type="text/css">
 			.attachment-266x266, .thumbnail img {
@@ -479,10 +479,3 @@ function fix_svg() {
 			}
 		</style>';
 }
-
-function defer_parsing_of_javascript ( $url ) {
-  if ( FALSE === strpos( $url, '.js' ) ) return $url;
-  if ( strpos( $url, 'jquery.js' ) ) return $url;
-    return "$url' defer ";
-}
-add_filter( 'clean_url', 'defer_parsing_of_javascript', 11, 1 );
