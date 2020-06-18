@@ -2950,9 +2950,9 @@ Syntax is mt3 = margin top 3em, pl5 = padding left 5em
 }
 
 .wp-caption-text {
-  color: #99957a;
   border: 1px solid #a1aeaa;
   padding: 0.5rem;
+  margin-top: 0.25rem;
   background: #a0aeaa;
   color: white;
 }
@@ -2960,8 +2960,13 @@ Syntax is mt3 = margin top 3em, pl5 = padding left 5em
 .wp-caption.aligncenter {
   display: block;
   padding: 0;
+  margin: 0 auto;
+  text-align: center;
+}
+.wp-caption.aligncenter img {
+  display: inline-block;
   margin: 0;
-  width: 100%;
+  padding: 0;
 }
 
 img.aligncenter {
@@ -4232,10 +4237,6 @@ img.aligncenter {
 }
 .article-news a:hover {
   color: white;
-}
-.article-news .wp-caption {
-  max-width: 100%;
-  min-width: 100%;
 }
 .article-news .adjacent-posts {
   display: -ms-grid;

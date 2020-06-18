@@ -50,17 +50,22 @@
   }
 }
 .wp-caption-text {
-  color: $brand-secondary;
-  border: 1px solid #a1aeaa;
-    padding: .5rem;
+    border: 1px solid #a1aeaa;
+    padding: 0.5rem;
+    margin-top: .25rem;
     background: #a0aeaa;
     color: white;
 }
 .wp-caption.aligncenter {
     display: block;
     padding: 0;
-    margin: 0;
-    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    img {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
 }
 
 img.aligncenter {
@@ -1258,10 +1263,6 @@ img.aligncenter {
   margin-left: 1em;
   a:hover {
     color: white;
-  }
-  .wp-caption {
-    max-width: 100%;
-    min-width: 100%;
   }
   .adjacent-posts {
     display: grid;
