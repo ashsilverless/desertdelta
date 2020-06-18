@@ -51,7 +51,21 @@
 }
 .wp-caption-text {
   color: $brand-secondary;
-  margin-top: 0.5em;
+  border: 1px solid #a1aeaa;
+    padding: .5rem;
+    background: #a0aeaa;
+    color: white;
+}
+.wp-caption.aligncenter {
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+img.aligncenter {
+    margin: 0 auto;
+    display: block;
 }
 
 /*===========HEADER==========*/
