@@ -2964,9 +2964,10 @@ Syntax is mt3 = margin top 3em, pl5 = padding left 5em
   text-align: center;
 }
 .wp-caption.aligncenter img {
-  display: inline-block;
+  display: block;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 img.aligncenter {
